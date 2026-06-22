@@ -4,3 +4,6 @@ out/
 .env*
 .DS_Store
 *.log
+
+# Agent-only artifacts (not part of the shipped project)
+docs/superpowers/
