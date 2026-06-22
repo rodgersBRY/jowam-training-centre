@@ -7,7 +7,7 @@ export type Stat = {
 };
 
 export const stats: Stat[] = [
-  { label: "Students trained", value: 0, suffix: "+" }, // PLACEHOLDER
-  { label: "Completion rate", value: 0, suffix: "%" }, // PLACEHOLDER
-  { label: "Industry partners", value: 0, suffix: "+" }, // PLACEHOLDER
+  { label: "Students trained", value: 999, suffix: "+" }, // PLACEHOLDER value — replace with real figure
+  { label: "Completion rate", value: 999, suffix: "%" }, // PLACEHOLDER value — replace with real figure
+  { label: "Industry partners", value: 999, suffix: "+" }, // PLACEHOLDER value — replace with real figure
 ];
