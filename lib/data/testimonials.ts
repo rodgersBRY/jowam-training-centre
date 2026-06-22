@@ -7,7 +7,19 @@ export type Testimonial = {
 };
 
 export const testimonials: Testimonial[] = [
-  { name: "PLACEHOLDER Name", role: "PLACEHOLDER role", quote: "PLACEHOLDER testimonial quote." },
-  { name: "PLACEHOLDER Name", role: "PLACEHOLDER role", quote: "PLACEHOLDER testimonial quote." },
-  { name: "PLACEHOLDER Name", role: "PLACEHOLDER role", quote: "PLACEHOLDER testimonial quote." },
+  {
+    name: "PLACEHOLDER Name",
+    role: "PLACEHOLDER role",
+    quote: "PLACEHOLDER testimonial quote.",
+  },
+  {
+    name: "PLACEHOLDER Name",
+    role: "PLACEHOLDER role",
+    quote: "PLACEHOLDER testimonial quote.",
+  },
+  {
+    name: "PLACEHOLDER Name",
+    role: "PLACEHOLDER role",
+    quote: "PLACEHOLDER testimonial quote.",
+  },
 ];

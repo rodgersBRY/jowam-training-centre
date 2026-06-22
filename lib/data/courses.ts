@@ -20,10 +20,7 @@ export const courses: Course[] = [
       "PLACEHOLDER curriculum item 1",
       "PLACEHOLDER curriculum item 2",
     ],
-    outcomes: [
-      "PLACEHOLDER outcome 1",
-      "PLACEHOLDER outcome 2",
-    ],
+    outcomes: ["PLACEHOLDER outcome 1", "PLACEHOLDER outcome 2"],
   },
   {
     slug: "espresso-and-latte-art",
@@ -34,10 +31,7 @@ export const courses: Course[] = [
       "PLACEHOLDER curriculum item 1",
       "PLACEHOLDER curriculum item 2",
     ],
-    outcomes: [
-      "PLACEHOLDER outcome 1",
-      "PLACEHOLDER outcome 2",
-    ],
+    outcomes: ["PLACEHOLDER outcome 1", "PLACEHOLDER outcome 2"],
   },
 ];
 
