@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 
 // PLACEHOLDER: replace with real facilities content and photos before launch.
 const items = [
@@ -28,11 +27,18 @@ export function Facilities() {
   return (
     <section className="bg-dark py-20 text-cream">
       <Container>
-        <SectionHeading
-          eyebrow="Our Facilities"
-          title="Where You Will Train"
-          intro="PLACEHOLDER — State-of-the-art equipment in a welcoming environment designed for focused learning."
-        />
+        <div className="max-w-2xl">
+          <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-orange">
+            Our Facilities
+          </p>
+          <h2 className="text-3xl font-bold tracking-tight text-cream sm:text-4xl">
+            Where You Will Train
+          </h2>
+          <p className="mt-4 text-base text-cream/70">
+            PLACEHOLDER — State-of-the-art equipment in a welcoming environment designed for
+            focused learning.
+          </p>
+        </div>
         <div className="mt-12 grid gap-6 sm:grid-cols-3">
           {items.map((item) => (
             <div key={item.title} className="overflow-hidden rounded-2xl">
