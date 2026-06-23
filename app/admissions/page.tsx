@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 export default function AdmissionsPage() {
   return (
-    <div className="pt-16">
+    <div className="pt-24">
       <Intake />
       <ApplicationProcess />
       <FinalCTA />

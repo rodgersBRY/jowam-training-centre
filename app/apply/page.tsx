@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function ApplyPage() {
   return (
-    <div className="bg-cream pt-16">
+    <div className="bg-cream pt-24">
       <section className="py-20">
         <Container>
           <SectionHeading

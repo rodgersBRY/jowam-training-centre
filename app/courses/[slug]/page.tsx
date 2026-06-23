@@ -37,7 +37,7 @@ export default async function CourseDetailPage({
   if (!course) notFound();
 
   return (
-    <div className="bg-cream pt-16">
+    <div className="bg-cream pt-24">
       {/* Overview */}
       <section className="bg-dark py-20 text-cream">
         <Container>
