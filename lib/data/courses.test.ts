@@ -17,4 +17,9 @@ describe("courses data", () => {
     expect(getCourseBySlug(first.slug)).toEqual(first);
     expect(getCourseBySlug("does-not-exist")).toBeUndefined();
   });
+
+  it("slugs are URL-safe (lowercase letters, numbers, hyphens only)", () => {
+    const urlSafePattern = /^[a-z0-9-]+$/;
+    expect(courses.every((c) => urlSafePattern.test(c.slug))).toBe(true);
+  });
 });
