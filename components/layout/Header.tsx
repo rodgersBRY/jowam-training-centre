@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { site } from "@/lib/data/site";
@@ -25,6 +26,8 @@ const socialIcons = {
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -52,13 +55,13 @@ export function Header() {
       <div
         className={cn(
           "transition-colors duration-300",
-          scrolled ? "bg-cream/95 shadow-sm backdrop-blur" : "bg-transparent",
+          isHome && !scrolled ? "bg-transparent" : "bg-cream/95 shadow-sm backdrop-blur",
         )}
       >
         <Container className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
             <Image src="/logo.jpg" alt={site.name} width={36} height={36} className="rounded-full" />
-            <span className={cn("text-sm font-bold transition-colors", scrolled ? "text-coffee" : "text-cream")}>
+            <span className={cn("text-sm font-bold transition-colors", isHome && !scrolled ? "text-cream" : "text-coffee")}>
               {site.name}
             </span>
           </Link>
@@ -69,7 +72,7 @@ export function Header() {
                 href={item.href}
                 className={cn(
                   "text-sm font-medium transition-colors hover:text-orange",
-                  scrolled ? "text-coffee/80" : "text-cream/90",
+                  isHome && !scrolled ? "text-cream/90" : "text-coffee/80",
                 )}
               >
                 {item.label}
@@ -87,7 +90,7 @@ export function Header() {
                   aria-label={s.label}
                   className={cn(
                     "transition-colors hover:text-orange",
-                    scrolled ? "text-coffee/60" : "text-cream/70",
+                    isHome && !scrolled ? "text-cream/70" : "text-coffee/60",
                   )}
                 >
                   {socialIcons[s.icon]}
