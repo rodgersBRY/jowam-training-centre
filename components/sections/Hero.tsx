@@ -3,8 +3,9 @@ import { Button } from "@/components/ui/Button";
 export function Hero() {
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-dark">
-      {/* Video background — add <source src="/hero.mp4" type="video/mp4" /> before launch */}
+      {/* Video background: add <source src="/hero.mp4" type="video/mp4" /> and replace poster with a local image before launch */}
       <video
+        aria-hidden="true"
         className="absolute inset-0 h-full w-full object-cover opacity-50"
         autoPlay
         muted
@@ -13,7 +14,7 @@ export function Hero() {
         preload="metadata"
         poster="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1920&q=80"
       />
-      <div className="absolute inset-0 bg-dark/60" />
+      <div aria-hidden="true" className="absolute inset-0 bg-dark/60" />
       <div className="relative z-10 mx-auto max-w-4xl px-4 text-center">
         <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-orange">
           Jowam Coffee Training Centre
@@ -30,7 +31,7 @@ export function Hero() {
           <Button
             href="/courses"
             variant="ghost"
-            className="ring-cream/40 text-cream hover:bg-cream/10 hover:text-cream"
+            className="ring-1 ring-cream/40 text-cream hover:bg-cream/10 hover:text-cream"
           >
             Explore Courses
           </Button>
