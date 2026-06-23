@@ -9,8 +9,8 @@ export function FAQ() {
         <div className="mx-auto max-w-3xl">
           <SectionHeading eyebrow="FAQ" title="Common Questions" align="center" />
           <dl className="mt-12 divide-y divide-coffee/10">
-            {faqs.map((faq, i) => (
-              <details key={i} className="group py-5">
+            {faqs.map((faq) => (
+              <details key={faq.question} className="group py-5">
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-4 focus-visible:outline-none">
                   <dt className="font-semibold text-coffee">{faq.question}</dt>
                   <span
