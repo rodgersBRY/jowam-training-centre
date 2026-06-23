@@ -58,7 +58,7 @@ export function FlexibleLearningPaths() {
                 Espresso machines · Latte art · Brewing practice — mandatory for all students.
               </p>
             </div>
-            <div className="shrink-0 text-4xl font-black text-orange/30">SAT</div>
+            <div aria-hidden="true" className="shrink-0 text-4xl font-black text-orange/30">SAT</div>
           </div>
         </div>
       </Container>
