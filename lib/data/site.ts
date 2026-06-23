@@ -9,6 +9,18 @@ export const site = {
     email: "hello@example.com", // PLACEHOLDER
     location: "Nairobi, Kenya", // PLACEHOLDER
   },
+  social: [
+    {
+      label: "Instagram",
+      href: "https://www.instagram.com/jowam_coffee_training_centre/",
+      icon: "instagram" as const,
+    },
+    {
+      label: "Facebook",
+      href: "https://www.facebook.com/JowamCoffeeTrainingCentre/",
+      icon: "facebook" as const,
+    },
+  ],
   nav: [
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },
