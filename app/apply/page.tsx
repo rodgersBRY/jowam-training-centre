@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { FullApplicationForm } from "@/components/forms/FullApplicationForm";
 
 export const metadata: Metadata = {
   title: "Apply",
@@ -19,9 +20,8 @@ export default function ApplyPage() {
             title="Start Your Application"
             intro="Complete the form below to apply for a place at Jowam Coffee Training Centre."
           />
-          {/* TODO Phase 3: replace this placeholder with <FullApplicationForm /> */}
-          <div className="mx-auto mt-12 max-w-xl rounded-2xl border-2 border-dashed border-coffee/20 p-12 text-center">
-            <p className="text-sm text-coffee/50">Full Application Form — Phase 3</p>
+          <div className="mt-12">
+            <FullApplicationForm />
           </div>
         </Container>
       </section>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { site } from "@/lib/data/site";
+import { ContactForm } from "@/components/forms/ContactForm";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -78,12 +79,11 @@ export default function ContactPage() {
               </dl>
             </div>
 
-            {/* Contact form placeholder — Phase 3 */}
+            {/* Contact form */}
             <div className="rounded-2xl bg-white p-8 ring-1 ring-coffee/10">
               <h2 className="text-lg font-bold text-coffee">Send Us a Message</h2>
-              {/* TODO Phase 3: replace this placeholder with <ContactForm /> */}
-              <div className="mt-6 rounded-xl border-2 border-dashed border-coffee/20 p-8 text-center">
-                <p className="text-sm text-coffee/50">Contact form — Phase 3</p>
+              <div className="mt-6">
+                <ContactForm />
               </div>
             </div>
           </div>
