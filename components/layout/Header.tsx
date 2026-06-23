@@ -58,14 +58,19 @@ export function Header() {
         <Container className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
             <Image src="/logo.jpg" alt={site.name} width={36} height={36} className="rounded-full" />
-            <span className="text-sm font-bold text-coffee">{site.name}</span>
+            <span className={cn("text-sm font-bold transition-colors", scrolled ? "text-coffee" : "text-cream")}>
+              {site.name}
+            </span>
           </Link>
           <nav className="hidden items-center gap-6 md:flex">
             {site.nav.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-sm font-medium text-coffee/80 transition-colors hover:text-orange"
+                className={cn(
+                  "text-sm font-medium transition-colors hover:text-orange",
+                  scrolled ? "text-coffee/80" : "text-cream/90",
+                )}
               >
                 {item.label}
               </Link>
@@ -80,7 +85,10 @@ export function Header() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="text-coffee/60 transition-colors hover:text-orange"
+                  className={cn(
+                    "transition-colors hover:text-orange",
+                    scrolled ? "text-coffee/60" : "text-cream/70",
+                  )}
                 >
                   {socialIcons[s.icon]}
                 </a>
