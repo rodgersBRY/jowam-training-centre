@@ -14,13 +14,23 @@ function getUpcomingMonths(): string[] {
 
 export function Intake() {
   const intakes = getUpcomingMonths();
+  const title =
+    intakes.length === 2
+      ? `Next Intakes: ${intakes[0]} & ${intakes[1]}`
+      : intakes.length === 1
+        ? `Next Intake: ${intakes[0]}`
+        : "Intake Dates";
+  const intro =
+    intakes.length > 0
+      ? `Enrol now to secure your place in the ${intakes[0]} or ${intakes[1] ?? "upcoming"} cohort. Each intake starts on the first Monday of the month and runs for the full course duration.`
+      : "New intakes open every month. Contact us to find out when the next cohort begins.";
   return (
     <section className="bg-cream py-20">
       <Container>
         <SectionHeading
           eyebrow="Intake Dates"
-          title="Start Any Month of the Year"
-          intro="Jowam runs monthly intakes so you can begin as soon as you are ready. Each cohort starts on the first Monday of the month and runs for the full course duration."
+          title={title}
+          intro={intro}
         />
         <div className="mt-12 grid grid-cols-3 gap-4 sm:grid-cols-4 md:grid-cols-6">
           {intakes.map((month) => (
