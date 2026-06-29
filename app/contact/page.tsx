@@ -95,7 +95,7 @@ export default function ContactPage() {
           <div className="overflow-hidden rounded-2xl ring-1 ring-coffee/10">
             <iframe
               title="Jowam Coffee Training Centre location"
-              src="https://maps.google.com/maps?q=Pension+Towers,+Loita+Street,+Nairobi+CBD,+Kenya&output=embed"
+              src="https://maps.google.com/maps?q=Jowam+Training+Centre&output=embed"
               width="100%"
               height="400"
               style={{ border: 0, display: "block" }}

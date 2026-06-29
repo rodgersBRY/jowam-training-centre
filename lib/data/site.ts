@@ -7,7 +7,7 @@ export const site = {
       { display: "+254 722 762 945", raw: "254722762945" },
     ],
     whatsapp: "254722938905",
-    email: "info@jowamtrainingcentre.com",
+    email: "info@jowamtrainingcentre.co.ke",
     location: "Pension Towers, 4th Floor, Loita Street, Nairobi CBD",
   },
   social: [
