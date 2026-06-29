@@ -8,8 +8,8 @@ const ALL_MONTHS = [
 ];
 
 function getUpcomingMonths(): string[] {
-  const currentMonth = new Date().getMonth(); // 0-indexed
-  return ALL_MONTHS.slice(currentMonth);
+  const nextMonth = new Date().getMonth() + 1; // 0-indexed, skip current
+  return ALL_MONTHS.slice(nextMonth, nextMonth + 2);
 }
 
 export function Intake() {
