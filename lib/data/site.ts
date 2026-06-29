@@ -2,9 +2,12 @@ export const site = {
   name: "Jowam Coffee Training Centre",
   tagline: "Learn Anywhere. Practice Like a Professional.",
   contact: {
-    phone: "+254 712 345 678",
-    whatsapp: "+254712345678",
-    email: "info@jowamcoffee.com",
+    phones: [
+      { display: "+254 722 938 905", raw: "254722938905" },
+      { display: "+254 722 762 945", raw: "254722762945" },
+    ],
+    whatsapp: "254722938905",
+    email: "info@jowamtrainingcentre.com",
     location: "Pension Towers, 4th Floor, Loita Street, Nairobi CBD",
   },
   social: [

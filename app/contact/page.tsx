@@ -33,14 +33,13 @@ export default function ContactPage() {
                   <dt className="text-xs font-semibold uppercase tracking-widest text-orange">
                     Phone
                   </dt>
-                  <dd className="mt-1 text-coffee">
-                    <a
-                      href={`tel:${site.contact.phone.replace(/\s/g, "")}`}
-                      className="transition-colors hover:text-orange"
-                    >
-                      {site.contact.phone}
-                    </a>
-                  </dd>
+                  {site.contact.phones.map((p) => (
+                    <dd key={p.raw} className="mt-1 text-coffee">
+                      <a href={`tel:${p.raw}`} className="transition-colors hover:text-orange">
+                        {p.display}
+                      </a>
+                    </dd>
+                  ))}
                 </div>
                 <div>
                   <dt className="text-xs font-semibold uppercase tracking-widest text-orange">

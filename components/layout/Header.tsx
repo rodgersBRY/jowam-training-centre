@@ -42,12 +42,17 @@ export function Header() {
       <div className="bg-coffee py-2 text-center text-xs font-medium text-cream">
         <Container>
           Intake Ongoing &mdash; Call us now:{" "}
-          <a
-            href={`tel:${site.contact.phone.replace(/\s/g, "")}`}
-            className="font-bold underline underline-offset-2 transition-colors hover:text-orange"
-          >
-            {site.contact.phone}
-          </a>
+          {site.contact.phones.map((p, i) => (
+            <span key={p.raw}>
+              <a
+                href={`tel:${p.raw}`}
+                className="font-bold underline underline-offset-2 transition-colors hover:text-orange"
+              >
+                {p.display}
+              </a>
+              {i < site.contact.phones.length - 1 && " / "}
+            </span>
+          ))}
         </Container>
       </div>
 

@@ -48,7 +48,9 @@ export function Footer() {
         </nav>
         <div className="text-sm text-cream/70">
           <p>{site.contact.location}</p>
-          <p className="mt-1">{site.contact.phone}</p>
+          {site.contact.phones.map((p) => (
+            <p key={p.raw} className="mt-1">{p.display}</p>
+          ))}
           <p className="mt-1">{site.contact.email}</p>
         </div>
       </Container>
