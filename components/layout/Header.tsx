@@ -71,18 +71,28 @@ export function Header() {
             </span>
           </Link>
           <nav className="hidden items-center gap-6 md:flex">
-            {site.nav.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={cn(
-                  "text-sm font-medium transition-colors hover:text-orange",
-                  isHome && !scrolled ? "text-cream/90" : "text-coffee/80",
-                )}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {site.nav.map((item) => {
+              const isActive =
+                item.href === "/"
+                  ? pathname === "/"
+                  : pathname === item.href || pathname.startsWith(item.href + "/");
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={cn(
+                    "text-sm font-medium transition-colors hover:text-orange",
+                    isActive
+                      ? "text-orange"
+                      : isHome && !scrolled
+                        ? "text-cream/90"
+                        : "text-coffee/80",
+                  )}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
           </nav>
           <div className="flex items-center gap-3">
             <div className="hidden items-center gap-2 md:flex">
