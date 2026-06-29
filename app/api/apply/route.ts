@@ -17,8 +17,22 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  console.log("[apply]", result.data);
-  // TODO: wire real delivery (e.g. Resend, database, CRM)
+  const webhookUrl = process.env.N8N_REGISTRATION_WEBHOOK_URL;
+  if (!webhookUrl) {
+    console.error("[apply] N8N_REGISTRATION_WEBHOOK_URL is not set");
+    return NextResponse.json({ ok: false, error: "Server misconfiguration" }, { status: 500 });
+  }
+
+  const n8nRes = await fetch(webhookUrl, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(result.data),
+  });
+
+  if (!n8nRes.ok) {
+    console.error("[apply] n8n webhook returned", n8nRes.status);
+    return NextResponse.json({ ok: false, error: "Failed to process application" }, { status: 502 });
+  }
 
   return NextResponse.json({ ok: true });
 }

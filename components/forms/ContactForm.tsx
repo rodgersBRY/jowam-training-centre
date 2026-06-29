@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { contactSchema } from "@/lib/validation/contact";
+import { sendEmail, EMAIL_TEMPLATES } from "@/lib/utils/emailjs";
 import { Button } from "@/components/ui/Button";
 import { Field } from "@/components/forms/Field";
 import { Input } from "@/components/forms/Input";
@@ -32,12 +33,12 @@ export function ContactForm() {
     setErrors({});
     setStatus("loading");
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(result.data),
+      await sendEmail(EMAIL_TEMPLATES.contact, {
+        from_name: result.data.name,
+        from_email: result.data.email,
+        subject: result.data.subject,
+        message: result.data.message,
       });
-      if (!res.ok) throw new Error("Request failed");
       setStatus("success");
     } catch {
       setStatus("error");

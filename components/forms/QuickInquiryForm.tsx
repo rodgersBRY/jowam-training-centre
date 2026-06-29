@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { quickInquirySchema } from "@/lib/validation/quick-inquiry";
 import { courses } from "@/lib/data/courses";
+import { sendEmail, EMAIL_TEMPLATES } from "@/lib/utils/emailjs";
 import { Button } from "@/components/ui/Button";
 import { Field } from "@/components/forms/Field";
 import { Input } from "@/components/forms/Input";
@@ -33,12 +34,12 @@ export function QuickInquiryForm() {
     setErrors({});
     setStatus("loading");
     try {
-      const res = await fetch("/api/quick-inquiry", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(result.data),
+      await sendEmail(EMAIL_TEMPLATES.inquiry, {
+        from_name: result.data.name,
+        from_phone: result.data.phone,
+        from_email: result.data.email ?? "",
+        course_interest: result.data.courseInterest,
       });
-      if (!res.ok) throw new Error("Request failed");
       setStatus("success");
     } catch {
       setStatus("error");
