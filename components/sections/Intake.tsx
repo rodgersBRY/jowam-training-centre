@@ -1,13 +1,19 @@
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
-const intakes = [
+const ALL_MONTHS = [
   "January", "February", "March", "April",
   "May", "June", "July", "August",
   "September", "October", "November", "December",
 ];
 
+function getUpcomingMonths(): string[] {
+  const currentMonth = new Date().getMonth(); // 0-indexed
+  return ALL_MONTHS.slice(currentMonth);
+}
+
 export function Intake() {
+  const intakes = getUpcomingMonths();
   return (
     <section className="bg-cream py-20">
       <Container>
@@ -16,7 +22,7 @@ export function Intake() {
           title="Start Any Month of the Year"
           intro="Jowam runs monthly intakes so you can begin as soon as you are ready. Each cohort starts on the first Monday of the month and runs for the full course duration."
         />
-        <div className="mt-12 grid grid-cols-3 gap-4 sm:grid-cols-4 lg:grid-cols-6">
+        <div className="mt-12 grid grid-cols-3 gap-4 sm:grid-cols-4 md:grid-cols-6">
           {intakes.map((month) => (
             <div
               key={month}
