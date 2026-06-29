@@ -15,7 +15,7 @@ export function Story() {
             </h2>
             <div className="mt-4 space-y-4 text-coffee/80">
               <p>
-                Jowam Coffee Training Centre started in a single room in Westlands, Nairobi, with
+                Jowam Coffee Training Centre started on the 4th floor of Pension Towers on Loita Street in Nairobi CBD, with
                 six students, two espresso machines, and one conviction — that quality coffee
                 training should not cost a year of your salary or require you to quit your job to
                 attend.

@@ -19,7 +19,7 @@ const items = [
   {
     title: "Online Classroom",
     description:
-      "Live-streamed theory sessions built for low-bandwidth connections. Join from anywhere in Kenya — every session is recorded so you can catch up within the same week if you miss one.",
+      "Live-streamed theory sessions built for low-bandwidth connections. Join from anywhere in Kenya — every session is recorded so you can catch up within the same week if you miss one. Practicals are held at our CBD campus on Loita Street.",
     src: "https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=600&q=80",
     alt: "Online learning setup for Jowam theory sessions",
   },

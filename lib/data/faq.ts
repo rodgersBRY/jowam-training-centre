@@ -12,7 +12,7 @@ export const faqs: Faq[] = [
   {
     question: "How does the flexible learning model work?",
     answer:
-      "Theory modules are delivered online via live sessions you can join from anywhere in Kenya. Practical training takes place every Saturday at our Westlands lab. This means you keep your current job or studies during the week and come in on Saturdays to apply what you have learned.",
+      "Theory modules are delivered online via live sessions you can join from anywhere in Kenya. Practical training takes place every Saturday at our campus on Loita Street in Nairobi CBD. This means you keep your current job or studies during the week and come in on Saturdays to apply what you have learned.",
   },
   {
     question: "What do I receive when I complete the course?",

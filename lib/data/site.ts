@@ -5,7 +5,7 @@ export const site = {
     phone: "+254 712 345 678",
     whatsapp: "+254712345678",
     email: "info@jowamcoffee.com",
-    location: "Westlands, Nairobi, Kenya",
+    location: "Pension Towers, 4th Floor, Loita Street, Nairobi CBD",
   },
   social: [
     {
