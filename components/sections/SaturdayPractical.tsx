@@ -53,7 +53,6 @@ export function SaturdayPractical() {
             </div>
           </div>
           <div className="relative aspect-square overflow-hidden rounded-2xl lg:aspect-auto lg:h-[500px]">
-            {/* PLACEHOLDER: replace with real training photo before launch */}
             <Image
               src="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=800&q=80"
               alt="Barista training session at Jowam Coffee Training Centre"

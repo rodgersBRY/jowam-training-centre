@@ -9,13 +9,13 @@ export function Mission() {
             Our Mission
           </p>
           <h2 className="text-3xl font-bold tracking-tight text-cream sm:text-4xl">
-            PLACEHOLDER — Mission Statement Heading
+            Raising the Standard of Coffee in Kenya, One Barista at a Time
           </h2>
-          {/* PLACEHOLDER: replace with real mission copy before launch */}
           <p className="mt-6 text-lg text-cream/80">
-            PLACEHOLDER — To empower aspiring baristas and coffee professionals across Kenya with
-            industry-relevant skills, flexible learning options, and a certification that opens
-            doors in the growing East African coffee economy.
+            We exist to make professional coffee education accessible to every Kenyan who wants
+            it — regardless of their schedule, background, or prior experience. Through flexible,
+            industry-aligned training, we equip our graduates with the skills, confidence, and
+            certification to build meaningful careers in the growing East African coffee economy.
           </p>
         </div>
       </Container>

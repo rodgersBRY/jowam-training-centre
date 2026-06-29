@@ -1,7 +1,6 @@
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
-// PLACEHOLDER: replace with real intake details before launch.
 const intakes = [
   { month: "January", status: "Open" },
   { month: "March", status: "Open" },
@@ -16,9 +15,9 @@ export function Intake() {
     <section className="bg-cream py-20">
       <Container>
         <SectionHeading
-          eyebrow="Monthly Intake"
+          eyebrow="Intake Dates"
           title="When Can You Start?"
-          intro="PLACEHOLDER — Jowam runs monthly intakes so you never have to wait long. Each cohort begins on the first Monday of the intake month."
+          intro="Jowam runs six intakes per year so you never have to wait long. Each cohort begins on the first Monday of the intake month and runs for the full course duration."
         />
         <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
           {intakes.map((intake) => (
@@ -33,8 +32,9 @@ export function Intake() {
         </div>
         <div className="mt-8 rounded-2xl bg-orange/10 p-6">
           <p className="text-sm text-coffee/80">
-            <strong className="text-coffee">PLACEHOLDER note:</strong> Replace with real intake
-            schedule, cut-off dates, and cohort sizes before launch.
+            <strong className="text-coffee">Applications close two weeks before each intake.</strong>{" "}
+            Cohorts are capped at 12 students — once a month fills, the next intake is your
+            guaranteed entry point. Apply early to secure your preferred date.
           </p>
         </div>
       </Container>

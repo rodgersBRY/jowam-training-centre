@@ -1,6 +1,3 @@
-// PLACEHOLDER — replace with real content before launch.
-// No pricing fields (per design spec: no pricing unless provided).
-
 export type Course = {
   slug: string;
   title: string;
@@ -13,25 +10,47 @@ export type Course = {
 export const courses: Course[] = [
   {
     slug: "barista-fundamentals",
-    title: "Barista Fundamentals", // PLACEHOLDER
-    summary: "PLACEHOLDER — short course summary.",
-    duration: "PLACEHOLDER — e.g. 4 weeks",
+    title: "Barista Fundamentals",
+    summary:
+      "Your entry point into professional coffee. This course builds the essential skills every barista needs — from understanding the bean to pulling a perfect espresso and serving customers with confidence.",
+    duration: "4 weeks",
     curriculum: [
-      "PLACEHOLDER curriculum item 1",
-      "PLACEHOLDER curriculum item 2",
+      "Coffee origins, varietals, and the bean-to-cup journey",
+      "Espresso extraction science and grinder calibration",
+      "Milk texturing, temperature, and consistency",
+      "Manual brewing methods: V60, Aeropress, and French press",
+      "Workflow, bar organisation, and speed drills",
+      "Customer service standards and café etiquette",
+      "Health, hygiene, and food safety basics",
     ],
-    outcomes: ["PLACEHOLDER outcome 1", "PLACEHOLDER outcome 2"],
+    outcomes: [
+      "Confidently operate a commercial espresso machine",
+      "Understand and control the variables of coffee extraction",
+      "Deliver consistent, high-quality drinks under pressure",
+      "Meet entry-level standards expected by Kenyan coffee employers",
+    ],
   },
   {
     slug: "espresso-and-latte-art",
-    title: "Espresso & Latte Art", // PLACEHOLDER
-    summary: "PLACEHOLDER — short course summary.",
-    duration: "PLACEHOLDER — e.g. 6 weeks",
+    title: "Espresso & Latte Art",
+    summary:
+      "Built for working baristas ready to go beyond the basics. Master advanced espresso dialling, single-origin profiling, and develop the steady hands needed for signature latte art.",
+    duration: "6 weeks",
     curriculum: [
-      "PLACEHOLDER curriculum item 1",
-      "PLACEHOLDER curriculum item 2",
+      "Advanced espresso dialling — dose, yield, and time",
+      "Single-origin espresso: profiling and flavour mapping",
+      "Microfoam science — achieving perfect texture every pour",
+      "Latte art foundations: heart, tulip, and rosetta",
+      "Free-pour combinations and etching techniques",
+      "Creating and documenting a signature drink menu",
+      "Introduction to SCA competition standards",
     ],
-    outcomes: ["PLACEHOLDER outcome 1", "PLACEHOLDER outcome 2"],
+    outcomes: [
+      "Produce competition-grade espresso with consistency",
+      "Execute five signature latte art patterns confidently",
+      "Develop and document a personal dialling methodology",
+      "Build a portfolio of original signature drinks",
+    ],
   },
 ];
 

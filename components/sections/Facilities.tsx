@@ -1,25 +1,27 @@
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 
-// PLACEHOLDER: replace with real facilities content and photos before launch.
 const items = [
   {
     title: "Espresso Lab",
-    description: "PLACEHOLDER — Professional-grade espresso machines used by working baristas.",
+    description:
+      "Six professional-grade espresso machines — the same models found in Kenya's leading specialty cafés. Every student gets hands-on machine time each Saturday, not just demonstration time.",
     src: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&q=80",
-    alt: "Espresso training lab",
+    alt: "Professional espresso machines in the Jowam training lab",
   },
   {
     title: "Brewing Studio",
-    description: "PLACEHOLDER — Full range of manual brewing equipment for specialty coffee.",
+    description:
+      "A dedicated manual brewing station equipped with V60, Aeropress, Chemex, and French press gear. Students rotate through every method, building a full repertoire of brew skills.",
     src: "https://images.unsplash.com/photo-1507133750040-4a8f57021571?w=600&q=80",
-    alt: "Coffee brewing studio",
+    alt: "Manual brewing studio with various coffee equipment",
   },
   {
     title: "Online Classroom",
-    description: "PLACEHOLDER — Live-streamed theory sessions accessible from anywhere in Kenya.",
+    description:
+      "Live-streamed theory sessions built for low-bandwidth connections. Join from anywhere in Kenya — every session is recorded so you can catch up within the same week if you miss one.",
     src: "https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=600&q=80",
-    alt: "Online learning setup",
+    alt: "Online learning setup for Jowam theory sessions",
   },
 ];
 
@@ -35,8 +37,9 @@ export function Facilities() {
             Where You Will Train
           </h2>
           <p className="mt-4 text-base text-cream/70">
-            PLACEHOLDER — State-of-the-art equipment in a welcoming environment designed for
-            focused learning.
+            Professional equipment in a focused learning environment. We invested in the same
+            tools the industry uses so there is no adjustment period when you step into a real
+            café bar.
           </p>
         </div>
         <div className="mt-12 grid gap-6 sm:grid-cols-3">

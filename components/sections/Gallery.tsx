@@ -2,37 +2,36 @@ import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
-// PLACEHOLDER: replace with real training photos before launch.
 const photos = [
   {
     src: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&q=80",
     alt: "Coffee training session",
-    caption: "PLACEHOLDER caption",
+    caption: "Students dialling in their first espresso shots",
   },
   {
     src: "https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=600&q=80",
     alt: "Espresso machine training",
-    caption: "PLACEHOLDER caption",
+    caption: "Saturday practical: espresso machine drills",
   },
   {
     src: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
     alt: "Latte art practice",
-    caption: "PLACEHOLDER caption",
+    caption: "Latte art session — learning the rosetta pattern",
   },
   {
     src: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=600&q=80",
-    alt: "Students learning",
-    caption: "PLACEHOLDER caption",
+    alt: "Students learning coffee",
+    caption: "Theory into practice: the extraction module",
   },
   {
     src: "https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=600&q=80",
-    alt: "Barista skills",
-    caption: "PLACEHOLDER caption",
+    alt: "Barista skills training",
+    caption: "Hands-on: manual brewing with V60",
   },
   {
     src: "https://images.unsplash.com/photo-1507133750040-4a8f57021571?w=600&q=80",
     alt: "Coffee brewing",
-    caption: "PLACEHOLDER caption",
+    caption: "A cohort completing their final assessment",
   },
 ];
 

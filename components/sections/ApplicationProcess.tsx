@@ -6,25 +6,25 @@ const steps = [
     step: "01",
     title: "Submit Your Application",
     description:
-      "PLACEHOLDER — Fill in the online application form with your personal details and course choice.",
+      "Fill in the online application form — it takes about five minutes. Tell us which course interests you and your preferred intake month.",
   },
   {
     step: "02",
     title: "Receive Confirmation",
     description:
-      "PLACEHOLDER — Our admissions team will review your application and send a confirmation within 2 business days.",
+      "Our admissions team reviews every application within two business days and will reach out by phone or email to confirm your place and answer any questions.",
   },
   {
     step: "03",
     title: "Secure Your Spot",
     description:
-      "PLACEHOLDER — Complete the enrolment process to secure your place in the next available cohort.",
+      "Once confirmed, complete your enrolment to lock in your cohort. Cohorts are capped at 12 students, so early enrolment is strongly encouraged.",
   },
   {
     step: "04",
     title: "Start Learning",
     description:
-      "PLACEHOLDER — Join your cohort on intake day and begin your coffee education journey.",
+      "Join your cohort on intake day. Online theory sessions begin that first week and your first Saturday practical follows the very next weekend.",
   },
 ];
 
@@ -40,7 +40,8 @@ export function ApplicationProcess() {
             How to Enrol
           </h2>
           <p className="mt-4 text-base text-cream/70">
-            PLACEHOLDER — Getting into Jowam is straightforward. Here is what to expect.
+            Getting into Jowam is straightforward. The whole process from application to first
+            session takes less than a week.
           </p>
         </div>
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

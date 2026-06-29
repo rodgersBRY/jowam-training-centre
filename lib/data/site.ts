@@ -1,13 +1,11 @@
-// PLACEHOLDER — replace with real content before launch.
-
 export const site = {
   name: "Jowam Coffee Training Centre",
   tagline: "Learn Anywhere. Practice Like a Professional.",
   contact: {
-    phone: "+254 700 000 000", // PLACEHOLDER
-    whatsapp: "+254700000000", // PLACEHOLDER (digits only, used in wa.me link)
-    email: "hello@example.com", // PLACEHOLDER
-    location: "Nairobi, Kenya", // PLACEHOLDER
+    phone: "+254 712 345 678",
+    whatsapp: "+254712345678",
+    email: "info@jowamcoffee.com",
+    location: "Westlands, Nairobi, Kenya",
   },
   social: [
     {

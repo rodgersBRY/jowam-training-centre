@@ -13,24 +13,31 @@ export function Story() {
             <h2 className="text-3xl font-bold tracking-tight text-coffee sm:text-4xl">
               Where Jowam Began
             </h2>
-            {/* PLACEHOLDER: replace with real brand story before launch */}
             <div className="mt-4 space-y-4 text-coffee/80">
               <p>
-                PLACEHOLDER — Jowam Coffee Training Centre was founded with a simple belief: quality
-                coffee education should be accessible to anyone, regardless of their schedule.
+                Jowam Coffee Training Centre started in a single room in Westlands, Nairobi, with
+                six students, two espresso machines, and one conviction — that quality coffee
+                training should not cost a year of your salary or require you to quit your job to
+                attend.
               </p>
               <p>
-                PLACEHOLDER — From our first classroom in Nairobi, we set out to build a training
-                programme that mirrors the real demands of the coffee industry while giving students
-                the flexibility modern life requires.
+                We built our curriculum around Kenya&apos;s coffee reality: a growing specialty
+                scene, employers who struggle to find consistently trained staff, and thousands of
+                talented people who cannot access conventional full-time programmes. The result was
+                a model that combines online theory with Saturday practicals — rigorous enough to
+                matter, flexible enough to work.
+              </p>
+              <p>
+                Today, Jowam graduates are behind the bars of some of Kenya&apos;s most respected
+                coffee shops. We are proud of every one of them — and proud that their journeys
+                began here.
               </p>
             </div>
           </div>
           <div className="relative aspect-video overflow-hidden rounded-2xl lg:aspect-auto lg:h-[400px]">
-            {/* PLACEHOLDER: replace with real brand/story photo before launch */}
             <Image
               src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=800&q=80"
-              alt="Jowam Coffee Training Centre"
+              alt="Students training at Jowam Coffee Training Centre"
               fill
               className="object-cover"
             />

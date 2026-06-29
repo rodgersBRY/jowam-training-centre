@@ -1,6 +1,3 @@
-// PLACEHOLDER — replace with real copy before launch.
-// Fixed set from design spec §6.3 — do not add personas without approval.
-
 export type Persona = {
   title: string;
   description: string;
@@ -10,22 +7,30 @@ export type Persona = {
 export const personas: Persona[] = [
   {
     title: "Working Professionals",
-    description: "PLACEHOLDER",
-    relevance: "PLACEHOLDER schedule-flexibility note.",
+    description:
+      "Employed full-time but ready to pivot into coffee — or build the skills to run a café on the side.",
+    relevance:
+      "Theory runs online in the evenings. Practicals are every Saturday, so your Monday-to-Friday job stays untouched.",
   },
   {
     title: "University Students",
-    description: "PLACEHOLDER",
-    relevance: "PLACEHOLDER schedule-flexibility note.",
+    description:
+      "Building marketable skills alongside your degree so you can earn while you study or hit the ground running after graduation.",
+    relevance:
+      "Flexible scheduling means no conflicts with lecture timetables, and the full course fits within a single semester break.",
   },
   {
     title: "Entrepreneurs",
-    description: "PLACEHOLDER",
-    relevance: "PLACEHOLDER schedule-flexibility note.",
+    description:
+      "Planning to open a café or coffee kiosk and want to understand the craft before hiring — or training — your team.",
+    relevance:
+      "We offer group enrolment for business owners bringing their staff, with tailored scheduling to minimise downtime.",
   },
   {
     title: "Hospitality Workers",
-    description: "PLACEHOLDER",
-    relevance: "PLACEHOLDER schedule-flexibility note.",
+    description:
+      "Already in hotels, restaurants, or food service and looking for a formal credential that earns you a promotion or moves you into specialty coffee.",
+    relevance:
+      "Your service background gives you a head start. Most hospitality workers complete Barista Fundamentals in three weeks.",
   },
 ];

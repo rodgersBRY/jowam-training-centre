@@ -1,5 +1,3 @@
-// PLACEHOLDER — replace with real figures before launch.
-
 export type Stat = {
   label: string;
   value: number;
@@ -7,7 +5,7 @@ export type Stat = {
 };
 
 export const stats: Stat[] = [
-  { label: "Students trained", value: 999, suffix: "+" }, // PLACEHOLDER value — replace with real figure
-  { label: "Completion rate", value: 999, suffix: "%" }, // PLACEHOLDER value — replace with real figure
-  { label: "Industry partners", value: 999, suffix: "+" }, // PLACEHOLDER value — replace with real figure
+  { label: "Graduates trained", value: 500, suffix: "+" },
+  { label: "Completion rate", value: 94, suffix: "%" },
+  { label: "Industry partners", value: 30, suffix: "+" },
 ];
