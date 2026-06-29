@@ -3,57 +3,95 @@ export type Course = {
   title: string;
   summary: string;
   duration: string;
+  price: number;
   curriculum: string[];
   outcomes: string[];
 };
 
 export const courses: Course[] = [
   {
-    slug: "barista-fundamentals",
-    title: "Barista Fundamentals",
+    slug: "basic-barista",
+    title: "Basic Barista Course",
     summary:
-      "Your entry point into professional coffee. This course builds the essential skills every barista needs — from understanding the bean to pulling a perfect espresso and serving customers with confidence.",
-    duration: "4 weeks",
+      "The perfect starting point for anyone new to coffee. In two focused weeks you will learn to operate an espresso machine, steam milk, and prepare the drinks guests order most.",
+    duration: "2 weeks",
+    price: 25000,
     curriculum: [
-      "Coffee origins, varietals, and the bean-to-cup journey",
-      "Espresso extraction science and grinder calibration",
-      "Milk texturing, temperature, and consistency",
-      "Manual brewing methods: V60, Aeropress, and French press",
-      "Workflow, bar organisation, and speed drills",
-      "Customer service standards and café etiquette",
-      "Health, hygiene, and food safety basics",
+      "Coffee origins and the bean-to-cup journey",
+      "Introduction to espresso machines and grinders",
+      "Pulling your first espresso shots",
+      "Milk steaming and basic texturing",
+      "Core drinks: Americano, latte, cappuccino, flat white",
+      "Café hygiene and food safety basics",
+      "Customer service fundamentals",
     ],
     outcomes: [
-      "Confidently operate a commercial espresso machine",
-      "Understand and control the variables of coffee extraction",
-      "Deliver consistent, high-quality drinks under pressure",
-      "Meet entry-level standards expected by Kenyan coffee employers",
+      "Operate a commercial espresso machine safely and confidently",
+      "Prepare and serve the most common café drinks to a consistent standard",
+      "Meet the expectations of entry-level barista roles in Kenya",
+      "Build a foundation for the Professional Barista Course",
     ],
   },
   {
-    slug: "espresso-and-latte-art",
-    title: "Espresso & Latte Art",
+    slug: "professional-barista",
+    title: "Professional Barista Course",
     summary:
-      "Built for working baristas ready to go beyond the basics. Master advanced espresso dialling, single-origin profiling, and develop the steady hands needed for signature latte art.",
-    duration: "6 weeks",
+      "A comprehensive five-week programme that takes you from barista basics to full professional competency — covering espresso science, manual brewing, latte art, and café operations.",
+    duration: "5 weeks",
+    price: 45000,
     curriculum: [
-      "Advanced espresso dialling — dose, yield, and time",
-      "Single-origin espresso: profiling and flavour mapping",
-      "Microfoam science — achieving perfect texture every pour",
-      "Latte art foundations: heart, tulip, and rosetta",
-      "Free-pour combinations and etching techniques",
-      "Creating and documenting a signature drink menu",
-      "Introduction to SCA competition standards",
+      "Coffee origins, varietals, and processing methods",
+      "Espresso extraction science and grinder calibration",
+      "Advanced milk texturing and microfoam technique",
+      "Latte art: heart, tulip, and rosetta patterns",
+      "Manual brewing: V60, Aeropress, French press, and Chemex",
+      "Coffee cupping and sensory evaluation",
+      "Workflow, bar organisation, and speed under pressure",
+      "Café operations and stock management",
+      "Customer service excellence and upselling",
+      "Health, hygiene, and food safety certification",
     ],
     outcomes: [
-      "Produce competition-grade espresso with consistency",
-      "Execute five signature latte art patterns confidently",
-      "Develop and document a personal dialling methodology",
-      "Build a portfolio of original signature drinks",
+      "Work confidently as a professional barista in any café environment",
+      "Execute signature latte art patterns on every pour",
+      "Calibrate an espresso grinder and dial in a shot from scratch",
+      "Lead a café bar during peak service hours",
+      "Receive a Jowam Certificate of Completion recognised by industry partners",
+    ],
+  },
+  {
+    slug: "coffee-roasting",
+    title: "Coffee Roasting",
+    summary:
+      "A deep-dive into the craft of coffee roasting. Over five weeks you will learn to evaluate green coffee, develop roast profiles, operate a drum roaster, and produce market-ready batches.",
+    duration: "5 weeks",
+    price: 50000,
+    curriculum: [
+      "Green coffee: sourcing, grading, and defect analysis",
+      "East African coffee origins and flavour characteristics",
+      "Roasting chemistry — the Maillard reaction and development time",
+      "Drum roaster operation and safety procedures",
+      "Building and documenting roast profiles",
+      "Roast colour analysis and quality control",
+      "Cupping for roast evaluation and consistency",
+      "Packaging, shelf life, and degassing",
+      "Blending principles for espresso and filter",
+      "Setting up and managing a small roasting operation",
+    ],
+    outcomes: [
+      "Operate a drum roaster independently and safely",
+      "Develop, document, and reproduce roast profiles",
+      "Evaluate roast quality through cupping and colour grading",
+      "Source and assess green coffee for quality and traceability",
+      "Launch or manage a small-scale coffee roasting business",
     ],
   },
 ];
 
 export function getCourseBySlug(slug: string): Course | undefined {
   return courses.find((c) => c.slug === slug);
+}
+
+export function formatPrice(price: number): string {
+  return `KES ${price.toLocaleString("en-KE")}`;
 }

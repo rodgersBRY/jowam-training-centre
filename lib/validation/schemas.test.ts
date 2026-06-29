@@ -118,7 +118,7 @@ describe("applySchema", () => {
     idNumber: "12345678",
     phone: "+254712345678",
     email: "jane@example.com",
-    course: "barista-fundamentals",
+    course: "basic-barista",
     intakeMonth: "january",
     education: "diploma",
     emergencySurname: "Doe",

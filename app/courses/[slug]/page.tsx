@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
-import { courses, getCourseBySlug } from "@/lib/data/courses";
+import { courses, getCourseBySlug, formatPrice } from "@/lib/data/courses";
 
 export function generateStaticParams() {
   return courses.map((course) => ({ slug: course.slug }));
@@ -47,8 +47,13 @@ export default async function CourseDetailPage({
             </p>
             <h1 className="text-4xl font-bold text-cream sm:text-5xl">{course.title}</h1>
             <p className="mt-4 text-lg text-cream/80">{course.summary}</p>
-            <div className="mt-6 inline-flex rounded-full bg-orange/20 px-4 py-2 text-sm font-semibold text-orange">
-              Duration: {course.duration}
+            <div className="mt-6 flex flex-wrap gap-3">
+              <span className="inline-flex rounded-full bg-orange/20 px-4 py-2 text-sm font-semibold text-orange">
+                {course.duration}
+              </span>
+              <span className="inline-flex rounded-full bg-cream/10 px-4 py-2 text-sm font-semibold text-cream">
+                {formatPrice(course.price)}
+              </span>
             </div>
           </div>
         </Container>

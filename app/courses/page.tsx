@@ -2,16 +2,17 @@ import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
-import { courses } from "@/lib/data/courses";
+import { courses, formatPrice } from "@/lib/data/courses";
 
 export const metadata: Metadata = {
   title: "Courses",
   description:
-    "Browse Jowam's barista and coffee training courses — from fundamentals to espresso mastery. Flexible schedules to fit your life.",
+    "Browse Jowam Coffee Training Centre's courses — Basic Barista, Professional Barista, and Coffee Roasting. Flexible schedules to fit your life.",
   keywords: [
     "barista course Kenya",
-    "coffee training courses Nairobi",
-    "barista certification Kenya",
+    "coffee roasting course Nairobi",
+    "professional barista training Kenya",
+    "coffee training Nairobi CBD",
   ],
 };
 
@@ -23,7 +24,7 @@ export default function CoursesPage() {
           <SectionHeading
             eyebrow="All Courses"
             title="Choose Your Programme"
-            intro="Every Jowam course includes evening online theory and mandatory Saturday practicals. Pick the one that matches your goals."
+            intro="Every Jowam course includes evening online theory and mandatory Saturday practicals at our Nairobi CBD campus. Pick the one that matches your goals."
           />
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {courses.map((course) => (
@@ -39,6 +40,9 @@ export default function CoursesPage() {
                   <div className="mt-4 flex flex-wrap gap-2">
                     <span className="rounded-full bg-orange/10 px-3 py-1 text-xs font-semibold text-orange">
                       {course.duration}
+                    </span>
+                    <span className="rounded-full bg-coffee/10 px-3 py-1 text-xs font-semibold text-coffee">
+                      {formatPrice(course.price)}
                     </span>
                   </div>
                   <ul className="mt-4 space-y-1">
