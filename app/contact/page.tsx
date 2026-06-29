@@ -88,6 +88,27 @@ export default function ContactPage() {
           </div>
         </Container>
       </section>
+
+      {/* Map */}
+      <section className="pb-20">
+        <Container>
+          <div className="overflow-hidden rounded-2xl ring-1 ring-coffee/10">
+            <iframe
+              title="Jowam Coffee Training Centre location"
+              src="https://maps.google.com/maps?q=Pension+Towers,+Loita+Street,+Nairobi+CBD,+Kenya&output=embed"
+              width="100%"
+              height="400"
+              style={{ border: 0, display: "block" }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+          <p className="mt-3 text-center text-sm text-coffee/60">
+            {site.contact.location}
+          </p>
+        </Container>
+      </section>
     </div>
   );
 }
