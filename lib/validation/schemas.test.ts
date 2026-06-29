@@ -110,51 +110,58 @@ describe("contactSchema", () => {
 
 describe("applySchema", () => {
   const valid = {
-    fullName: "Jane Doe",
-    dateOfBirth: "1995-06-15",
+    surname: "Doe",
+    otherNames: "Jane Mary",
     gender: "female",
+    dateOfBirth: "1995-06-15",
+    nationality: "Kenyan",
     idNumber: "12345678",
     phone: "+254712345678",
     email: "jane@example.com",
-    location: "Nairobi",
     course: "barista-fundamentals",
     intakeMonth: "january",
-    education: "Diploma in Business",
-    emergencyName: "John Doe",
-    emergencyPhone: "+254723456789",
+    education: "diploma",
+    emergencySurname: "Doe",
+    emergencyOtherNames: "John",
     emergencyRelationship: "Sibling",
+    emergencyPhone: "+254723456789",
   };
 
   it("accepts a valid full application", () => {
     expect(applySchema.safeParse(valid).success).toBe(true);
   });
 
-  it("accepts with experience field omitted", () => {
-    const { experience: _exp, ...rest } = { ...valid, experience: "2 years" };
-    expect(applySchema.safeParse(rest).success).toBe(true);
-  });
-
-  it("accepts with experience field provided", () => {
-    expect(applySchema.safeParse({ ...valid, experience: "2 years barista" }).success).toBe(true);
-  });
-
   it("rejects invalid gender value", () => {
-    const result = applySchema.safeParse({ ...valid, gender: "other" });
+    const result = applySchema.safeParse({ ...valid, gender: "prefer-not-to-say" });
     expect(result.success).toBe(false);
     if (!result.success) {
       expect(result.error.issues[0].path[0]).toBe("gender");
     }
   });
 
+  it("rejects invalid education value", () => {
+    const result = applySchema.safeParse({ ...valid, education: "phd" });
+    expect(result.success).toBe(false);
+    if (!result.success) {
+      expect(result.error.issues[0].path[0]).toBe("education");
+    }
+  });
+
+  it("accepts all valid education levels", () => {
+    for (const level of ["kcpe", "kcse", "diploma", "degree"]) {
+      expect(applySchema.safeParse({ ...valid, education: level }).success).toBe(true);
+    }
+  });
+
   it("rejects missing required fields", () => {
-    const result = applySchema.safeParse({ fullName: "Jane Doe" });
+    const result = applySchema.safeParse({ surname: "Doe" });
     expect(result.success).toBe(false);
     if (!result.success) {
       const paths = result.error.issues.map((e) => String(e.path[0]));
       expect(paths).toContain("phone");
       expect(paths).toContain("email");
       expect(paths).toContain("course");
-      expect(paths).toContain("emergencyName");
+      expect(paths).toContain("emergencySurname");
     }
   });
 

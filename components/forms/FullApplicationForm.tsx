@@ -7,14 +7,14 @@ import { Button } from "@/components/ui/Button";
 import { Field } from "@/components/forms/Field";
 import { Input } from "@/components/forms/Input";
 import { Select } from "@/components/forms/Select";
-import { Textarea } from "@/components/forms/Textarea";
 
 type Status = "idle" | "loading" | "success" | "error";
 
-const GENDER_OPTIONS = [
-  { value: "male", label: "Male" },
-  { value: "female", label: "Female" },
-  { value: "prefer-not-to-say", label: "Prefer not to say" },
+const EDUCATION_OPTIONS = [
+  { value: "kcpe", label: "Grade 8 – KCPE" },
+  { value: "kcse", label: "O-Level – KCSE" },
+  { value: "diploma", label: "Diploma" },
+  { value: "degree", label: "Degree" },
 ];
 
 const INTAKE_OPTIONS = [
@@ -85,20 +85,44 @@ export function FullApplicationForm() {
 
   return (
     <form onSubmit={handleSubmit} noValidate className="mx-auto max-w-2xl space-y-10">
-      {/* Personal Information */}
+
+      {/* Personal Details */}
       <section>
-        <SectionTitle>Personal Information</SectionTitle>
+        <SectionTitle>Personal Details</SectionTitle>
         <div className="grid gap-4 sm:grid-cols-2">
-          <div className="sm:col-span-2">
-            <Field label="Full Name" required error={errors.fullName}>
-              <Input
-                type="text"
-                placeholder="As it appears on your ID"
-                value={data.fullName ?? ""}
-                onChange={(e) => set("fullName", e.target.value)}
-              />
-            </Field>
-          </div>
+          <Field label="Surname" required error={errors.surname}>
+            <Input
+              type="text"
+              placeholder="Family name"
+              value={data.surname ?? ""}
+              onChange={(e) => set("surname", e.target.value)}
+            />
+          </Field>
+          <Field label="Other Names" required error={errors.otherNames}>
+            <Input
+              type="text"
+              placeholder="First and middle names"
+              value={data.otherNames ?? ""}
+              onChange={(e) => set("otherNames", e.target.value)}
+            />
+          </Field>
+          <Field label="Gender" required error={errors.gender}>
+            <div className="flex gap-6 pt-1">
+              {(["male", "female"] as const).map((g) => (
+                <label key={g} className="flex cursor-pointer items-center gap-2 text-sm text-coffee">
+                  <input
+                    type="radio"
+                    name="gender"
+                    value={g}
+                    checked={data.gender === g}
+                    onChange={() => set("gender", g)}
+                    className="accent-orange"
+                  />
+                  {g.charAt(0).toUpperCase() + g.slice(1)}
+                </label>
+              ))}
+            </div>
+          </Field>
           <Field label="Date of Birth" required error={errors.dateOfBirth}>
             <Input
               type="date"
@@ -106,32 +130,30 @@ export function FullApplicationForm() {
               onChange={(e) => set("dateOfBirth", e.target.value)}
             />
           </Field>
-          <Field label="Gender" required error={errors.gender}>
-            <Select
-              value={data.gender ?? ""}
-              onChange={(e) => set("gender", e.target.value)}
-              placeholder="Select…"
-              options={GENDER_OPTIONS}
+          <Field label="Nationality" required error={errors.nationality}>
+            <Input
+              type="text"
+              placeholder="e.g. Kenyan"
+              value={data.nationality ?? ""}
+              onChange={(e) => set("nationality", e.target.value)}
             />
           </Field>
-          <div className="sm:col-span-2">
-            <Field label="ID / Passport Number" required error={errors.idNumber}>
-              <Input
-                type="text"
-                placeholder="National ID or Passport number"
-                value={data.idNumber ?? ""}
-                onChange={(e) => set("idNumber", e.target.value)}
-              />
-            </Field>
-          </div>
+          <Field label="ID / Passport Number" required error={errors.idNumber}>
+            <Input
+              type="text"
+              placeholder="National ID or Passport number"
+              value={data.idNumber ?? ""}
+              onChange={(e) => set("idNumber", e.target.value)}
+            />
+          </Field>
         </div>
       </section>
 
-      {/* Contact Information */}
+      {/* Contact Details */}
       <section>
-        <SectionTitle>Contact Information</SectionTitle>
+        <SectionTitle>Contact Details</SectionTitle>
         <div className="grid gap-4 sm:grid-cols-2">
-          <Field label="Phone" required error={errors.phone}>
+          <Field label="Phone Number" required error={errors.phone}>
             <Input
               type="tel"
               placeholder="+254 7XX XXX XXX"
@@ -139,7 +161,7 @@ export function FullApplicationForm() {
               onChange={(e) => set("phone", e.target.value)}
             />
           </Field>
-          <Field label="Email" required error={errors.email}>
+          <Field label="Email Address" required error={errors.email}>
             <Input
               type="email"
               placeholder="you@example.com"
@@ -147,17 +169,36 @@ export function FullApplicationForm() {
               onChange={(e) => set("email", e.target.value)}
             />
           </Field>
-          <div className="sm:col-span-2">
-            <Field label="Location / Town" required error={errors.location}>
-              <Input
-                type="text"
-                placeholder="e.g. Nairobi, Mombasa, Kisumu"
-                value={data.location ?? ""}
-                onChange={(e) => set("location", e.target.value)}
-              />
-            </Field>
-          </div>
         </div>
+      </section>
+
+      {/* Education */}
+      <section>
+        <SectionTitle>Education Level</SectionTitle>
+        <Field label="Highest qualification" required error={errors.education}>
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+            {EDUCATION_OPTIONS.map((opt) => (
+              <label
+                key={opt.value}
+                className={`flex cursor-pointer items-center justify-center rounded-lg border p-3 text-center text-sm font-medium transition-colors ${
+                  data.education === opt.value
+                    ? "border-orange bg-orange/10 text-coffee"
+                    : "border-coffee/20 bg-white text-coffee/70 hover:border-orange/50"
+                }`}
+              >
+                <input
+                  type="radio"
+                  name="education"
+                  value={opt.value}
+                  checked={data.education === opt.value}
+                  onChange={() => set("education", opt.value)}
+                  className="sr-only"
+                />
+                {opt.label}
+              </label>
+            ))}
+          </div>
+        </Field>
       </section>
 
       {/* Course Selection */}
@@ -183,41 +224,35 @@ export function FullApplicationForm() {
         </div>
       </section>
 
-      {/* Background */}
-      <section>
-        <SectionTitle>Background</SectionTitle>
-        <div className="space-y-4">
-          <Field label="Highest Education Level" required error={errors.education}>
-            <Input
-              type="text"
-              placeholder="e.g. Kenya Certificate of Secondary Education, Diploma…"
-              value={data.education ?? ""}
-              onChange={(e) => set("education", e.target.value)}
-            />
-          </Field>
-          <Field label="Relevant Experience (optional)" error={errors.experience}>
-            <Textarea
-              placeholder="Any previous coffee, hospitality, or customer service experience…"
-              value={data.experience ?? ""}
-              onChange={(e) => set("experience", e.target.value)}
-            />
-          </Field>
-        </div>
-      </section>
-
       {/* Emergency Contact */}
       <section>
         <SectionTitle>Emergency Contact</SectionTitle>
         <div className="grid gap-4 sm:grid-cols-2">
-          <Field label="Contact Name" required error={errors.emergencyName}>
+          <Field label="Surname" required error={errors.emergencySurname}>
             <Input
               type="text"
-              placeholder="Full name"
-              value={data.emergencyName ?? ""}
-              onChange={(e) => set("emergencyName", e.target.value)}
+              placeholder="Family name"
+              value={data.emergencySurname ?? ""}
+              onChange={(e) => set("emergencySurname", e.target.value)}
             />
           </Field>
-          <Field label="Contact Phone" required error={errors.emergencyPhone}>
+          <Field label="Other Names" required error={errors.emergencyOtherNames}>
+            <Input
+              type="text"
+              placeholder="First and middle names"
+              value={data.emergencyOtherNames ?? ""}
+              onChange={(e) => set("emergencyOtherNames", e.target.value)}
+            />
+          </Field>
+          <Field label="Relation" required error={errors.emergencyRelationship}>
+            <Input
+              type="text"
+              placeholder="e.g. Parent, Spouse, Sibling"
+              value={data.emergencyRelationship ?? ""}
+              onChange={(e) => set("emergencyRelationship", e.target.value)}
+            />
+          </Field>
+          <Field label="Phone Number" required error={errors.emergencyPhone}>
             <Input
               type="tel"
               placeholder="+254 7XX XXX XXX"
@@ -225,16 +260,6 @@ export function FullApplicationForm() {
               onChange={(e) => set("emergencyPhone", e.target.value)}
             />
           </Field>
-          <div className="sm:col-span-2">
-            <Field label="Relationship" required error={errors.emergencyRelationship}>
-              <Input
-                type="text"
-                placeholder="e.g. Parent, Spouse, Sibling"
-                value={data.emergencyRelationship ?? ""}
-                onChange={(e) => set("emergencyRelationship", e.target.value)}
-              />
-            </Field>
-          </div>
         </div>
       </section>
 
