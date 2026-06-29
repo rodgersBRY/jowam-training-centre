@@ -49,9 +49,13 @@ export function Footer() {
         <div className="text-sm text-cream/70">
           <p>{site.contact.location}</p>
           {site.contact.phones.map((p) => (
-            <p key={p.raw} className="mt-1">{p.display}</p>
+            <p key={p.raw} className="mt-1">
+              <a href={`tel:${p.raw}`} className="hover:text-orange transition-colors">{p.display}</a>
+            </p>
           ))}
-          <p className="mt-1">{site.contact.email}</p>
+          <p className="mt-1">
+            <a href={`mailto:${site.contact.email}`} className="hover:text-orange transition-colors">{site.contact.email}</a>
+          </p>
         </div>
       </Container>
       <Container className="border-t border-cream/10 py-6 text-xs text-cream/50">
