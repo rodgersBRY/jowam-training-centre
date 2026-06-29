@@ -20,7 +20,9 @@ export const applySchema = z.object({
   }),
   // Emergency contact
   emergencySurname: z.string().min(2, "Emergency contact surname is required"),
-  emergencyOtherNames: z.string().min(2, "Emergency contact other names are required"),
+  emergencyOtherNames: z
+    .string()
+    .min(2, "Emergency contact other names are required"),
   emergencyRelationship: z.string().min(2, "Relationship is required"),
   emergencyPhone: z.string().min(10, "Enter a valid emergency contact phone"),
 });

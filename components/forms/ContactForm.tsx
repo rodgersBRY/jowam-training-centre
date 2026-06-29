@@ -27,11 +27,15 @@ export function ContactForm() {
       result.error.issues.forEach((issue) => {
         if (issue.path[0]) fieldErrors[String(issue.path[0])] = issue.message;
       });
+
       setErrors(fieldErrors);
+      
       return;
     }
+
     setErrors({});
     setStatus("loading");
+
     try {
       await sendEmail(EMAIL_TEMPLATES.contact, {
         from_name: result.data.name,
@@ -89,9 +93,15 @@ export function ContactForm() {
         />
       </Field>
       {status === "error" && (
-        <p className="text-sm text-red-600">Something went wrong. Please try again.</p>
+        <p className="text-sm text-red-600">
+          Something went wrong. Please try again.
+        </p>
       )}
-      <Button type="submit" disabled={status === "loading"} className="w-full justify-center">
+      <Button
+        type="submit"
+        disabled={status === "loading"}
+        className="w-full justify-center"
+      >
         {status === "loading" ? "Sending…" : "Send Message"}
       </Button>
     </form>
