@@ -54,7 +54,7 @@ export function SaturdayPractical() {
               <Button href="/admissions">Learn about intake</Button>
             </div>
           </div>
-          <div className="relative aspect-square overflow-hidden rounded-2xl lg:aspect-auto lg:h-[500px]">
+          <div className="relative aspect-square overflow-hidden rounded-2xl lg:aspect-auto lg:h-125">
             <Image
               src={cloudinaryUrl(images.saturdayPractical, { width: 800 })}
               alt="Barista training session at Jowam Coffee Training Centre"
