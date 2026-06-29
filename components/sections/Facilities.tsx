@@ -1,26 +1,28 @@
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
+import { cloudinaryUrl } from "@/lib/utils/cloudinary";
+import { images } from "@/lib/data/images";
 
 const items = [
   {
     title: "Espresso Lab",
     description:
       "Six professional-grade espresso machines — the same models found in Kenya's leading specialty cafés. Every student gets hands-on machine time each Saturday, not just demonstration time.",
-    src: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&q=80",
+    publicId: images.facilities.espressoLab,
     alt: "Professional espresso machines in the Jowam training lab",
   },
   {
     title: "Brewing Studio",
     description:
       "A dedicated manual brewing station equipped with V60, Aeropress, Chemex, and French press gear. Students rotate through every method, building a full repertoire of brew skills.",
-    src: "https://images.unsplash.com/photo-1507133750040-4a8f57021571?w=600&q=80",
+    publicId: images.facilities.brewingStudio,
     alt: "Manual brewing studio with various coffee equipment",
   },
   {
     title: "Online Classroom",
     description:
       "Live-streamed theory sessions built for low-bandwidth connections. Join from anywhere in Kenya — every session is recorded so you can catch up within the same week if you miss one. Practicals are held at our CBD campus on Loita Street.",
-    src: "https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=600&q=80",
+    publicId: images.facilities.onlineClassroom,
     alt: "Online learning setup for Jowam theory sessions",
   },
 ];
@@ -46,7 +48,7 @@ export function Facilities() {
           {items.map((item) => (
             <div key={item.title} className="overflow-hidden rounded-2xl">
               <div className="relative h-48">
-                <Image src={item.src} alt={item.alt} fill className="object-cover" />
+                <Image src={cloudinaryUrl(item.publicId, { width: 600 })} alt={item.alt} fill className="object-cover" />
               </div>
               <div className="bg-coffee/40 p-4">
                 <h3 className="font-bold text-cream">{item.title}</h3>

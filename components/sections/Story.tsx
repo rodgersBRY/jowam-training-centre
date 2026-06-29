@@ -1,5 +1,7 @@
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
+import { cloudinaryUrl } from "@/lib/utils/cloudinary";
+import { images } from "@/lib/data/images";
 
 export function Story() {
   return (
@@ -36,7 +38,7 @@ export function Story() {
           </div>
           <div className="relative aspect-video overflow-hidden rounded-2xl lg:aspect-auto lg:h-[400px]">
             <Image
-              src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=800&q=80"
+              src={cloudinaryUrl(images.story, { width: 800 })}
               alt="Students training at Jowam Coffee Training Centre"
               fill
               className="object-cover"

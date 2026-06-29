@@ -1,4 +1,6 @@
 import { Button } from "@/components/ui/Button";
+import { cloudinaryUrl } from "@/lib/utils/cloudinary";
+import { images } from "@/lib/data/images";
 
 export function Hero() {
   return (
@@ -12,7 +14,7 @@ export function Hero() {
         loop
         playsInline
         preload="metadata"
-        poster="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1920&q=80"
+        poster={cloudinaryUrl(images.heroPoster, { width: 1920 })}
       />
       <div aria-hidden="true" className="absolute inset-0 bg-dark/60" />
       <div className="relative z-10 mx-auto max-w-4xl px-4 text-center">

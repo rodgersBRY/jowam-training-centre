@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
+import { cloudinaryUrl } from "@/lib/utils/cloudinary";
+import { images } from "@/lib/data/images";
 
 const practicals = [
   {
@@ -54,7 +56,7 @@ export function SaturdayPractical() {
           </div>
           <div className="relative aspect-square overflow-hidden rounded-2xl lg:aspect-auto lg:h-[500px]">
             <Image
-              src="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=800&q=80"
+              src={cloudinaryUrl(images.saturdayPractical, { width: 800 })}
               alt="Barista training session at Jowam Coffee Training Centre"
               fill
               className="object-cover"
