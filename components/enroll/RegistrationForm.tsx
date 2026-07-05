@@ -2,7 +2,8 @@
 
 import { useRef, useState } from "react";
 import Link from "next/link";
-import { courses } from "@/lib/data/courses";
+import { courses, getCourseBySlug } from "@/lib/data/courses";
+import { formatLabels, type ClassFormat } from "@/lib/data/formats";
 import { cn } from "@/lib/utils/cn";
 import {
   registrationSchema,
@@ -77,12 +78,20 @@ const legend = "px-2 font-display text-[1.05rem] font-semibold text-roast";
 
 export function RegistrationForm({
   defaultCourse,
+  defaultFormat = "in-person",
 }: {
   defaultCourse?: string;
+  defaultFormat?: ClassFormat;
 }) {
   const [errors, setErrors] = useState<Errors>({});
   const [status, setStatus] = useState<Status>("idle");
+  const [courseSlug, setCourseSlug] = useState(defaultCourse ?? "");
+  const [format, setFormat] = useState<ClassFormat>(defaultFormat);
   const formRef = useRef<HTMLFormElement>(null);
+
+  const onlineAvailable = Boolean(getCourseBySlug(courseSlug)?.online);
+  // Force in-person when the chosen course has no online option.
+  const effectiveFormat: ClassFormat = onlineAvailable ? format : "in-person";
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -99,6 +108,7 @@ export function RegistrationForm({
       idNumber: fd.get("idNumber"),
       educationLevel: fd.get("educationLevel"),
       courseSlug: fd.get("courseSlug"),
+      format: effectiveFormat,
       emergencyContactNames: fd.get("emergencyContactNames"),
       emergencyRelationship: fd.get("emergencyRelationship"),
       emergencyPhone: fd.get("emergencyPhone"),
@@ -263,7 +273,8 @@ export function RegistrationForm({
             id="courseSlug"
             name="courseSlug"
             className={inputCls}
-            defaultValue={defaultCourse ?? ""}
+            value={courseSlug}
+            onChange={(e) => setCourseSlug(e.target.value)}
           >
             <option value="" disabled>
               Select a course…
@@ -274,6 +285,57 @@ export function RegistrationForm({
               </option>
             ))}
           </select>
+        </Field>
+        <Field
+          id="format"
+          label="Preferred class format"
+          error={errors.format}
+        >
+          <div
+            role="radiogroup"
+            aria-label="Preferred class format"
+            className="flex flex-col gap-2 sm:flex-row sm:gap-3"
+          >
+            {(["in-person", "online"] as ClassFormat[]).map((f) => {
+              const disabled = f === "online" && !onlineAvailable;
+              const checked = effectiveFormat === f;
+              return (
+                <label
+                  key={f}
+                  className={cn(
+                    "flex flex-1 items-center gap-2 rounded-card border px-4 py-3",
+                    checked ? "border-brand-orange" : "border-line",
+                    disabled
+                      ? "cursor-not-allowed opacity-50"
+                      : "cursor-pointer"
+                  )}
+                >
+                  <input
+                    type="radio"
+                    name="format"
+                    value={f}
+                    checked={checked}
+                    disabled={disabled}
+                    onChange={() => setFormat(f)}
+                    className="h-4 w-4 accent-brand-orange"
+                  />
+                  <span className="font-medium text-brand-brown">
+                    {formatLabels[f]}
+                  </span>
+                </label>
+              );
+            })}
+          </div>
+          {!onlineAvailable && (
+            <p className="mt-1.5 text-small text-brand-brown/70">
+              This course is available in person only.
+            </p>
+          )}
+          {onlineAvailable && effectiveFormat === "online" && (
+            <p className="mt-1.5 text-small text-brand-brown/70">
+              Online includes the weekly in-person Saturday practicals.
+            </p>
+          )}
         </Field>
       </fieldset>
 

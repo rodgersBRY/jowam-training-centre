@@ -15,7 +15,13 @@ export type Course = {
   tagline: string;
   duration: string;
   weeks: number;
+  /** In-person (weekday) course fee. */
   price: number;
+  /**
+   * Online delivery option. Present only for courses offered online. The fee
+   * includes the weekly in-person Saturday practicals.
+   */
+  online?: { price: number };
   certificate: string;
   /** Pre-filled WhatsApp enquiry message for this course. */
   whatsappMessage: string;
@@ -37,6 +43,7 @@ export const courses: Course[] = [
     duration: "5 weeks",
     weeks: 5,
     price: 45000,
+    online: { price: 35000 },
     certificate: "Jowam Certificate of Completion",
     whatsappMessage:
       "Hi, I'd like to enroll in the Professional Barista Course.",
@@ -112,6 +119,7 @@ export const courses: Course[] = [
     duration: "5 weeks",
     weeks: 5,
     price: 50000,
+    online: { price: 40000 },
     certificate: "Jowam Certificate of Completion",
     whatsappMessage:
       "Hi, I'd like to enroll in the Professional Roasting Course.",

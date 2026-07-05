@@ -16,9 +16,10 @@ export const metadata: Metadata = pageMetadata({
 export default async function EnrollPage({
   searchParams,
 }: {
-  searchParams: Promise<{ course?: string }>;
+  searchParams: Promise<{ course?: string; format?: string }>;
 }) {
-  const { course } = await searchParams;
+  const { course, format } = await searchParams;
+  const defaultFormat = format === "online" ? "online" : "in-person";
 
   return (
     <>
@@ -48,7 +49,10 @@ export default async function EnrollPage({
           </div>
 
           <div className="mt-8">
-            <RegistrationForm defaultCourse={course} />
+            <RegistrationForm
+              defaultCourse={course}
+              defaultFormat={defaultFormat}
+            />
           </div>
 
           <p className="mt-8 text-center text-[0.85rem] text-brand-brown/70">

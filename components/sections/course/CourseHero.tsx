@@ -52,7 +52,7 @@ export function CourseHero({
 
           {/* Price — typographic event */}
           <div className="mt-8">
-            <p className="text-small font-semibold uppercase tracking-[0.1em] text-roast-text/70">
+            <p className="text-small font-semibold uppercase tracking-widest text-roast-text/70">
               Course fee
             </p>
             <p className="mt-1 text-price font-display font-extrabold leading-none text-paper">

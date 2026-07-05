@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { courses, getCourseBySlug, formatPrice } from "@/lib/data/courses";
+import { courses, getCourseBySlug } from "@/lib/data/courses";
 import { courseImages } from "@/lib/data/images";
 import { faqs } from "@/lib/data/faq";
 import { testimonials } from "@/lib/data/testimonials";
@@ -8,13 +8,12 @@ import { pageMetadata } from "@/lib/utils/metadata";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Card } from "@/components/ui/Card";
-import { ButtonLink } from "@/components/ui/Button";
 import { SyllabusTimeline } from "@/components/interactive/SyllabusTimeline";
-import { InstallmentCalculator } from "@/components/interactive/InstallmentCalculator";
 import { WhatsAppButton } from "@/components/interactive/WhatsAppButton";
 import { FaqAccordion } from "@/components/interactive/FaqAccordion";
 import { JsonLd, courseSchema, faqSchema } from "@/components/seo/JsonLd";
 import { CourseHero } from "@/components/sections/course/CourseHero";
+import { CoursePricing } from "@/components/sections/course/CoursePricing";
 
 export function generateStaticParams() {
   return courses.map((c) => ({ slug: c.slug }));
@@ -113,43 +112,14 @@ export default async function CoursePage({
         </Container>
       </section>
 
-      {/* Pricing + installments */}
+      {/* Pricing */}
       <section
         id="pricing"
         data-pricing-section
         className="section-y bg-paper scroll-mt-16"
       >
         <Container className="max-w-225">
-          <div className="grid gap-10 md:grid-cols-2">
-            <div>
-              <SectionHeading
-                eyebrow="Investment"
-                title="Transparent pricing"
-                lead={`${formatPrice(
-                  course.price,
-                )} for the full ${course.duration}. Pay in full or spread it across M-PESA installments.`}
-              />
-              <ul className="mt-6 space-y-2 text-brand-brown">
-                <li>
-                  <strong>{course.certificate}</strong> on completion
-                </li>
-                <li>Hands-on hours on professional equipment</li>
-                <li>All training materials and practice coffee included</li>
-                <li>Monthly intakes — start when it suits you</li>
-              </ul>
-              <div className="mt-8">
-                <ButtonLink
-                  variant="primary"
-                  href={`/enroll?course=${course.slug}`}
-                >
-                  Enroll now
-                </ButtonLink>
-              </div>
-            </div>
-            <Card interactive className="p-6 md:p-8">
-              <InstallmentCalculator price={course.price} />
-            </Card>
-          </div>
+          <CoursePricing course={course} />
         </Container>
       </section>
 

@@ -5,12 +5,15 @@
 export const site = {
   name: "Jowam Coffee Training Centre",
   shortName: "Jowam",
-  tagline: "Barista & Coffee Roasting Training in Nairobi CBD",
+  tagline: "Barista & Coffee Roasting Training in Nairobi",
   description:
     "Premium hands-on barista and coffee roasting training in Nairobi CBD. Monthly intakes, transparent pricing, M-PESA installments, and named expert instructors.",
   // Set to the production origin before launch.
   url: "https://jowamtrainingcentre.co.ke",
-  legalPreparedBy: "Zubariq Ventures",
+  developer: {
+    name: "Zubariq Ventures",
+    whatsapp: "254712413243",
+  },
 
   contact: {
     phones: [
@@ -28,10 +31,10 @@ export const site = {
     region: "Nairobi",
     country: "KE",
     full: "Pension Towers, 4th Floor, Loita Street, Nairobi CBD",
-    // Approx coordinates for Pension Towers, Loita Street.
-    geo: { lat: -1.2841, lng: 36.8155 },
+    // Coordinates for Pension Towers, Loita Street.
+    geo: { lat: -1.2836815663577816, long: 36.81789515767134 },
     mapEmbed:
-      "https://www.google.com/maps?q=Pension+Towers+Loita+Street+Nairobi&output=embed",
+      "https://www.google.com/maps?q=Jowam+Training+Centre&output=embed",
   },
 
   hours: [
@@ -45,6 +48,11 @@ export const site = {
       label: "Instagram",
       href: "https://www.instagram.com/jowam_coffee_training_centre/",
       icon: "instagram" as const,
+    },
+    {
+      label: "TikTok",
+      href: "https://www.tiktok.com/@jowam.coffee.trai?is_from_webapp=1&sender_device=pc",
+      icon: "tiktok" as const,
     },
     {
       label: "Facebook",

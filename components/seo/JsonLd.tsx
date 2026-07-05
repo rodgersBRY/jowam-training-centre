@@ -40,35 +40,51 @@ export function organizationSchema(): Record<string, unknown> {
 
 /** Course schema with a price offer (CONTENT-SEO §8). */
 export function courseSchema(course: Course): Record<string, unknown> {
+  const url = `${site.url}/courses/${course.slug}`;
+
+  const offer = (price: number) => ({
+    "@type": "Offer",
+    category: "Paid",
+    price,
+    priceCurrency: "KES",
+    availability: "https://schema.org/InStock",
+    url,
+  });
+
+  const onsiteInstance = {
+    "@type": "CourseInstance",
+    courseMode: "onsite",
+    courseWorkload: course.duration,
+    location: {
+      "@type": "Place",
+      name: site.name,
+      address: site.address.full,
+    },
+  };
+
+  const onlineInstance = {
+    "@type": "CourseInstance",
+    courseMode: "online",
+    courseWorkload: course.duration,
+  };
+
   return {
     "@context": "https://schema.org",
     "@type": "Course",
     name: course.title,
     description: course.summary,
-    url: `${site.url}/courses/${course.slug}`,
+    url,
     provider: {
       "@type": "EducationalOrganization",
       name: site.name,
       url: site.url,
     },
-    offers: {
-      "@type": "Offer",
-      category: "Paid",
-      price: course.price,
-      priceCurrency: "KES",
-      availability: "https://schema.org/InStock",
-      url: `${site.url}/courses/${course.slug}`,
-    },
-    hasCourseInstance: {
-      "@type": "CourseInstance",
-      courseMode: "onsite",
-      courseWorkload: course.duration,
-      location: {
-        "@type": "Place",
-        name: site.name,
-        address: site.address.full,
-      },
-    },
+    offers: course.online
+      ? [offer(course.price), offer(course.online.price)]
+      : offer(course.price),
+    hasCourseInstance: course.online
+      ? [onsiteInstance, onlineInstance]
+      : onsiteInstance,
   };
 }
 

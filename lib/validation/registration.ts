@@ -34,6 +34,9 @@ export const registrationSchema = z.object({
   courseSlug: z.enum(courseSlugs, {
     message: "Please select a course",
   }),
+  format: z.enum(["in-person", "online"], {
+    message: "Please choose a class format",
+  }),
 
   // Step 3 — Emergency contact & photo
   emergencyContactNames: z

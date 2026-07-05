@@ -47,6 +47,18 @@ export const faqs: FaqItem[] = [
     scope: "schedule",
   },
   {
+    question: "Do you offer online classes?",
+    answer:
+      "Yes. The Professional Barista and Professional Roasting courses can be taken online, with live classes you can join from anywhere. Online students also attend weekly in-person Saturday practicals at our CBD facility, so you still get real hands-on machine and roaster time. The Basic Refresher Training is in-person only.",
+    scope: "schedule",
+  },
+  {
+    question: "What are the Saturday practicals?",
+    answer:
+      "They are the hands-on component for online students — weekly in-person sessions at our Nairobi CBD facility where you practise on professional equipment with an instructor. They are included in the online course fee.",
+    scope: "schedule",
+  },
+  {
     question: "Do I get a certificate?",
     answer:
       "Yes. On successful completion you receive a Jowam certificate recognised by industry partners, awarded after your practical assessment.",
