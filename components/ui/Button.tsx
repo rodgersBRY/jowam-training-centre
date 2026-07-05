@@ -1,38 +1,75 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils/cn";
 
-type Variant = "primary" | "secondary" | "ghost";
-
-const variants: Record<Variant, string> = {
-  primary: "bg-orange text-cream hover:bg-orange/90",
-  secondary: "bg-coffee text-cream hover:bg-coffee/90",
-  ghost: "bg-transparent text-coffee ring-1 ring-coffee/30 hover:bg-coffee/5",
-};
+type Variant = "primary" | "secondary" | "whatsapp" | "ghost";
 
 const base =
-  "inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange disabled:cursor-not-allowed disabled:opacity-50";
+  "inline-flex items-center justify-center gap-2 rounded-[999px] font-semibold " +
+  "transition-transform duration-[150ms] ease-[cubic-bezier(0.2,0,0,1)] " +
+  "active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 " +
+  "focus-visible:outline-[var(--color-brand-orange)] min-h-[44px] px-6 py-3 text-[18px]";
 
-type ButtonProps = {
+const variants: Record<Variant, string> = {
+  // Text on orange is white, 18px/600 (DESIGN §2 contrast rules).
+  primary:
+    "bg-[var(--color-brand-orange)] text-white hover:-translate-y-[2px]",
+  // Orange outline secondary CTA.
+  secondary:
+    "border-2 border-[var(--color-brand-orange)] text-[var(--color-brand-orange)] " +
+    "bg-transparent hover:-translate-y-[2px]",
+  // WhatsApp green — reserved (DESIGN §2).
+  whatsapp: "bg-[var(--color-whatsapp)] text-white hover:-translate-y-[2px]",
+  ghost:
+    "text-[var(--color-brand-orange)] px-0 py-0 min-h-0 hover:-translate-y-[1px]",
+};
+
+type CommonProps = {
   variant?: Variant;
   className?: string;
   children: React.ReactNode;
-} & (
-  | ({ href: string } & React.ComponentProps<typeof Link>)
-  | ({ href?: undefined } & React.ButtonHTMLAttributes<HTMLButtonElement>)
-);
+};
 
-export function Button({ variant = "primary", className, children, ...props }: ButtonProps) {
-  const classes = cn(base, variants[variant], className);
-  if ("href" in props && props.href) {
+export function Button({
+  variant = "primary",
+  className,
+  children,
+  ...props
+}: CommonProps & React.ButtonHTMLAttributes<HTMLButtonElement>) {
+  return (
+    <button className={cn(base, variants[variant], className)} {...props}>
+      {children}
+    </button>
+  );
+}
+
+export function ButtonLink({
+  variant = "primary",
+  className,
+  children,
+  href,
+  external,
+  ...props
+}: CommonProps & {
+  href: string;
+  external?: boolean;
+} & React.AnchorHTMLAttributes<HTMLAnchorElement>) {
+  const cls = cn(base, variants[variant], className);
+  if (external) {
     return (
-      <Link className={classes} {...(props as React.ComponentProps<typeof Link>)}>
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={cls}
+        {...props}
+      >
         {children}
-      </Link>
+      </a>
     );
   }
   return (
-    <button className={classes} {...(props as React.ButtonHTMLAttributes<HTMLButtonElement>)}>
+    <Link href={href} className={cls} {...props}>
       {children}
-    </button>
+    </Link>
   );
 }

@@ -1,65 +1,119 @@
 import Link from "next/link";
 import { site } from "@/lib/data/site";
+import { courses } from "@/lib/data/courses";
+import { Logo } from "@/components/ui/Logo";
 import { Container } from "@/components/ui/Container";
+import { socialIcons } from "@/components/ui/icons";
 
-const icons = {
-  instagram: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="h-5 w-5">
-      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-      <circle cx="12" cy="12" r="4" />
-      <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none" />
-    </svg>
-  ),
-  facebook: (
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="h-5 w-5">
-      <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" />
-    </svg>
-  ),
-};
-
+/**
+ * Footer on --roast — the canonical on-site home for the NAP (DESIGN §6).
+ */
 export function Footer() {
   return (
-    <footer className="bg-dark text-cream">
-      <Container className="grid gap-8 py-12 sm:grid-cols-2 lg:grid-cols-3">
-        <div>
-          <p className="text-lg font-bold">{site.name}</p>
-          <p className="mt-2 text-sm text-cream/70">{site.tagline}</p>
-          <div className="mt-4 flex gap-3">
-            {site.social.map((s) => (
-              <a
-                key={s.label}
-                href={s.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={s.label}
-                className="text-cream/50 transition-colors hover:text-orange"
-              >
-                {icons[s.icon]}
-              </a>
-            ))}
+    <footer className="bg-[var(--color-roast)] text-[var(--color-roast-text)]">
+      <Container className="py-16">
+        <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr]">
+          <div>
+            <Logo reversed />
+            <p className="measure mt-5 text-[0.95rem] text-[var(--color-roast-text)]/85">
+              Premium hands-on barista and coffee roasting training in the heart
+              of Nairobi CBD. Monthly intakes, transparent pricing, real
+              equipment.
+            </p>
+            <div className="mt-6 flex gap-3">
+              {site.social.map((s) => {
+                const Icon = socialIcons[s.icon];
+                return (
+                  <a
+                    key={s.href}
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={s.label}
+                    className="inline-flex h-11 w-11 items-center justify-center rounded-[999px] border border-white/15 text-[var(--color-roast-text)] transition-colors hover:border-[var(--color-brand-orange)] hover:text-[var(--color-brand-orange)]"
+                  >
+                    <Icon />
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+
+          <nav aria-label="Courses">
+            <h2 className="text-[0.8rem] font-semibold uppercase tracking-[0.14em] text-[var(--color-brand-orange)]">
+              Courses
+            </h2>
+            <ul className="mt-4 space-y-2.5 text-[0.95rem]">
+              {courses.map((c) => (
+                <li key={c.slug}>
+                  <Link
+                    href={`/courses/${c.slug}`}
+                    className="text-[var(--color-roast-text)]/85 transition-colors hover:text-white"
+                  >
+                    {c.title}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <Link
+                  href="/enroll"
+                  className="text-[var(--color-roast-text)]/85 transition-colors hover:text-white"
+                >
+                  Enroll
+                </Link>
+              </li>
+            </ul>
+          </nav>
+
+          <div>
+            <h2 className="text-[0.8rem] font-semibold uppercase tracking-[0.14em] text-[var(--color-brand-orange)]">
+              Visit &amp; contact
+            </h2>
+            <address className="mt-4 space-y-2.5 text-[0.95rem] not-italic text-[var(--color-roast-text)]/85">
+              <p>{site.address.full}</p>
+              {site.contact.phones.map((p) => (
+                <p key={p.raw}>
+                  <a
+                    href={`tel:+${p.raw}`}
+                    className="transition-colors hover:text-white"
+                  >
+                    {p.display}
+                  </a>
+                </p>
+              ))}
+              <p>
+                <a
+                  href={`mailto:${site.contact.email}`}
+                  className="transition-colors hover:text-white"
+                >
+                  {site.contact.email}
+                </a>
+              </p>
+            </address>
+            <div className="mt-5 text-[0.9rem] text-[var(--color-roast-text)]/70">
+              {site.hours.map((h) => (
+                <p key={h.days}>
+                  <span className="text-[var(--color-roast-text)]">
+                    {h.days}:
+                  </span>{" "}
+                  {h.time}
+                </p>
+              ))}
+            </div>
           </div>
         </div>
-        <nav className="flex flex-col gap-2">
-          {site.nav.map((item) => (
-            <Link key={item.href} href={item.href} className="text-sm text-cream/70 hover:text-orange">
-              {item.label}
-            </Link>
-          ))}
-        </nav>
-        <div className="text-sm text-cream/70">
-          <p>{site.contact.location}</p>
-          {site.contact.phones.map((p) => (
-            <p key={p.raw} className="mt-1">
-              <a href={`tel:${p.raw}`} className="hover:text-orange transition-colors">{p.display}</a>
-            </p>
-          ))}
-          <p className="mt-1">
-            <a href={`mailto:${site.contact.email}`} className="hover:text-orange transition-colors">{site.contact.email}</a>
+
+        <div className="mt-14 flex flex-col gap-3 border-t border-white/10 pt-6 text-[0.85rem] text-[var(--color-roast-text)]/70 sm:flex-row sm:items-center sm:justify-between">
+          <p>
+            © {new Date().getFullYear()} {site.name}. All rights reserved.
           </p>
+          <Link
+            href="/privacy-policy"
+            className="transition-colors hover:text-white"
+          >
+            Privacy Policy
+          </Link>
         </div>
-      </Container>
-      <Container className="border-t border-cream/10 py-6 text-xs text-cream/50">
-        © {new Date().getFullYear()} {site.name}. All rights reserved.
       </Container>
     </footer>
   );

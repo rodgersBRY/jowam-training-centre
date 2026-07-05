@@ -1,37 +1,67 @@
-export type Faq = {
+export type FaqItem = {
   question: string;
   answer: string;
+  /** Optional grouping; used to pull course-specific FAQs. */
+  scope?: "general" | "cost" | "schedule" | "certificate";
 };
 
-export const faqs: Faq[] = [
+/**
+ * Sitewide FAQ content (CONTENT-SEO §4 FAQ). Rendered on /faq and, in
+ * preview form, on the homepage. Marked up with FAQPage schema.
+ */
+export const faqs: FaqItem[] = [
   {
-    question: "Do I need any prior coffee experience to enrol?",
+    question: "How much do the courses cost?",
     answer:
-      "No experience is required for Barista Fundamentals — it is designed for complete beginners. The Espresso & Latte Art course is better suited to those who have completed Barista Fundamentals or have at least six months of hands-on bar experience.",
+      "The Professional Barista Course is KES 45,000, the Professional Roasting Course is KES 50,000, and the Basic Refresher Training is KES 25,000. Prices are published openly and can be paid in full or in M-PESA installments.",
+    scope: "cost",
   },
   {
-    question: "How does the flexible learning model work?",
+    question: "Can I pay in installments?",
     answer:
-      "Theory modules are delivered online via live sessions you can join from anywhere in Kenya. Practical training takes place every Saturday at our campus on Loita Street in Nairobi CBD. This means you keep your current job or studies during the week and come in on Saturdays to apply what you have learned.",
+      "Yes. Every course can be paid in full or split into two or three M-PESA installments. Use the installment calculator on any course page to see the exact split.",
+    scope: "cost",
   },
   {
-    question: "What do I receive when I complete the course?",
+    question: "When is the next intake?",
     answer:
-      "Every graduate receives a Jowam Certificate of Completion, recognised by our network of industry partners across Kenya and East Africa. You also gain access to our graduate job board and alumni community.",
+      "We run a new intake every month. The current next intake date is shown in the header and on every course page.",
+    scope: "schedule",
   },
   {
-    question: "How many students are in each cohort?",
+    question: "How long are the courses?",
     answer:
-      "We keep cohorts small — a maximum of 12 students per group — so every student gets enough machine time and personal feedback from instructors during each Saturday session.",
+      "The Professional Barista and Professional Roasting courses each run for 5 weeks. The Basic Refresher Training runs for 2 weeks.",
+    scope: "schedule",
   },
   {
-    question: "What equipment do I need for the online theory sessions?",
+    question: "What are the entry requirements?",
     answer:
-      "Just a smartphone, tablet, or laptop with a stable internet connection. All equipment used during practicals is provided at the Jowam lab — you do not need to own any coffee equipment.",
+      "No prior experience is required for the Professional Barista or Roasting courses — we start from the fundamentals. The Basic Refresher Training is designed for people who already have some barista experience.",
+    scope: "general",
   },
   {
-    question: "Can my employer pay for the course?",
+    question: "What are the class times?",
     answer:
-      "Yes. We issue tax-compliant invoices to companies and can structure group bookings for teams. Reach out via our contact page or call us directly to discuss corporate enrolment options.",
+      "Classes run on weekdays during business hours, with practical sessions on Saturdays. Exact timetables are shared on enrollment so you can plan around work.",
+    scope: "schedule",
+  },
+  {
+    question: "Do I get a certificate?",
+    answer:
+      "Yes. On successful completion you receive a Jowam certificate recognised by industry partners, awarded after your practical assessment.",
+    scope: "certificate",
+  },
+  {
+    question: "Will this help me get a job?",
+    answer:
+      "Our training is built around what employers actually need on the bar and in the roastery. Graduates go on to barista, senior barista, and production roasting roles, and many use the skills to start their own coffee businesses.",
+    scope: "general",
+  },
+  {
+    question: "Where are you located?",
+    answer:
+      "Jowam Coffee Training Centre is at Pension Towers, 4th Floor, Loita Street, in Nairobi CBD — easy to reach by matatu or on foot from the city centre.",
+    scope: "general",
   },
 ];

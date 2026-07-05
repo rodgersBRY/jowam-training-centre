@@ -1,34 +1,132 @@
 @import "tailwindcss";
 
-@theme {
-  /* Brand palette — STRICT (AGENTS.md §3) */
-  --color-coffee: #4a2a16;
-  --color-orange: #f24d1e;
-  --color-cream: #f8f5f0;
-  --color-dark: #1a120d;
+/* ============================================================
+   Jowam Coffee Training Centre — Design tokens (DESIGN.md)
+   ============================================================ */
 
-  /* Fonts (wired in layout via next/font) */
-  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+@theme {
+  /* Color system — DESIGN §2 */
+  --color-roast: #241b15; /* near-black warm brown */
+  --color-paper: #faf6f0; /* warm off-white */
+  --color-brand-orange: #ed4523; /* logo vermilion */
+  --color-brand-brown: #553119; /* logo brown — body on light */
+  --color-roast-text: #f1e9df; /* body text on roast */
+  --color-whatsapp: #25d366; /* WhatsApp only */
+  --color-line: #e5dcd0; /* hairlines, dividers */
+
+  /* Typography — DESIGN §3 */
+  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --text-hero: clamp(2.5rem, 7vw, 4.5rem);
+  --text-hero--line-height: 1.05;
+  --text-h2: clamp(1.75rem, 4vw, 2.75rem);
+  --text-h2--line-height: 1.1;
+  --text-h3: clamp(1.25rem, 2.5vw, 1.5rem);
+  --text-h3--line-height: 1.25;
+  --text-body: 1.0625rem; /* 17px */
+  --text-body--line-height: 1.65;
+  --text-small: 0.875rem;
+  --text-price: clamp(2rem, 5vw, 3rem);
+
+  /* Spacing scale — DESIGN §4 (4px base) */
+  --spacing: 4px;
+
+  /* Radius — DESIGN §4 */
+  --radius-card: 12px;
+  --radius-pill: 999px;
+
+  /* Elevation — DESIGN §4 (one soft shadow only) */
+  --shadow-card: 0 8px 30px rgb(36 27 21 / 0.08);
+
+  /* Motion — DESIGN §7 */
+  --dur-micro: 150ms;
+  --dur-reveal: 400ms;
+  --ease-brand: cubic-bezier(0.2, 0, 0, 1);
+
+  /* Layout */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 900px;
+  --breakpoint-lg: 1200px;
 }
 
+/* ------------------------------------------------------------
+   Base
+   ------------------------------------------------------------ */
 :root {
   color-scheme: light;
 }
 
-body {
-  background-color: var(--color-cream);
-  color: var(--color-coffee);
-  font-family: var(--font-sans);
-  -webkit-font-smoothing: antialiased;
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
 }
 
+body {
+  background-color: var(--color-paper);
+  color: var(--color-brand-brown);
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: var(--text-body--line-height);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  color: var(--color-roast);
+  text-wrap: balance;
+}
+
+/* Visible keyboard focus — DESIGN §8 */
+:focus-visible {
+  outline: 2px solid var(--color-brand-orange);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Reading measure — DESIGN §3 */
+.measure {
+  max-width: 65ch;
+}
+
+/* Reduced motion — DESIGN §7/§8: honor fully */
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
   *,
   *::before,
   *::after {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
-    scroll-behavior: auto !important;
+  }
+}
+
+/* ------------------------------------------------------------
+   Utilities shared across pages
+   ------------------------------------------------------------ */
+
+/* Roast scrim over hero photography — DESIGN §5 */
+.hero-scrim {
+  background-image: linear-gradient(
+    to top,
+    rgb(36 27 21 / 0.9) 0%,
+    rgb(36 27 21 / 0.55) 40%,
+    rgb(36 27 21 / 0.25) 100%
+  );
+}
+
+/* Section rhythm helpers — DESIGN §4 */
+.section-y {
+  padding-block: 64px;
+}
+@media (min-width: 900px) {
+  .section-y {
+    padding-block: 112px;
   }
 }

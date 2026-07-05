@@ -1,26 +1,40 @@
 export type Testimonial = {
   name: string;
-  role: string;
   quote: string;
+  course: string;
+  /** Where the graduate works now (social proof — CONTENT-SEO §4). */
+  workplace: string;
+  /** Cloudinary public ID for the portrait, or null for an initial avatar. */
+  image: string | null;
 };
 
+/**
+ * Static testimonials — never a carousel (DESIGN §6). Maximum three per
+ * page. Replace with real graduate quotes and portraits before launch.
+ */
 export const testimonials: Testimonial[] = [
   {
-    name: "Grace Wanjiru",
-    role: "Barista, Java House Westgate",
+    name: "Brian Otieno",
     quote:
-      "Before Jowam I had been trying to break into specialty coffee for two years. Six weeks later I had my first job offer. The Saturday practical sessions made the difference — real machines, real pressure, real feedback.",
+      "I walked in never having touched an espresso machine. Five weeks later I was pulling clean shots and pouring rosettas. I had a job before the course even ended.",
+    course: "Professional Barista Course",
+    workplace: "Barista, Nairobi CBD café",
+    image: null,
   },
   {
-    name: "Daniel Omondi",
-    role: "Owner, Sip & Co. Coffee Bar, Kisumu",
+    name: "Aisha Mwangi",
     quote:
-      "I sent three of my staff through the Barista Fundamentals course and the improvement was immediate. Consistency improved, waste dropped, and my customers noticed the quality. Best training investment I have made.",
+      "The roasting course is the real thing — actual green coffee, an actual roaster, and profiles I still use today. Jowam took me from curious to confident.",
+    course: "Professional Roasting Course",
+    workplace: "Production Roaster, specialty roastery",
+    image: null,
   },
   {
-    name: "Faith Achieng",
-    role: "Lead Barista, Nairobi Chai — Cohort 12 Graduate",
+    name: "Kevin Kariuki",
     quote:
-      "What I loved was that nobody made me feel behind. The instructors meet you where you are and push you forward. I went from knowing nothing to running a café bar in under two months.",
+      "I'd been on the bar for a year but had gaps. The refresher sharpened my milk work and speed in two weeks. Worth every shilling.",
+    course: "Basic Refresher Training",
+    workplace: "Senior Barista, hotel coffee bar",
+    image: null,
   },
 ];

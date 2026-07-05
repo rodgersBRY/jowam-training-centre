@@ -1,28 +1,32 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Bricolage_Grotesque, Inter } from "next/font/google";
+import { site } from "@/lib/data/site";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { JsonLd, organizationSchema } from "@/components/seo/JsonLd";
 import "./globals.css";
 
-const jakarta = Plus_Jakarta_Sans({
+// Self-hosted variable fonts via next/font, font-display: swap, preloaded.
+const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
-  variable: "--font-jakarta",
+  variable: "--font-bricolage",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
   display: "swap",
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(site.url),
   title: {
-    default: "Jowam Coffee Training Centre",
-    template: "%s | Jowam Coffee Training Centre",
+    default: `${site.name} — ${site.tagline}`,
+    template: `%s | ${site.name}`,
   },
-  description:
-    "Flexible barista training in Nairobi, Kenya — daytime classes, evening online theory, and Saturday hands-on practicals.",
-  keywords: [
-    "barista training Kenya",
-    "coffee academy Nairobi",
-    "barista course Kenya",
-    "coffee training school Nairobi",
-  ],
+  description: site.description,
+  alternates: { canonical: "/" },
 };
 
 export default function RootLayout({
@@ -30,24 +34,12 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "EducationalOrganization",
-    name: "Jowam Coffee Training Centre",
-    description:
-      "Flexible barista training in Nairobi, Kenya — daytime classes, evening online theory, and Saturday hands-on practicals.",
-    address: { "@type": "PostalAddress", addressLocality: "Nairobi", addressCountry: "KE" },
-  };
-
   return (
-    <html lang="en" className={jakarta.variable}>
-      <body className="flex min-h-screen flex-col">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+    <html lang="en" className={`${bricolage.variable} ${inter.variable}`}>
+      <body>
+        <JsonLd data={organizationSchema()} />
         <Header />
-        <main className="flex-1">{children}</main>
+        <main id="main">{children}</main>
         <Footer />
       </body>
     </html>

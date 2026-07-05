@@ -1,123 +1,123 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
-import { site } from "@/lib/data/site";
-import { Button } from "@/components/ui/Button";
-import { Container } from "@/components/ui/Container";
+import { site, nextIntake } from "@/lib/data/site";
+import { Logo } from "@/components/ui/Logo";
 import { cn } from "@/lib/utils/cn";
-
-const socialIcons = {
-  instagram: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="h-4 w-4">
-      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-      <circle cx="12" cy="12" r="4" />
-      <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none" />
-    </svg>
-  ),
-  facebook: (
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="h-4 w-4">
-      <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" />
-    </svg>
-  ),
-};
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
-  const pathname = usePathname();
-  const isHome = pathname === "/";
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => setScrolled(window.scrollY > 4);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50">
-      {/* Announcement banner — always bg-coffee */}
-      <div className="bg-coffee py-2 text-center text-xs font-medium text-cream">
-        <Container>
-          Intake Ongoing &mdash; Call us now:{" "}
-          {site.contact.phones.map((p, i) => (
-            <span key={p.raw}>
-              <a
-                href={`tel:${p.raw}`}
-                className="font-bold underline underline-offset-2 transition-colors hover:text-orange"
-              >
-                {p.display}
-              </a>
-              {i < site.contact.phones.length - 1 && " / "}
-            </span>
+    <header
+      className={cn(
+        "sticky top-0 z-50 bg-[var(--color-paper)] border-b border-[var(--color-line)]",
+        "transition-shadow duration-[150ms]",
+        scrolled && "shadow-[0_2px_16px_rgb(36_27_21/0.06)]"
+      )}
+    >
+      <div className="mx-auto flex h-14 max-w-[1200px] items-center justify-between px-6 md:h-16">
+        <Link href="/" aria-label={`${site.name} home`} className="shrink-0">
+          <Logo />
+        </Link>
+
+        <nav
+          aria-label="Primary"
+          className="hidden items-center gap-7 md:flex"
+        >
+          {site.nav.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="text-[0.95rem] font-medium text-[var(--color-brand-brown)] transition-colors hover:text-[var(--color-brand-orange)]"
+            >
+              {item.label}
+            </Link>
           ))}
-        </Container>
+        </nav>
+
+        <div className="flex items-center gap-3">
+          {/* Intake pill — persistent sitewide (DESIGN §6) */}
+          <Link
+            href="/enroll"
+            className="hidden rounded-[999px] border border-[var(--color-brand-orange)] px-4 py-1.5 text-[0.8rem] font-semibold text-[var(--color-brand-orange)] transition-transform duration-[150ms] hover:-translate-y-[1px] sm:inline-flex"
+          >
+            Next intake: {nextIntake}
+          </Link>
+
+          {/* Mobile menu toggle */}
+          <button
+            type="button"
+            className="inline-flex h-11 w-11 items-center justify-center md:hidden"
+            aria-expanded={menuOpen}
+            aria-controls="mobile-nav"
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            onClick={() => setMenuOpen((v) => !v)}
+          >
+            <span className="relative block h-4 w-6">
+              <span
+                className={cn(
+                  "absolute left-0 top-0 h-0.5 w-6 bg-[var(--color-roast)] transition-transform duration-[150ms]",
+                  menuOpen && "translate-y-[7px] rotate-45"
+                )}
+              />
+              <span
+                className={cn(
+                  "absolute left-0 top-[7px] h-0.5 w-6 bg-[var(--color-roast)] transition-opacity duration-[150ms]",
+                  menuOpen && "opacity-0"
+                )}
+              />
+              <span
+                className={cn(
+                  "absolute left-0 top-[14px] h-0.5 w-6 bg-[var(--color-roast)] transition-transform duration-[150ms]",
+                  menuOpen && "-translate-y-[7px] -rotate-45"
+                )}
+              />
+            </span>
+          </button>
+        </div>
       </div>
 
-      {/* Navbar — background transitions on scroll */}
-      <div
-        className={cn(
-          "transition-colors duration-300",
-          isHome && !scrolled ? "bg-transparent" : "bg-cream/95 shadow-sm backdrop-blur",
-        )}
-      >
-        <Container className="flex h-16 items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
-            <Image src="/logo.jpg" alt={site.name} width={36} height={36} className="rounded-full" />
-            <span className={cn("text-sm font-bold transition-colors", isHome && !scrolled ? "text-cream" : "text-coffee")}>
-              {site.name}
-            </span>
-          </Link>
-          <nav className="hidden items-center gap-6 md:flex">
-            {site.nav.map((item) => {
-              const isActive =
-                item.href === "/"
-                  ? pathname === "/"
-                  : pathname === item.href || pathname.startsWith(item.href + "/");
-              return (
+      {/* Mobile nav panel */}
+      {menuOpen && (
+        <nav
+          id="mobile-nav"
+          aria-label="Primary mobile"
+          className="border-t border-[var(--color-line)] bg-[var(--color-paper)] md:hidden"
+        >
+          <ul className="flex flex-col px-6 py-2">
+            {site.nav.map((item) => (
+              <li key={item.href}>
                 <Link
-                  key={item.href}
                   href={item.href}
-                  className={cn(
-                    "text-sm font-medium transition-colors hover:text-orange",
-                    isActive
-                      ? "text-orange"
-                      : isHome && !scrolled
-                        ? "text-cream/90"
-                        : "text-coffee/80",
-                  )}
+                  className="block py-3 text-[1.05rem] font-medium text-[var(--color-brand-brown)]"
+                  onClick={() => setMenuOpen(false)}
                 >
                   {item.label}
                 </Link>
-              );
-            })}
-          </nav>
-          <div className="flex items-center gap-3">
-            <div className="hidden items-center gap-2 md:flex">
-              {site.social.map((s) => (
-                <a
-                  key={s.label}
-                  href={s.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={s.label}
-                  className={cn(
-                    "transition-colors hover:text-orange",
-                    isHome && !scrolled ? "text-cream/70" : "text-coffee/60",
-                  )}
-                >
-                  {socialIcons[s.icon]}
-                </a>
-              ))}
-            </div>
-            <Button href="/apply" className="hidden md:inline-flex">
-              Apply
-            </Button>
-          </div>
-        </Container>
-      </div>
+              </li>
+            ))}
+            <li>
+              <Link
+                href="/enroll"
+                className="mt-1 mb-3 inline-flex rounded-[999px] border border-[var(--color-brand-orange)] px-4 py-2 text-[0.85rem] font-semibold text-[var(--color-brand-orange)]"
+                onClick={() => setMenuOpen(false)}
+              >
+                Next intake: {nextIntake}
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      )}
     </header>
   );
 }

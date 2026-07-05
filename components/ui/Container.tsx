@@ -1,15 +1,18 @@
 import { cn } from "@/lib/utils/cn";
 
+/** Max-width 1200px content column with 24px gutters (DESIGN §4). */
 export function Container({
   className,
   children,
+  as: Tag = "div",
 }: {
   className?: string;
   children: React.ReactNode;
+  as?: React.ElementType;
 }) {
   return (
-    <div className={cn("mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8", className)}>
+    <Tag className={cn("mx-auto w-full max-w-[1200px] px-6", className)}>
       {children}
-    </div>
+    </Tag>
   );
 }
