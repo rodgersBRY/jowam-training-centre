@@ -15,7 +15,7 @@ import {
 export const metadata: Metadata = pageMetadata({
   title: "Gallery — Real Jowam Classes",
   description:
-    "Real photos from Jowam Coffee Training Centre — espresso drills, latte art, manual brewing, and roasting sessions in Nairobi CBD.",
+    "Real photos from Jowam Coffee Training Centre — espresso drills, latte art, manual brewing, and roasting sessions in Nairobi.",
   path: "/gallery",
 });
 

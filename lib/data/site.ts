@@ -5,9 +5,9 @@
 export const site = {
   name: "Jowam Coffee Training Centre",
   shortName: "Jowam",
-  tagline: "Barista & Coffee Roasting Training in Nairobi",
+  tagline: "Professional Barista & Coffee Roasting Training",
   description:
-    "Premium hands-on barista and coffee roasting training in Nairobi CBD. Monthly intakes, transparent pricing, M-PESA installments, and named expert instructors.",
+    "Premium hands-on barista and coffee roasting training in Nairobi. Monthly intakes, transparent pricing, M-PESA installments, and named expert instructors.",
   // Set to the production origin before launch.
   url: "https://jowamtrainingcentre.co.ke",
   developer: {
@@ -27,10 +27,10 @@ export const site = {
   address: {
     building: "Pension Towers, 4th Floor",
     street: "Loita Street",
-    locality: "Nairobi CBD",
+    locality: "Nairobi",
     region: "Nairobi",
     country: "KE",
-    full: "Pension Towers, 4th Floor, Loita Street, Nairobi CBD",
+    full: "Pension Towers, 4th Floor, Loita Street, Nairobi",
     // Coordinates for Pension Towers, Loita Street.
     geo: { lat: -1.2836815663577816, long: 36.81789515767134 },
     mapEmbed:

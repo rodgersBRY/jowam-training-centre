@@ -57,7 +57,7 @@ export function CoursePricing({ course }: { course: Course }) {
                     "rounded-pill px-4 py-2 text-[0.85rem] font-semibold transition-colors duration-150",
                     active
                       ? "bg-brand-orange text-white"
-                      : "text-brand-brown hover:text-brand-orange"
+                      : "text-brand-brown hover:text-brand-orange",
                   )}
                 >
                   {formatInfo[f].label}
@@ -85,7 +85,11 @@ export function CoursePricing({ course }: { course: Course }) {
               aria-hidden="true"
             />
             <span>
-              <strong>{course.certificate}</strong> on completion
+              <strong>{course.certificate}</strong> awarded upon successful
+              completion of the course by{" "}
+              <span>
+                <strong>Jowam Coffee Training Centre</strong>
+              </span>
             </span>
           </li>
         </ul>
@@ -95,7 +99,8 @@ export function CoursePricing({ course }: { course: Course }) {
             variant="primary"
             href={`/enroll?course=${course.slug}&format=${format}`}
           >
-            Enroll {formatInfo[format].label.toLowerCase()} — {formatPrice(price)}
+            Enroll {formatInfo[format].label.toLowerCase()} —{" "}
+            {formatPrice(price)}
           </ButtonLink>
         </div>
       </div>

@@ -3,7 +3,12 @@ import { site } from "@/lib/data/site";
 import { courses } from "@/lib/data/courses";
 import { Logo } from "@/components/ui/Logo";
 import { Container } from "@/components/ui/Container";
-import { socialIcons } from "@/components/ui/icons";
+import {
+  socialIcons,
+  MailIcon,
+  AddressIcon,
+  PhoneIcon,
+} from "@/components/ui/icons";
 import Image from "next/image";
 
 /**
@@ -27,7 +32,7 @@ export function Footer() {
 
             <p className="measure mt-5 text-[0.95rem] text-roast-text/85">
               Premium hands-on barista and coffee roasting training in the heart
-              of Nairobi CBD. Monthly intakes, transparent pricing, real
+              of Nairobi. Monthly intakes, transparent pricing, real
               equipment.
             </p>
             <div className="mt-6 flex gap-3">
@@ -80,21 +85,24 @@ export function Footer() {
               Visit &amp; contact
             </h2>
             <address className="mt-4 space-y-2.5 text-[0.95rem] not-italic text-roast-text/85">
-              <p>{site.address.full}</p>
+              <p className="flex items-start"><AddressIcon />: {site.address.full}</p>
+              
               {site.contact.phones.map((p) => (
-                <p key={p.raw}>
+                <p key={p.raw} className="flex items-center">
+                  <PhoneIcon />{`: `}
                   <a
                     href={`tel:+${p.raw}`}
-                    className="transition-colors hover:text-white"
+                    className="transition-colors hover:text-white ml-1"
                   >
                     {p.display}
                   </a>
                 </p>
               ))}
-              <p>
+              <p className="flex items-center">
+                <MailIcon />{`: `}
                 <a
                   href={`mailto:${site.contact.email}`}
-                  className="transition-colors hover:text-white"
+                  className="transition-colors hover:text-white ml-1"
                 >
                   {site.contact.email}
                 </a>

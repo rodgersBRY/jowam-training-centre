@@ -13,6 +13,9 @@ import {
   LuCoffee,
   LuCalendarDays,
   LuRepeat,
+  LuMail,
+  LuPhoneCall,
+  LuPin,
 } from "react-icons/lu";
 
 /**
@@ -39,6 +42,11 @@ export const TikTokIcon = icon(FaTiktok, 20);
 export const ArrowIcon = icon(LuArrowRight, 18);
 export const ChevronIcon = icon(LuChevronDown, 18);
 export const CloseIcon = icon(LuX, 20);
+
+// Contact and Adress
+export const MailIcon = icon(LuMail, 20);
+export const PhoneIcon = icon(LuPhoneCall, 20);
+export const AddressIcon = icon(LuPin, 20);
 
 // Feature / marketing
 export const UserIcon = icon(LuUserRound, 28);

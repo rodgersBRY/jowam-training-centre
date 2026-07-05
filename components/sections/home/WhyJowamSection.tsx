@@ -37,7 +37,7 @@ export function WhyJowamSection() {
         <SectionHeading
           eyebrow="Why Jowam"
           title="Training built for the real industry"
-          lead="There are plenty of short coffee courses in Nairobi. Jowam is different because we build for what happens after graduation."
+          lead="There are plenty of short coffee courses out there. Jowam is different because we build for what happens after graduation."
           align="center"
           onRoast
         />

@@ -18,7 +18,7 @@ export const testimonials: Testimonial[] = [
     quote:
       "I walked in never having touched an espresso machine. Five weeks later I was pulling clean shots and pouring rosettas. I had a job before the course even ended.",
     course: "Professional Barista Course",
-    workplace: "Barista, Nairobi CBD café",
+    workplace: "Barista, specialty café",
     image: null,
   },
   {

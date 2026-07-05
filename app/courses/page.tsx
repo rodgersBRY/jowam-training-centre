@@ -15,7 +15,7 @@ import { JsonLd, coursesListSchema } from "@/components/seo/JsonLd";
 export const metadata: Metadata = pageMetadata({
   title: "Coffee Courses in Nairobi",
   description:
-    "Professional barista, coffee roasting, and refresher courses in Nairobi CBD. Transparent pricing, monthly intakes, and M-PESA installments.",
+    "Professional barista, coffee roasting, and refresher courses in Nairobi. Transparent pricing, monthly intakes, and M-PESA installments.",
   path: "/courses",
 });
 

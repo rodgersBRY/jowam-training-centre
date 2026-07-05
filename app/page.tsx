@@ -1,6 +1,5 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { site } from "@/lib/data/site";
 import { faqs } from "@/lib/data/faq";
 import { pageMetadata } from "@/lib/utils/metadata";
 import { Container } from "@/components/ui/Container";
@@ -16,9 +15,18 @@ import { WhyJowamSection } from "@/components/sections/home/WhyJowamSection";
 import { GalleryStripSection } from "@/components/sections/home/GalleryStripSection";
 import { TestimonialsSection } from "@/components/sections/home/TestimonialsSection";
 
+// Homepage FAQ preview — skip cost (money) and location questions.
+const homeFaqs = faqs
+  .filter(
+    (f) =>
+      f.scope !== "cost" && !f.question.toLowerCase().includes("located")
+  )
+  .slice(0, 4);
+
 export const metadata: Metadata = pageMetadata({
-  title: "Barista & Coffee Roasting Training in Nairobi CBD",
-  description: site.description,
+  title: "Professional Barista & Coffee Roasting Training",
+  description:
+    "Hands-on barista and coffee roasting courses — espresso extraction, milk texturing, latte art, manual brewing, cupping, and roast profiling. Learn from the fundamentals to job-ready in five weeks.",
   path: "/",
 });
 
@@ -28,35 +36,10 @@ export default function HomePage() {
       <JsonLd data={coursesListSchema()} />
 
       <HeroSection />
-
-      {/* Pricing figures live here — cue the sticky WhatsApp pulse */}
-      <div data-pricing-section>
-        <CourseStripSection />
-      </div>
-
+      <CourseStripSection />
       <WhyJowamSection />
       <GalleryStripSection />
       <TestimonialsSection />
-
-      {/* Location */}
-      <section className="section-y bg-paper">
-        <Container>
-          <SectionHeading
-            eyebrow="Visit us"
-            title="In the heart of Nairobi CBD"
-            lead={site.address.full}
-          />
-          <div className="mt-8 overflow-hidden rounded-card border border-line">
-            <iframe
-              src={site.address.mapEmbed}
-              title="Jowam Coffee Training Centre location"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="h-80 w-full md:h-105"
-            />
-          </div>
-        </Container>
-      </section>
 
       {/* FAQ preview */}
       <section className="section-y bg-paper">
@@ -64,10 +47,10 @@ export default function HomePage() {
           <SectionHeading
             eyebrow="Questions"
             title="Answers before you enrol"
-            lead="Fees are published openly and every course can be paid in full or in M-PESA installments."
+            lead="What you'll learn, how the courses run, and what to expect from your training."
           />
           <div className="mt-8">
-            <FaqAccordion items={faqs.slice(0, 4)} />
+            <FaqAccordion items={homeFaqs} />
           </div>
           <div className="mt-8">
             <ButtonLink variant="ghost" href="/faq">

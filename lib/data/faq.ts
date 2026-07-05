@@ -49,13 +49,13 @@ export const faqs: FaqItem[] = [
   {
     question: "Do you offer online classes?",
     answer:
-      "Yes. The Professional Barista and Professional Roasting courses can be taken online, with live classes you can join from anywhere. Online students also attend weekly in-person Saturday practicals at our CBD facility, so you still get real hands-on machine and roaster time. The Basic Refresher Training is in-person only.",
+      "Yes. The Professional Barista and Professional Roasting courses can be taken online, with live classes you can join from anywhere. Online students also attend weekly in-person Saturday practicals at our facility, so you still get real hands-on machine and roaster time. The Basic Refresher Training is in-person only.",
     scope: "schedule",
   },
   {
     question: "What are the Saturday practicals?",
     answer:
-      "They are the hands-on component for online students — weekly in-person sessions at our Nairobi CBD facility where you practise on professional equipment with an instructor. They are included in the online course fee.",
+      "They are the hands-on component for online students — weekly in-person sessions at our Nairobi facility where you practise on professional equipment with an instructor. They are included in the online course fee.",
     scope: "schedule",
   },
   {
@@ -73,7 +73,7 @@ export const faqs: FaqItem[] = [
   {
     question: "Where are you located?",
     answer:
-      "Jowam Coffee Training Centre is at Pension Towers, 4th Floor, Loita Street, in Nairobi CBD — easy to reach by matatu or on foot from the city centre.",
+      "Jowam Coffee Training Centre is at Pension Towers, 4th Floor, Loita Street, in Nairobi — easy to reach by matatu or on foot from the city centre.",
     scope: "general",
   },
 ];

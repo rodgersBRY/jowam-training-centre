@@ -1,9 +1,8 @@
 import Image from "next/image";
 import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
-import { WhatsAppIcon } from "@/components/ui/icons";
 import { images } from "@/lib/data/images";
-import { nextIntake, whatsappLink } from "@/lib/data/site";
+import { nextIntake } from "@/lib/data/site";
 import { cloudinaryUrl } from "@/lib/utils/cloudinary";
 
 export function HeroSection() {
@@ -12,7 +11,7 @@ export function HeroSection() {
       {/* Full-bleed hero photo */}
       <Image
         src={cloudinaryUrl(images.heroPoster, { width: 1600, height: 1000 })}
-        alt="Barista students practising espresso extraction at Jowam Coffee Training Centre in Nairobi CBD"
+        alt="Barista students practising espresso extraction at Jowam Coffee Training Centre"
         width={1600}
         height={1000}
         priority
@@ -35,19 +34,19 @@ export function HeroSection() {
           </span>
         </div>
 
-        <h1 className="text-hero font-bold leading-(--text-hero--line-height) text-paper max-w-[15ch] text-wrap-balance">
-          Barista &amp; Coffee Roasting Training in Nairobi CBD
+        <h1 className="text-hero font-bold leading-(--text-hero--line-height) text-paper max-w-[18ch] text-wrap-balance">
+          Professional Barista &amp; Coffee Roasting Training
         </h1>
 
         <p className="mt-4 max-w-[55ch] text-roast-text text-body leading-relaxed">
-          Hands-on, professional training at Pension Towers. Monthly intakes,
-          transparent pricing, and M-PESA installments — from zero to job-ready
-          in five weeks.
+          Master espresso extraction, milk texturing, latte art, manual brewing,
+          cupping, and coffee roasting — hands-on training that takes you from
+          the fundamentals to job-ready in five weeks.
         </p>
 
-        {/* Price teaser — keeps key figures above the fold on mobile */}
+        {/* Skills taught — keyword line */}
         <p className="mt-3 text-brand-orange font-semibold text-small">
-          From KES 25,000 &middot; Certificates on completion
+          Espresso · Latte art · Manual brewing · Roasting · Cupping
         </p>
 
         <div className="mt-8 flex flex-wrap gap-3">

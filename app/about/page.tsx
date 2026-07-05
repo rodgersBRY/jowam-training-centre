@@ -12,7 +12,7 @@ import { FacilitySection } from "@/components/about/FacilitySection";
 export const metadata: Metadata = pageMetadata({
   title: "About Jowam Coffee Training Centre",
   description:
-    "A premium, hands-on coffee school in Nairobi CBD. Meet our instructors, see the facility, and learn the philosophy behind our training.",
+    "A premium, hands-on coffee school in Nairobi. Meet our instructors, see the facility, and learn the philosophy behind our training.",
   path: "/about",
 });
 
@@ -31,7 +31,7 @@ export default function AboutPage() {
             onRoast
             eyebrow="Ready when you are"
             title="Come and train with us"
-            lead="Monthly intakes, transparent pricing, and real equipment in the heart of Nairobi CBD."
+            lead="Monthly intakes, transparent pricing, and real equipment in the heart of Nairobi."
           />
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <ButtonLink variant="primary" href="/courses">

@@ -12,7 +12,7 @@ import { WhatsAppButton } from "@/components/interactive/WhatsAppButton";
 export const metadata: Metadata = pageMetadata({
   title: "Contact & Location",
   description:
-    "Visit Jowam Coffee Training Centre in Nairobi CBD. Call, WhatsApp, or send an enquiry about our barista and roasting courses.",
+    "Visit Jowam Coffee Training Centre in Nairobi. Call, WhatsApp, or send an enquiry about our barista and roasting courses.",
   path: "/contact",
 });
 
@@ -24,7 +24,7 @@ export default function ContactPage() {
           <SectionHeading
             eyebrow="Contact"
             title="Come and see us"
-            lead="We're in the heart of Nairobi CBD. Call, message, or send a quick enquiry — whatever's easiest."
+            lead="We're in the heart of Nairobi. Call, message, or send a quick enquiry — whatever's easiest."
           />
 
           <div className="mt-10 grid gap-10 lg:grid-cols-2">

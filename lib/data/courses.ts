@@ -44,7 +44,7 @@ export const courses: Course[] = [
     weeks: 5,
     price: 45000,
     online: { price: 35000 },
-    certificate: "Jowam Certificate of Completion",
+    certificate: "Professional Barista Certificate",
     whatsappMessage:
       "Hi, I'd like to enroll in the Professional Barista Course.",
     syllabus: [
@@ -120,7 +120,7 @@ export const courses: Course[] = [
     weeks: 5,
     price: 50000,
     online: { price: 40000 },
-    certificate: "Jowam Certificate of Completion",
+    certificate: "Professional Roasting Certificate",
     whatsappMessage:
       "Hi, I'd like to enroll in the Professional Roasting Course.",
     syllabus: [
@@ -177,7 +177,7 @@ export const courses: Course[] = [
     duration: "2 weeks",
     weeks: 2,
     price: 25000,
-    certificate: "Jowam Certificate of Attendance",
+    certificate: "Jowam Certificate of Completion",
     whatsappMessage: "Hi, I'd like to enroll in the Basic Refresher Training.",
     syllabus: [
       {

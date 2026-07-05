@@ -4,13 +4,13 @@ import { Container } from "@/components/ui/Container";
 import { Card } from "@/components/ui/Card";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ArrowIcon } from "@/components/ui/icons";
-import { courses, formatPrice } from "@/lib/data/courses";
+import { courses } from "@/lib/data/courses";
 import { courseImages } from "@/lib/data/images";
 import { cloudinaryUrl } from "@/lib/utils/cloudinary";
 
 export function CourseStripSection() {
   return (
-    <section className="section-y bg-paper" data-pricing-section>
+    <section className="section-y bg-paper">
       <Container>
         <SectionHeading
           eyebrow="Our courses"
@@ -28,7 +28,7 @@ export function CourseStripSection() {
                 <Link
                   href={`/courses/${course.slug}`}
                   className="group flex flex-col flex-1 focus-visible:outline-none"
-                  aria-label={`View ${course.title} — ${formatPrice(course.price)}`}
+                  aria-label={`View the ${course.title}`}
                 >
                   {/* Course photo — 16:9 */}
                   <div className="relative aspect-video overflow-hidden rounded-t-[12px]">
@@ -62,11 +62,6 @@ export function CourseStripSection() {
                       {course.tagline}
                     </p>
 
-                    {/* Price — prominent */}
-                    <p className="mt-4 text-price font-bold leading-none text-roast">
-                      {formatPrice(course.price)}
-                    </p>
-
                     {/* Ghost CTA */}
                     <span className="mt-4 inline-flex items-center gap-1.5 font-semibold text-brand-orange text-small group-hover:-translate-y-px transition-transform duration-150">
                       View course
@@ -78,12 +73,6 @@ export function CourseStripSection() {
             );
           })}
         </div>
-
-        {/* Installment note */}
-        <p className="mt-8 text-center text-small text-brand-brown">
-          Pay in full or split into two or three M-PESA installments — no hidden
-          fees.
-        </p>
       </Container>
     </section>
   );

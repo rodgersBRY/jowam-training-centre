@@ -18,7 +18,7 @@ export function StorySection() {
             />
             <div className="mt-6 space-y-4 text-(length:--text-body) leading-[1.65] text-brand-brown measure">
               <p>
-                Jowam Coffee Training Centre opened its doors in Nairobi CBD
+                Jowam Coffee Training Centre opened its doors in Nairobi
                 with one clear conviction: great baristas are made on the
                 machine, not in the classroom. Too many training programmes
                 filled notebooks and left students unsure how to pull a

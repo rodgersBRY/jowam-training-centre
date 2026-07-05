@@ -26,9 +26,9 @@ export const formatInfo: Record<ClassFormat, FormatInfo> = {
     id: "in-person",
     label: "In-person",
     blurb:
-      "Weekday classes at our Nairobi CBD facility, with full hands-on access to professional machines, grinders, and roasters throughout the course.",
+      "Weekday classes at our Nairobi facility, with full hands-on access to professional machines, grinders, and roasters throughout the course.",
     whatsIncluded: [
-      "Weekday classes at the CBD facility",
+      "Weekday classes at the facility",
       "Full hands-on equipment time",
       "All training materials and practice coffee",
     ],
@@ -37,7 +37,7 @@ export const formatInfo: Record<ClassFormat, FormatInfo> = {
   online: {
     id: "online",
     label: "Online",
-    blurb: `Learn live from anywhere, then get real machine and roaster time at our CBD facility during weekly in-person Saturday practicals (${saturday})`,
+    blurb: `Learn live from anywhere, then get real machine and roaster time at our facility during weekly in-person Saturday practicals (${saturday})`,
     whatsIncluded: [
       "Live online classes you can join from anywhere",
       `Weekly in-person Saturday practicals (${saturday}) — included`,
