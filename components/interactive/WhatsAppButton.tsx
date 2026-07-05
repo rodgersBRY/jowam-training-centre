@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { whatsappLink } from "@/lib/data/site";
 import { WhatsAppIcon } from "@/components/ui/icons";
+import { track, AnalyticsEvent } from "@/lib/utils/analytics";
 import { cn } from "@/lib/utils/cn";
 
 /**
@@ -50,10 +51,7 @@ export function WhatsAppButton({
   }, []);
 
   const onClick = () => {
-    const w = window as unknown as {
-      gtag?: (...args: unknown[]) => void;
-    };
-    w.gtag?.("event", "whatsapp_click", { message });
+    track(AnalyticsEvent.whatsappClick, { source: "sticky", label });
   };
 
   return (

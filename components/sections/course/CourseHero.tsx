@@ -67,7 +67,13 @@ export function CourseHero({
 
           {/* CTAs */}
           <div className="mt-8 flex flex-wrap gap-3">
-            <ButtonLink variant="primary" href={`/enroll?course=${course.slug}`}>
+            <ButtonLink
+              variant="primary"
+              href={`/enroll?course=${course.slug}`}
+              data-umami-event="enroll-click"
+              data-umami-event-course={course.slug}
+              data-umami-event-source="hero"
+            >
               Enroll now
             </ButtonLink>
             <ButtonLink

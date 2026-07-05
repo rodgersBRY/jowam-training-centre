@@ -4,6 +4,7 @@ import { site } from "@/lib/data/site";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { JsonLd, organizationSchema } from "@/components/seo/JsonLd";
+import { Umami } from "@/components/analytics/Umami";
 import "./globals.css";
 
 // Self-hosted variable fonts via next/font, font-display: swap, preloaded.
@@ -27,6 +28,11 @@ export const metadata: Metadata = {
   },
   description: site.description,
   alternates: { canonical: "/" },
+  // Google Search Console ownership — set NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+  // to the token Google gives you (the "HTML tag" verification method).
+  verification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }
+    : undefined,
 };
 
 export default function RootLayout({
@@ -41,6 +47,7 @@ export default function RootLayout({
         <Header />
         <main id="main">{children}</main>
         <Footer />
+        <Umami />
       </body>
     </html>
   );

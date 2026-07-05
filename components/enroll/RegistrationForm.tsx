@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import Link from "next/link";
 import { courses, getCourseBySlug } from "@/lib/data/courses";
 import { formatLabels, type ClassFormat } from "@/lib/data/formats";
+import { track, AnalyticsEvent } from "@/lib/utils/analytics";
 import { cn } from "@/lib/utils/cn";
 import {
   registrationSchema,
@@ -139,6 +140,10 @@ export function RegistrationForm({
         body: JSON.stringify(parsed.data satisfies RegistrationPayload),
       });
       if (!res.ok) throw new Error("Request failed");
+      track(AnalyticsEvent.registrationSubmit, {
+        course: parsed.data.courseSlug,
+        format: parsed.data.format,
+      });
       setStatus("success");
       form.reset();
     } catch {

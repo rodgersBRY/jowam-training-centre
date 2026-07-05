@@ -5,6 +5,7 @@ import type { Course } from "@/lib/data/courses";
 import { formatPrice } from "@/lib/data/courses";
 import { formatInfo, type ClassFormat } from "@/lib/data/formats";
 import { cn } from "@/lib/utils/cn";
+import { track, AnalyticsEvent } from "@/lib/utils/analytics";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Card } from "@/components/ui/Card";
 import { ButtonLink } from "@/components/ui/Button";
@@ -52,7 +53,13 @@ export function CoursePricing({ course }: { course: Course }) {
                   type="button"
                   role="radio"
                   aria-checked={active}
-                  onClick={() => setSelected(f)}
+                  onClick={() => {
+                    setSelected(f);
+                    track(AnalyticsEvent.formatToggle, {
+                      course: course.slug,
+                      format: f,
+                    });
+                  }}
                   className={cn(
                     "rounded-pill px-4 py-2 text-[0.85rem] font-semibold transition-colors duration-150",
                     active
@@ -98,6 +105,9 @@ export function CoursePricing({ course }: { course: Course }) {
           <ButtonLink
             variant="primary"
             href={`/enroll?course=${course.slug}&format=${format}`}
+            data-umami-event={AnalyticsEvent.enrollClick}
+            data-umami-event-course={course.slug}
+            data-umami-event-format={format}
           >
             Enroll {formatInfo[format].label.toLowerCase()} —{" "}
             {formatPrice(price)}
