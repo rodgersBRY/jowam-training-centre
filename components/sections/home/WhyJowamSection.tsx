@@ -1,5 +1,6 @@
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { stats } from "@/lib/data/stats";
 import {
   UserIcon,
   CoffeeIcon,
@@ -42,7 +43,28 @@ export function WhyJowamSection() {
           onRoast
         />
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2">
+        {/* Highlighted proof-point stats */}
+        <dl className="mt-12 grid gap-6 sm:grid-cols-3">
+          {stats.map((stat) => (
+            <div
+              key={stat.label}
+              className="rounded-card border border-roast-text/15 bg-roast-text/5 p-8 text-center"
+            >
+              <dt className="sr-only">{stat.label}</dt>
+              <dd>
+                <span className="block font-display text-[clamp(2.5rem,6vw,3.5rem)] font-extrabold leading-none text-brand-orange">
+                  {stat.value}
+                  {stat.suffix}
+                </span>
+                <span className="mt-2 block text-small font-medium text-roast-text/80">
+                  {stat.label}
+                </span>
+              </dd>
+            </div>
+          ))}
+        </dl>
+
+        <div className="mt-6 grid gap-6 sm:grid-cols-2">
           {reasons.map((r) => (
             <div
               key={r.title}
