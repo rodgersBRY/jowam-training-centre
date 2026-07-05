@@ -63,7 +63,7 @@ export function SyllabusTimeline({ weeks }: { weeks: SyllabusWeek[] }) {
             {/* connecting line on desktop */}
             <span
               aria-hidden="true"
-              className="absolute left-[15px] top-8 hidden h-full w-px bg-roast-text/25 md:left-0 md:top-[15px] md:h-px md:w-full"
+              className="absolute left-3.75 top-8 hidden h-full w-px bg-roast-text/25 md:left-0 md:top-3.75 md:h-px md:w-full"
             />
             <div className="md:pr-6">
               <button

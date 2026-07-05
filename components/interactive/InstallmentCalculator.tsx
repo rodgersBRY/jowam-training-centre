@@ -57,7 +57,7 @@ export function InstallmentCalculator({
 
       {/* Result */}
       <div className="mt-6">
-        <p className="text-small font-semibold uppercase tracking-[0.1em] text-brand-brown/70">
+        <p className="text-small font-semibold uppercase tracking-widest text-brand-brown/70">
           {plan === "full"
             ? "One payment"
             : `First of ${split.count} payments`}

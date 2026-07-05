@@ -32,7 +32,7 @@ export function organizationSchema(): Record<string, unknown> {
     geo: {
       "@type": "GeoCoordinates",
       latitude: site.address.geo.lat,
-      longitude: site.address.geo.lng,
+      longitude: site.address.geo.long,
     },
     sameAs: site.social.map((s) => s.href),
   };

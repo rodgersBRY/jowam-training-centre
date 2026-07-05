@@ -63,7 +63,7 @@ export function WhatsAppButton({
       aria-label={label}
       className={cn(
         "fixed bottom-4 right-4 z-40 inline-flex items-center gap-2 rounded-pill bg-whatsapp px-4 py-3 font-semibold text-white shadow-[0_8px_30px_rgb(36_27_21/0.18)]",
-        "min-h-[44px] transition-transform duration-150 ease-brand hover:-translate-y-[2px] active:scale-[0.98]",
+        "min-h-11 transition-transform duration-150 ease-brand hover:-translate-y-0.5 active:scale-[0.98]",
         pulse && "wa-pulse"
       )}
     >
