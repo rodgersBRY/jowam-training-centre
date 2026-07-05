@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
-import { site, whatsappLink } from "@/lib/data/site";
-import { courses } from "@/lib/data/courses";
+import { site } from "@/lib/data/site";
 import { pageMetadata } from "@/lib/utils/metadata";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { ButtonLink } from "@/components/ui/Button";
-import { WhatsAppIcon } from "@/components/ui/icons";
-import { EnquiryForm } from "@/components/contact/EnquiryForm";
+import { ContactForm } from "@/components/contact/ContactForm";
 import { WhatsAppButton } from "@/components/interactive/WhatsAppButton";
 
 export const metadata: Metadata = pageMetadata({
@@ -49,6 +46,7 @@ export default function ContactPage() {
                       <a
                         href={`tel:+${p.raw}`}
                         className="hover:text-brand-orange"
+                        data-umami-event="phone-call-click"
                       >
                         {p.display}
                       </a>
@@ -79,16 +77,17 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Enquiry form */}
+            {/* Contact message form */}
             <div className="rounded-card border border-line bg-paper p-6 md:p-8">
               <h2 className="text-(length:--text-h3) font-semibold text-roast">
-                Send a quick enquiry
+                Send us a message
               </h2>
               <p className="mt-1 text-[0.9rem] text-brand-brown/80">
-                We&rsquo;ll get back to you with intake dates and next steps.
+                Have a question about our courses or admissions? We typically
+                reply within one business day.
               </p>
               <div className="mt-5">
-                <EnquiryForm />
+                <ContactForm />
               </div>
             </div>
           </div>
