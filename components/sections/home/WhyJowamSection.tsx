@@ -1,6 +1,7 @@
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { stats } from "@/lib/data/stats";
+import { CountUp } from "@/components/interactive/CountUp";
 import {
   UserIcon,
   CoffeeIcon,
@@ -52,10 +53,11 @@ export function WhyJowamSection() {
             >
               <dt className="sr-only">{stat.label}</dt>
               <dd>
-                <span className="block font-display text-[clamp(2.5rem,6vw,3.5rem)] font-extrabold leading-none text-brand-orange">
-                  {stat.value}
-                  {stat.suffix}
-                </span>
+                <CountUp
+                  value={stat.value}
+                  suffix={stat.suffix}
+                  className="block font-display text-[clamp(2.5rem,6vw,3.5rem)] font-extrabold leading-none text-brand-orange"
+                />
                 <span className="mt-2 block text-small font-medium text-roast-text/80">
                   {stat.label}
                 </span>
