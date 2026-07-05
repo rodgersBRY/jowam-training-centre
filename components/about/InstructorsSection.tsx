@@ -18,16 +18,16 @@ type Instructor = {
 
 const instructors: Instructor[] = [
   {
-    name: "Angie",
-    credential: "SCA Barista Skills — Professional",
-    // imagePublicId: images.saturdayPractical,
-    bio: "Dorcas spent six years on the floor of Nairobi's busiest hotel-lobby café before crossing into training. He holds the SCA Professional Barista Skills certification and has coached competition teams at three regional barista championships. His speciality is sensory calibration — teaching students to identify and correct flavour defects by taste alone.",
-  },
-  {
     name: "Dorcas Mutavi",
     credential: "SCA Coffee Roasting — Intermediate · Q Grader Candidate",
     // imagePublicId: images.facilities.espressoLab,
     bio: "Angie trained under roasters in Mombasa and Kericho before joining Jowam. She manages the roasting curriculum and leads the extraction-science modules. Currently completing her Q Grader certification through the Coffee Quality Institute, she brings a research mindset to every cupping session — insisting students document their sensory notes, not just taste.",
+  },
+  {
+    name: "Angie",
+    credential: "SCA Barista Skills — Professional",
+    // imagePublicId: images.saturdayPractical,
+    bio: "Dorcas spent six years on the floor of Nairobi's busiest hotel-lobby café before crossing into training. He holds the SCA Professional Barista Skills certification and has coached competition teams at three regional barista championships. His speciality is sensory calibration — teaching students to identify and correct flavour defects by taste alone.",
   },
 ];
 
@@ -44,7 +44,7 @@ export function InstructorsSection() {
         />
 
         <ul
-          className="mt-16 grid gap-8 place-items-center grid-cols-2"
+          className="mt-16 grid gap-8 place-items-center md:grid-cols-2"
           role="list"
         >
           {instructors.map((instructor) => (

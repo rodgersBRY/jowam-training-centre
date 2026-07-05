@@ -77,7 +77,7 @@ export function FacilitySection() {
           />
           <div className="absolute inset-0 hero-scrim" aria-hidden="true" />
           <p className="absolute bottom-6 left-6 text-paper font-semibold text-small uppercase tracking-widest">
-            Saturday practical session — Pension Towers, Loita Street
+            Hands-on Practical session
           </p>
         </div>
       </Container>
