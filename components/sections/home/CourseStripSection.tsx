@@ -47,7 +47,7 @@ export function CourseStripSection() {
 
                   {/* Card body */}
                   <div className="flex flex-1 flex-col p-6">
-                    <h3 className="text-h3 font-bold leading-[var(--text-h3--line-height)] text-roast">
+                    <h3 className="text-h3 font-bold text-roast">
                       {course.title}
                     </h3>
 

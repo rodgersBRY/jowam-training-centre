@@ -43,7 +43,7 @@ export function WhyJowamSection() {
               className="rounded-card border border-roast-text/15 bg-roast-text/5 p-8"
             >
               <span className="text-3xl" aria-hidden="true">{r.icon}</span>
-              <h3 className="mt-4 text-h3 font-bold leading-[var(--text-h3--line-height)] text-paper">
+              <h3 className="mt-4 text-h3 font-bold text-paper">
                 {r.title}
               </h3>
               <p className="mt-3 text-roast-text leading-relaxed">

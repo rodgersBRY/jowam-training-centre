@@ -46,7 +46,10 @@ export default function ContactPage() {
                 <ul className="mt-2 space-y-1.5 text-brand-brown">
                   {site.contact.phones.map((p) => (
                     <li key={p.raw}>
-                      <a href={`tel:+${p.raw}`} className="hover:text-brand-orange">
+                      <a
+                        href={`tel:+${p.raw}`}
+                        className="hover:text-brand-orange"
+                      >
                         {p.display}
                       </a>
                     </li>
@@ -73,26 +76,6 @@ export default function ContactPage() {
                     </li>
                   ))}
                 </ul>
-              </div>
-
-              <div>
-                <h2 className="text-(length:--text-h3) font-semibold text-roast">
-                  WhatsApp us about a course
-                </h2>
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {courses.map((c) => (
-                    <ButtonLink
-                      key={c.slug}
-                      variant="whatsapp"
-                      href={whatsappLink(c.whatsappMessage)}
-                      external
-                      className="text-[0.9rem]"
-                    >
-                      <WhatsAppIcon size={18} />
-                      {c.shortTitle}
-                    </ButtonLink>
-                  ))}
-                </div>
               </div>
             </div>
 
