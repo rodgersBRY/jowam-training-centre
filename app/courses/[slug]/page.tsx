@@ -1,11 +1,25 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Container } from "@/components/ui/Container";
-import { Button } from "@/components/ui/Button";
 import { courses, getCourseBySlug, formatPrice } from "@/lib/data/courses";
+import { courseImages } from "@/lib/data/images";
+import { faqs } from "@/lib/data/faq";
+import { testimonials } from "@/lib/data/testimonials";
+import { pageMetadata } from "@/lib/utils/metadata";
+import { Container } from "@/components/ui/Container";
+import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Card } from "@/components/ui/Card";
+import { ButtonLink } from "@/components/ui/Button";
+import { WhatsAppIcon } from "@/components/ui/icons";
+import { whatsappLink } from "@/lib/data/site";
+import { SyllabusTimeline } from "@/components/interactive/SyllabusTimeline";
+import { InstallmentCalculator } from "@/components/interactive/InstallmentCalculator";
+import { WhatsAppButton } from "@/components/interactive/WhatsAppButton";
+import { FaqAccordion } from "@/components/interactive/FaqAccordion";
+import { JsonLd, courseSchema, faqSchema } from "@/components/seo/JsonLd";
+import { CourseHero } from "@/components/sections/course/CourseHero";
 
 export function generateStaticParams() {
-  return courses.map((course) => ({ slug: course.slug }));
+  return courses.map((c) => ({ slug: c.slug }));
 }
 
 export async function generateMetadata({
@@ -16,18 +30,14 @@ export async function generateMetadata({
   const { slug } = await params;
   const course = getCourseBySlug(slug);
   if (!course) return {};
-  return {
+  return pageMetadata({
     title: course.title,
     description: course.summary,
-    keywords: [
-      `${course.title} Kenya`,
-      "barista course Kenya",
-      "coffee training Nairobi",
-    ],
-  };
+    path: `/courses/${course.slug}`,
+  });
 }
 
-export default async function CourseDetailPage({
+export default async function CoursePage({
   params,
 }: {
   params: Promise<{ slug: string }>;
@@ -36,56 +46,115 @@ export default async function CourseDetailPage({
   const course = getCourseBySlug(slug);
   if (!course) notFound();
 
+  const imageId = courseImages[course.slug] ?? courseImages[courses[0].slug];
+  const courseTestimonials = testimonials.filter(
+    (t) => t.course === course.title,
+  );
+  const shown = courseTestimonials.length ? courseTestimonials : testimonials;
+
   return (
-    <div className="bg-cream pt-24">
-      {/* Overview */}
-      <section className="bg-dark py-20 text-cream">
+    <>
+      <JsonLd data={courseSchema(course)} />
+
+      <CourseHero course={course} imagePublicId={imageId} />
+
+      {/* Syllabus — the signature element, on --roast */}
+      <section className="section-y bg-roast">
         <Container>
-          <div className="max-w-2xl">
-            <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-orange">
-              Course
-            </p>
-            <h1 className="text-4xl font-bold text-cream sm:text-5xl">{course.title}</h1>
-            <p className="mt-4 text-lg text-cream/80">{course.summary}</p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <span className="inline-flex rounded-full bg-orange/20 px-4 py-2 text-sm font-semibold text-orange">
-                {course.duration}
-              </span>
-              <span className="inline-flex rounded-full bg-cream/10 px-4 py-2 text-sm font-semibold text-cream">
-                {formatPrice(course.price)}
-              </span>
-            </div>
+          <SectionHeading
+            eyebrow="Curriculum"
+            title={`Your ${course.weeks}-week syllabus`}
+            lead="Tap any week to see exactly what you'll cover. This is the depth behind the price."
+            onRoast
+          />
+          <div className="mt-12">
+            <SyllabusTimeline weeks={course.syllabus} />
           </div>
         </Container>
       </section>
 
-      {/* Curriculum + Outcomes */}
-      <section className="py-20">
-        <Container>
-          <div className="grid gap-12 lg:grid-cols-2">
+      {/* Pricing + installments */}
+      <section
+        id="pricing"
+        data-pricing-section
+        className="section-y bg-paper scroll-mt-16"
+      >
+        <Container className="max-w-225">
+          <div className="grid gap-10 md:grid-cols-2">
             <div>
-              <h2 className="text-2xl font-bold text-coffee">Curriculum</h2>
+              <SectionHeading
+                eyebrow="Investment"
+                title="Transparent pricing"
+                lead={`${formatPrice(
+                  course.price,
+                )} for the full ${course.duration}. Pay in full or spread it across M-PESA installments.`}
+              />
+              <ul className="mt-6 space-y-2 text-brand-brown">
+                <li>
+                  <strong>{course.certificate}</strong> on completion
+                </li>
+                <li>Hands-on hours on professional equipment</li>
+                <li>All training materials and practice coffee included</li>
+                <li>Monthly intakes — start when it suits you</li>
+              </ul>
+              <div className="mt-8">
+                <ButtonLink
+                  variant="whatsapp"
+                  href={whatsappLink(course.whatsappMessage)}
+                  external
+                >
+                  <WhatsAppIcon size={20} />
+                  Enroll via WhatsApp
+                </ButtonLink>
+              </div>
+            </div>
+            <Card interactive className="p-6 md:p-8">
+              <InstallmentCalculator price={course.price} />
+            </Card>
+          </div>
+        </Container>
+      </section>
+
+      {/* Outcomes + careers */}
+      <section className="section-y bg-paper">
+        <Container>
+          <div className="grid gap-12 md:grid-cols-2">
+            <div>
+              <SectionHeading
+                eyebrow="What you'll be able to do"
+                title="Skills you leave with"
+              />
               <ul className="mt-6 space-y-3">
-                {course.curriculum.map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-orange/10 text-xs font-bold text-orange">
-                      {i + 1}
-                    </span>
-                    <span className="text-sm text-coffee/80">{item}</span>
+                {course.outcomes.map((o) => (
+                  <li
+                    key={o}
+                    className="flex gap-3 text-brand-brown"
+                  >
+                    <span
+                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-orange"
+                      aria-hidden="true"
+                    />
+                    {o}
                   </li>
                 ))}
               </ul>
             </div>
             <div>
-              <h2 className="text-2xl font-bold text-coffee">Outcomes</h2>
-              <p className="mt-2 text-sm text-coffee/60">
-                By the end of this course you will be able to:
-              </p>
+              <SectionHeading
+                eyebrow="Where it leads"
+                title="Career outcomes"
+              />
               <ul className="mt-6 space-y-3">
-                {course.outcomes.map((outcome, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <div className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-orange" />
-                    <span className="text-sm text-coffee/80">{outcome}</span>
+                {course.careerOutcomes.map((o) => (
+                  <li
+                    key={o}
+                    className="flex gap-3 text-brand-brown"
+                  >
+                    <span
+                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-orange"
+                      aria-hidden="true"
+                    />
+                    {o}
                   </li>
                 ))}
               </ul>
@@ -94,22 +163,43 @@ export default async function CourseDetailPage({
         </Container>
       </section>
 
-      {/* Apply CTA */}
-      <section className="bg-coffee py-16 text-cream">
+      {/* Testimonials */}
+      <section className="section-y bg-paper">
         <Container>
-          <div className="flex flex-col items-center gap-6 text-center sm:flex-row sm:justify-between sm:text-left">
-            <div>
-              <h2 className="text-2xl font-bold text-cream">Ready to enroll?</h2>
-              <p className="mt-1 text-cream/70">
-                Applications open monthly. Submit yours today.
-              </p>
-            </div>
-            <Button href="/apply" className="shrink-0">
-              Apply for {course.title}
-            </Button>
+          <SectionHeading eyebrow="Graduates" title="From our classes" />
+          <div className="mt-8 grid gap-6 md:grid-cols-3">
+            {shown.slice(0, 3).map((t) => (
+              <Card key={t.name} className="p-6">
+                <p className="text-brand-brown">
+                  &ldquo;{t.quote}&rdquo;
+                </p>
+                <p className="mt-4 font-semibold text-roast">
+                  {t.name}
+                </p>
+                <p className="text-[0.85rem] text-brand-brown/70">
+                  {t.course} · {t.workplace}
+                </p>
+              </Card>
+            ))}
           </div>
         </Container>
       </section>
-    </div>
+
+      {/* FAQ */}
+      <section className="section-y bg-paper">
+        <Container className="max-w-205">
+          <SectionHeading eyebrow="Questions" title="Course FAQs" />
+          <div className="mt-8">
+            <FaqAccordion items={faqs} />
+          </div>
+          <JsonLd data={faqSchema(faqs)} />
+        </Container>
+      </section>
+
+      <WhatsAppButton
+        message={course.whatsappMessage}
+        label="Ask about this course"
+      />
+    </>
   );
 }
