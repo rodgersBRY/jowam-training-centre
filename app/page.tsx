@@ -46,7 +46,7 @@ export default function HomePage() {
             title="In the heart of Nairobi CBD"
             lead={site.address.full}
           />
-          <div className="mt-8 overflow-hidden rounded-[12px] border border-line">
+          <div className="mt-8 overflow-hidden rounded-card border border-line">
             <iframe
               src={site.address.mapEmbed}
               title="Jowam Coffee Training Centre location"

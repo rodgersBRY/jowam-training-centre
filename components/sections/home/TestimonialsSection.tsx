@@ -6,9 +6,9 @@ import { testimonials } from "@/lib/data/testimonials";
 /** Returns the initials avatar colour for a given name — deterministic. */
 function avatarColor(name: string): string {
   const palette = [
-    "bg-[var(--color-roast)] text-[var(--color-roast-text)]",
-    "bg-[var(--color-brand-brown)] text-[var(--color-roast-text)]",
-    "bg-[var(--color-brand-orange)] text-white",
+    "bg-roast text-roast-text",
+    "bg-brand-brown text-roast-text",
+    "bg-brand-orange text-white",
   ];
   const idx =
     name.split("").reduce((acc, c) => acc + c.charCodeAt(0), 0) %
@@ -27,7 +27,7 @@ function initials(name: string): string {
 
 export function TestimonialsSection() {
   return (
-    <section className="section-y bg-[var(--color-roast)]">
+    <section className="section-y bg-roast">
       <Container>
         <SectionHeading
           eyebrow="Graduate stories"
@@ -44,12 +44,12 @@ export function TestimonialsSection() {
               {/* Quote */}
               <blockquote className="flex-1">
                 <span
-                  className="text-4xl font-serif leading-none text-[var(--color-brand-orange)]"
+                  className="text-4xl font-serif leading-none text-brand-orange"
                   aria-hidden="true"
                 >
                   &ldquo;
                 </span>
-                <p className="mt-1 text-[var(--color-brand-brown)] leading-relaxed">
+                <p className="mt-1 text-brand-brown leading-relaxed">
                   {t.quote}
                 </p>
               </blockquote>
@@ -64,13 +64,13 @@ export function TestimonialsSection() {
                   {initials(t.name)}
                 </div>
                 <div>
-                  <p className="font-semibold text-[var(--color-roast)] leading-tight">
+                  <p className="font-semibold text-roast leading-tight">
                     {t.name}
                   </p>
-                  <p className="text-[length:var(--text-small)] text-[var(--color-brand-brown)]">
+                  <p className="text-small text-brand-brown">
                     {t.course}
                   </p>
-                  <p className="text-[length:var(--text-small)] text-[var(--color-brand-brown)] opacity-70">
+                  <p className="text-small text-brand-brown opacity-70">
                     {t.workplace}
                   </p>
                 </div>

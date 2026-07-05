@@ -30,7 +30,7 @@ export function InstallmentCalculator({
       <div
         role="radiogroup"
         aria-label="Payment plan"
-        className="inline-flex rounded-[999px] border border-[var(--color-line)] bg-[var(--color-paper)] p-1"
+        className="inline-flex rounded-pill border border-line bg-paper p-1"
       >
         {installmentPlans.map((p) => {
           const active = plan === p;
@@ -43,10 +43,10 @@ export function InstallmentCalculator({
               aria-checked={active}
               onClick={() => setPlan(p)}
               className={cn(
-                "rounded-[999px] px-4 py-2 text-[0.85rem] font-semibold transition-colors duration-[150ms]",
+                "rounded-pill px-4 py-2 text-[0.85rem] font-semibold transition-colors duration-150",
                 active
-                  ? "bg-[var(--color-brand-orange)] text-white"
-                  : "text-[var(--color-brand-brown)] hover:text-[var(--color-brand-orange)]"
+                  ? "bg-brand-orange text-white"
+                  : "text-brand-brown hover:text-brand-orange"
               )}
             >
               {label}
@@ -57,26 +57,25 @@ export function InstallmentCalculator({
 
       {/* Result */}
       <div className="mt-6">
-        <p className="text-[var(--text-small)] font-semibold uppercase tracking-[0.1em] text-[var(--color-brand-brown)]/70">
+        <p className="text-small font-semibold uppercase tracking-[0.1em] text-brand-brown/70">
           {plan === "full"
             ? "One payment"
             : `First of ${split.count} payments`}
         </p>
         <p
-          className="mt-1 font-[family-name:var(--font-display)] font-extrabold leading-none text-[var(--color-roast)] transition-all duration-200"
-          style={{ fontSize: "var(--text-price)" }}
+          className="mt-1 text-price font-display font-extrabold leading-none text-roast transition-all duration-200"
         >
           <span className="align-super text-[40%] font-bold">KES </span>
           {split.first.toLocaleString("en-KE")}
         </p>
         {plan !== "full" && (
-          <p className="mt-2 text-[0.95rem] text-[var(--color-brand-brown)]">
+          <p className="mt-2 text-[0.95rem] text-brand-brown">
             then {split.count - 1} ×{" "}
             <strong>{formatPrice(split.each)}</strong> — total{" "}
             {formatPrice(split.total)}
           </p>
         )}
-        <p className="mt-3 text-[0.85rem] text-[var(--color-brand-brown)]/70">
+        <p className="mt-3 text-[0.85rem] text-brand-brown/70">
           Installments paid via M-PESA. No hidden fees.
         </p>
       </div>

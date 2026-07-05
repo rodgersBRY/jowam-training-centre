@@ -35,7 +35,7 @@ export function FacilitySection() {
           {facilityFeatures.map((feature) => (
             <div
               key={feature.title}
-              className="rounded-[12px] overflow-hidden border border-line shadow-(--shadow-card)"
+              className="rounded-card overflow-hidden border border-line shadow-(--shadow-card)"
             >
               <div className="relative aspect-video w-full">
                 <Image
@@ -63,7 +63,7 @@ export function FacilitySection() {
         </div>
 
         {/* Wide shot — Saturday practical */}
-        <div className="mt-8 relative aspect-21/9 w-full overflow-hidden rounded-[12px]">
+        <div className="mt-8 relative aspect-21/9 w-full overflow-hidden rounded-card">
           <Image
             src={cloudinaryUrl(images.saturdayPractical, {
               width: 1400,

@@ -68,8 +68,7 @@ export default function CoursesPage() {
                         {course.summary}
                       </p>
                       <p
-                        className="mt-5 font-display font-extrabold leading-none text-roast"
-                        style={{ fontSize: "var(--text-price)" }}
+                        className="mt-5 text-price font-display font-extrabold leading-none text-roast"
                       >
                         <span className="align-super text-[40%] font-bold">
                           KES{" "}

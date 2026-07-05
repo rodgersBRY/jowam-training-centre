@@ -4,23 +4,23 @@ import { cn } from "@/lib/utils/cn";
 type Variant = "primary" | "secondary" | "whatsapp" | "ghost";
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-[999px] font-semibold " +
-  "transition-transform duration-[150ms] ease-[cubic-bezier(0.2,0,0,1)] " +
+  "inline-flex items-center justify-center gap-2 rounded-pill font-semibold " +
+  "transition-transform duration-150 ease-brand " +
   "active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 " +
-  "focus-visible:outline-[var(--color-brand-orange)] min-h-[44px] px-6 py-3 text-[18px]";
+  "focus-visible:outline-brand-orange min-h-[44px] px-6 py-3 text-[18px]";
 
 const variants: Record<Variant, string> = {
   // Text on orange is white, 18px/600 (DESIGN §2 contrast rules).
   primary:
-    "bg-[var(--color-brand-orange)] text-white hover:-translate-y-[2px]",
+    "bg-brand-orange text-white hover:-translate-y-[2px]",
   // Orange outline secondary CTA.
   secondary:
-    "border-2 border-[var(--color-brand-orange)] text-[var(--color-brand-orange)] " +
+    "border-2 border-brand-orange text-brand-orange " +
     "bg-transparent hover:-translate-y-[2px]",
   // WhatsApp green — reserved (DESIGN §2).
-  whatsapp: "bg-[var(--color-whatsapp)] text-white hover:-translate-y-[2px]",
+  whatsapp: "bg-whatsapp text-white hover:-translate-y-[2px]",
   ghost:
-    "text-[var(--color-brand-orange)] px-0 py-0 min-h-0 hover:-translate-y-[1px]",
+    "text-brand-orange px-0 py-0 min-h-0 hover:-translate-y-[1px]",
 };
 
 type CommonProps = {

@@ -32,10 +32,10 @@ export function SectionHeading({
       {eyebrow && (
         <p
           className={cn(
-            "text-[var(--text-small)] font-semibold uppercase tracking-[0.12em] mb-3",
+            "text-small font-semibold uppercase tracking-[0.12em] mb-3",
             onRoast
-              ? "text-[var(--color-brand-orange)]"
-              : "text-[var(--color-brand-orange)]"
+              ? "text-brand-orange"
+              : "text-brand-orange"
           )}
         >
           {eyebrow}
@@ -43,8 +43,8 @@ export function SectionHeading({
       )}
       <Heading
         className={cn(
-          "text-[length:var(--text-h2)] font-bold leading-[1.1]",
-          onRoast && "text-[var(--color-paper)]"
+          "text-h2 font-bold leading-[1.1]",
+          onRoast && "text-paper"
         )}
       >
         {title}
@@ -52,11 +52,11 @@ export function SectionHeading({
       {lead && (
         <p
           className={cn(
-            "mt-4 text-[length:var(--text-body)] measure",
+            "mt-4 text-body measure",
             align === "center" && "mx-auto",
             onRoast
-              ? "text-[var(--color-roast-text)]"
-              : "text-[var(--color-brand-brown)]"
+              ? "text-roast-text"
+              : "text-brand-brown"
           )}
         >
           {lead}

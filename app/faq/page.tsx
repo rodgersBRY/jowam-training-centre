@@ -32,7 +32,7 @@ export default function FaqPage() {
             <FaqAccordion items={faqs} />
           </div>
 
-          <div className="mt-12 rounded-[12px] bg-roast p-8 text-center">
+          <div className="mt-12 rounded-card bg-roast p-8 text-center">
             <p className="text-(length:--text-h3) font-semibold text-paper">
               Still have a question?
             </p>

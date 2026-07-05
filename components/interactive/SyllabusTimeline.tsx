@@ -63,7 +63,7 @@ export function SyllabusTimeline({ weeks }: { weeks: SyllabusWeek[] }) {
             {/* connecting line on desktop */}
             <span
               aria-hidden="true"
-              className="absolute left-[15px] top-8 hidden h-full w-px bg-[var(--color-roast-text)]/25 md:left-0 md:top-[15px] md:h-px md:w-full"
+              className="absolute left-[15px] top-8 hidden h-full w-px bg-roast-text/25 md:left-0 md:top-[15px] md:h-px md:w-full"
             />
             <div className="md:pr-6">
               <button
@@ -77,20 +77,20 @@ export function SyllabusTimeline({ weeks }: { weeks: SyllabusWeek[] }) {
                   className={cn(
                     "relative z-10 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-[0.85rem] font-bold transition-colors",
                     isOpen
-                      ? "bg-[var(--color-brand-orange)] text-white"
-                      : "bg-[var(--color-roast-text)]/15 text-[var(--color-roast-text)] group-hover:bg-[var(--color-brand-orange)]/70 group-hover:text-white"
+                      ? "bg-brand-orange text-white"
+                      : "bg-roast-text/15 text-roast-text group-hover:bg-brand-orange/70 group-hover:text-white"
                   )}
                 >
                   {wk.week}
                 </span>
                 <span className="flex items-center gap-2 md:mt-3">
-                  <span className="font-[family-name:var(--font-display)] text-[1.05rem] font-semibold text-[var(--color-paper)]">
+                  <span className="font-display text-[1.05rem] font-semibold text-paper">
                     {wk.title}
                   </span>
                   <ChevronIcon
                     size={16}
                     className={cn(
-                      "text-[var(--color-brand-orange)] transition-transform duration-[150ms] md:hidden",
+                      "text-brand-orange transition-transform duration-150 md:hidden",
                       isOpen && "rotate-180"
                     )}
                   />
@@ -103,11 +103,11 @@ export function SyllabusTimeline({ weeks }: { weeks: SyllabusWeek[] }) {
               hidden={!isOpen}
               className="mt-3 md:pr-6"
             >
-              <ul className="space-y-1.5 border-l-2 border-[var(--color-brand-orange)]/40 pl-4 md:border-l-0 md:pl-0">
+              <ul className="space-y-1.5 border-l-2 border-brand-orange/40 pl-4 md:border-l-0 md:pl-0">
                 {wk.modules.map((m) => (
                   <li
                     key={m}
-                    className="text-[0.95rem] text-[var(--color-roast-text)]/90"
+                    className="text-[0.95rem] text-roast-text/90"
                   >
                     {m}
                   </li>

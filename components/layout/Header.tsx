@@ -20,8 +20,8 @@ export function Header() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 bg-[var(--color-paper)] border-b border-[var(--color-line)]",
-        "transition-shadow duration-[150ms]",
+        "sticky top-0 z-50 bg-paper border-b border-line",
+        "transition-shadow duration-150",
         scrolled && "shadow-[0_2px_16px_rgb(36_27_21/0.06)]"
       )}
     >
@@ -38,7 +38,7 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-[0.95rem] font-medium text-[var(--color-brand-brown)] transition-colors hover:text-[var(--color-brand-orange)]"
+              className="text-[0.95rem] font-medium text-brand-brown transition-colors hover:text-brand-orange"
             >
               {item.label}
             </Link>
@@ -49,7 +49,7 @@ export function Header() {
           {/* Intake pill — persistent sitewide (DESIGN §6) */}
           <Link
             href="/enroll"
-            className="hidden rounded-[999px] border border-[var(--color-brand-orange)] px-4 py-1.5 text-[0.8rem] font-semibold text-[var(--color-brand-orange)] transition-transform duration-[150ms] hover:-translate-y-[1px] sm:inline-flex"
+            className="hidden rounded-pill border border-brand-orange px-4 py-1.5 text-[0.8rem] font-semibold text-brand-orange transition-transform duration-150 hover:-translate-y-[1px] sm:inline-flex"
           >
             Next intake: {nextIntake}
           </Link>
@@ -66,19 +66,19 @@ export function Header() {
             <span className="relative block h-4 w-6">
               <span
                 className={cn(
-                  "absolute left-0 top-0 h-0.5 w-6 bg-[var(--color-roast)] transition-transform duration-[150ms]",
+                  "absolute left-0 top-0 h-0.5 w-6 bg-roast transition-transform duration-150",
                   menuOpen && "translate-y-[7px] rotate-45"
                 )}
               />
               <span
                 className={cn(
-                  "absolute left-0 top-[7px] h-0.5 w-6 bg-[var(--color-roast)] transition-opacity duration-[150ms]",
+                  "absolute left-0 top-[7px] h-0.5 w-6 bg-roast transition-opacity duration-150",
                   menuOpen && "opacity-0"
                 )}
               />
               <span
                 className={cn(
-                  "absolute left-0 top-[14px] h-0.5 w-6 bg-[var(--color-roast)] transition-transform duration-[150ms]",
+                  "absolute left-0 top-[14px] h-0.5 w-6 bg-roast transition-transform duration-150",
                   menuOpen && "-translate-y-[7px] -rotate-45"
                 )}
               />
@@ -92,14 +92,14 @@ export function Header() {
         <nav
           id="mobile-nav"
           aria-label="Primary mobile"
-          className="border-t border-[var(--color-line)] bg-[var(--color-paper)] md:hidden"
+          className="border-t border-line bg-paper md:hidden"
         >
           <ul className="flex flex-col px-6 py-2">
             {site.nav.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="block py-3 text-[1.05rem] font-medium text-[var(--color-brand-brown)]"
+                  className="block py-3 text-[1.05rem] font-medium text-brand-brown"
                   onClick={() => setMenuOpen(false)}
                 >
                   {item.label}
@@ -109,7 +109,7 @@ export function Header() {
             <li>
               <Link
                 href="/enroll"
-                className="mt-1 mb-3 inline-flex rounded-[999px] border border-[var(--color-brand-orange)] px-4 py-2 text-[0.85rem] font-semibold text-[var(--color-brand-orange)]"
+                className="mt-1 mb-3 inline-flex rounded-pill border border-brand-orange px-4 py-2 text-[0.85rem] font-semibold text-brand-orange"
                 onClick={() => setMenuOpen(false)}
               >
                 Next intake: {nextIntake}

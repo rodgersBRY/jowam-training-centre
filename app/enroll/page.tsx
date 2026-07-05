@@ -30,7 +30,7 @@ export default async function EnrollPage({
             lead="Committed to joining? Complete your registration below. Just exploring? Message us on WhatsApp first — no obligation."
           />
 
-          <div className="mt-6 rounded-[12px] border border-line bg-white p-5 text-[0.9rem] text-brand-brown">
+          <div className="mt-6 rounded-card border border-line bg-white p-5 text-[0.9rem] text-brand-brown">
             <p className="font-semibold text-roast">
               Payment &amp; next steps
             </p>

@@ -24,7 +24,7 @@ export default function AboutPage() {
       <FacilitySection />
 
       {/* Closing CTA */}
-      <section className="section-y bg-[var(--color-roast)]">
+      <section className="section-y bg-roast">
         <Container className="text-center">
           <SectionHeading
             align="center"

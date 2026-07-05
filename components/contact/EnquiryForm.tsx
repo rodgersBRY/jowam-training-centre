@@ -12,9 +12,9 @@ import {
 type Status = "idle" | "sending" | "sent" | "error";
 
 const inputCls =
-  "w-full min-h-[48px] rounded-[12px] border border-[var(--color-line)] bg-white px-3.5 text-[16px] text-[var(--color-roast)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-brand-orange)]";
+  "w-full min-h-[48px] rounded-card border border-line bg-white px-3.5 text-[16px] text-roast focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-orange";
 const labelCls =
-  "block text-[0.9rem] font-semibold text-[var(--color-brand-brown)] mb-1.5";
+  "block text-[0.9rem] font-semibold text-brand-brown mb-1.5";
 
 export function EnquiryForm() {
   const [status, setStatus] = useState<Status>("idle");
@@ -49,7 +49,7 @@ export function EnquiryForm() {
 
   if (status === "sent") {
     return (
-      <div className="rounded-[12px] border border-line bg-white p-6 text-center">
+      <div className="rounded-card border border-line bg-white p-6 text-center">
         <p className="font-semibold text-roast">
           Thanks — we&rsquo;ve got your enquiry.
         </p>

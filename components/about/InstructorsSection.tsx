@@ -56,7 +56,7 @@ export function InstructorsSection() {
           {instructors.map((instructor) => (
             <li
               key={instructor.name}
-              className="rounded-[12px] overflow-hidden bg-[rgb(255_255_255/0.05)] border border-[rgb(255_255_255/0.08)]"
+              className="rounded-card overflow-hidden bg-[rgb(255_255_255/0.05)] border border-[rgb(255_255_255/0.08)]"
             >
               {/* Portrait — 4:5 crop */}
               <div className="relative aspect-4/5 w-full">

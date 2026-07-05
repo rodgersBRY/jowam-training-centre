@@ -97,7 +97,7 @@ export default function ContactPage() {
             </div>
 
             {/* Enquiry form */}
-            <div className="rounded-[12px] border border-line bg-paper p-6 md:p-8">
+            <div className="rounded-card border border-line bg-paper p-6 md:p-8">
               <h2 className="text-(length:--text-h3) font-semibold text-roast">
                 Send a quick enquiry
               </h2>
@@ -111,7 +111,7 @@ export default function ContactPage() {
           </div>
 
           {/* Map */}
-          <div className="mt-12 overflow-hidden rounded-[12px] border border-line">
+          <div className="mt-12 overflow-hidden rounded-card border border-line">
             <iframe
               src={site.address.mapEmbed}
               title="Jowam Coffee Training Centre location"

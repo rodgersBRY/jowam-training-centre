@@ -26,7 +26,7 @@ const reasons = [
 
 export function WhyJowamSection() {
   return (
-    <section className="section-y bg-[var(--color-roast)]">
+    <section className="section-y bg-roast">
       <Container>
         <SectionHeading
           eyebrow="Why Jowam"
@@ -40,13 +40,13 @@ export function WhyJowamSection() {
           {reasons.map((r) => (
             <div
               key={r.title}
-              className="rounded-[12px] border border-[var(--color-roast-text)]/15 bg-[var(--color-roast-text)]/5 p-8"
+              className="rounded-card border border-roast-text/15 bg-roast-text/5 p-8"
             >
               <span className="text-3xl" aria-hidden="true">{r.icon}</span>
-              <h3 className="mt-4 text-[length:var(--text-h3)] font-bold leading-[var(--text-h3--line-height)] text-[var(--color-paper)]">
+              <h3 className="mt-4 text-h3 font-bold leading-[var(--text-h3--line-height)] text-paper">
                 {r.title}
               </h3>
-              <p className="mt-3 text-[var(--color-roast-text)] leading-relaxed">
+              <p className="mt-3 text-roast-text leading-relaxed">
                 {r.body}
               </p>
             </div>

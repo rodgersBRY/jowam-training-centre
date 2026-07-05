@@ -10,7 +10,7 @@ import { cloudinaryUrl } from "@/lib/utils/cloudinary";
 
 export function CourseStripSection() {
   return (
-    <section className="section-y bg-[var(--color-paper)]" data-pricing-section>
+    <section className="section-y bg-paper" data-pricing-section>
       <Container>
         <SectionHeading
           eyebrow="Our courses"
@@ -38,37 +38,37 @@ export function CourseStripSection() {
                         alt={`Students training in the ${course.title} at Jowam Coffee Training Centre`}
                         width={720}
                         height={405}
-                        className="h-full w-full object-cover transition-transform duration-[400ms] ease-[cubic-bezier(0.2,0,0,1)] group-hover:scale-[1.03]"
+                        className="h-full w-full object-cover transition-transform duration-[400ms] ease-brand group-hover:scale-[1.03]"
                       />
                     ) : (
-                      <div className="h-full w-full bg-[var(--color-roast)]" />
+                      <div className="h-full w-full bg-roast" />
                     )}
                   </div>
 
                   {/* Card body */}
                   <div className="flex flex-1 flex-col p-6">
-                    <h3 className="text-[length:var(--text-h3)] font-bold leading-[var(--text-h3--line-height)] text-[var(--color-roast)]">
+                    <h3 className="text-h3 font-bold leading-[var(--text-h3--line-height)] text-roast">
                       {course.title}
                     </h3>
 
                     {/* Meta row */}
-                    <div className="mt-2 flex items-center gap-3 text-[var(--text-small)] text-[var(--color-brand-brown)]">
+                    <div className="mt-2 flex items-center gap-3 text-small text-brand-brown">
                       <span className="font-medium">{course.duration}</span>
                       <span aria-hidden="true">·</span>
                       <span>Monthly intakes</span>
                     </div>
 
-                    <p className="mt-3 text-[var(--color-brand-brown)] text-[length:var(--text-small)] leading-relaxed flex-1">
+                    <p className="mt-3 text-brand-brown text-small leading-relaxed flex-1">
                       {course.tagline}
                     </p>
 
                     {/* Price — prominent */}
-                    <p className="mt-4 text-[length:var(--text-price)] font-bold leading-none text-[var(--color-roast)]">
+                    <p className="mt-4 text-price font-bold leading-none text-roast">
                       {formatPrice(course.price)}
                     </p>
 
                     {/* Ghost CTA */}
-                    <span className="mt-4 inline-flex items-center gap-1.5 font-semibold text-[var(--color-brand-orange)] text-[length:var(--text-small)] group-hover:-translate-y-[1px] transition-transform duration-[150ms]">
+                    <span className="mt-4 inline-flex items-center gap-1.5 font-semibold text-brand-orange text-small group-hover:-translate-y-[1px] transition-transform duration-150">
                       View course
                       <ArrowIcon size={16} />
                     </span>
@@ -80,7 +80,7 @@ export function CourseStripSection() {
         </div>
 
         {/* Installment note */}
-        <p className="mt-8 text-center text-[length:var(--text-small)] text-[var(--color-brand-brown)]">
+        <p className="mt-8 text-center text-small text-brand-brown">
           Pay in full or split into two or three M-PESA installments — no hidden fees.
         </p>
       </Container>

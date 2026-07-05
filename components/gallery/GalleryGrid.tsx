@@ -78,7 +78,7 @@ export function GalleryGrid({ photos }: { photos: GalleryPhoto[] }) {
             key={photo.publicId + photo.alt}
             type="button"
             onClick={() => open(photo)}
-            className="block w-full break-inside-avoid overflow-hidden rounded-[12px] border border-line transition-transform duration-150 hover:-translate-y-0.5"
+            className="block w-full break-inside-avoid overflow-hidden rounded-card border border-line transition-transform duration-150 hover:-translate-y-0.5"
           >
             <Image
               src={cloudinaryUrl(photo.publicId, {
@@ -99,7 +99,7 @@ export function GalleryGrid({ photos }: { photos: GalleryPhoto[] }) {
       {/* Lightbox */}
       <dialog
         ref={dialogRef}
-        className="m-auto max-h-[90vh] max-w-[92vw] rounded-[12px] bg-transparent p-0 backdrop:bg-[rgb(36_27_21/0.8)]"
+        className="m-auto max-h-[90vh] max-w-[92vw] rounded-card bg-transparent p-0 backdrop:bg-[rgb(36_27_21/0.8)]"
         onClick={(e) => {
           if (e.target === dialogRef.current) close();
         }}
@@ -115,7 +115,7 @@ export function GalleryGrid({ photos }: { photos: GalleryPhoto[] }) {
               alt={active.alt}
               width={1400}
               height={1000}
-              className="h-auto max-h-[82vh] w-auto rounded-[12px] object-contain"
+              className="h-auto max-h-[82vh] w-auto rounded-card object-contain"
             />
             <figcaption className="mt-2 text-center text-[0.9rem] text-paper">
               {active.alt}

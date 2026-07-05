@@ -27,7 +27,7 @@ const galleryItems = [
 
 export function GalleryStripSection() {
   return (
-    <section className="section-y bg-[var(--color-paper)]">
+    <section className="section-y bg-paper">
       <Container>
         <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
           <SectionHeading
@@ -36,7 +36,7 @@ export function GalleryStripSection() {
           />
           <Link
             href="/gallery"
-            className="inline-flex items-center gap-1.5 text-[var(--color-brand-orange)] font-semibold text-[length:var(--text-small)] hover:-translate-y-[1px] transition-transform duration-[150ms] shrink-0 mb-1"
+            className="inline-flex items-center gap-1.5 text-brand-orange font-semibold text-small hover:-translate-y-[1px] transition-transform duration-150 shrink-0 mb-1"
           >
             View full gallery
             <ArrowIcon size={16} />
@@ -48,7 +48,7 @@ export function GalleryStripSection() {
             <Link
               key={item.publicId}
               href="/gallery"
-              className="group relative aspect-square overflow-hidden rounded-[12px] bg-[var(--color-roast)]"
+              className="group relative aspect-square overflow-hidden rounded-card bg-roast"
               tabIndex={-1}
               aria-hidden="true"
             >
@@ -57,7 +57,7 @@ export function GalleryStripSection() {
                 alt={item.alt}
                 width={500}
                 height={500}
-                className="h-full w-full object-cover transition-transform duration-[400ms] ease-[cubic-bezier(0.2,0,0,1)] group-hover:scale-[1.05]"
+                className="h-full w-full object-cover transition-transform duration-[400ms] ease-brand group-hover:scale-[1.05]"
               />
             </Link>
           ))}
@@ -67,7 +67,7 @@ export function GalleryStripSection() {
         <div className="mt-4 flex justify-center">
           <Link
             href="/gallery"
-            className="inline-flex items-center gap-1.5 text-[var(--color-brand-orange)] font-semibold text-[length:var(--text-small)] hover:-translate-y-[1px] transition-transform duration-[150ms] sm:hidden"
+            className="inline-flex items-center gap-1.5 text-brand-orange font-semibold text-small hover:-translate-y-[1px] transition-transform duration-150 sm:hidden"
           >
             View full gallery
             <ArrowIcon size={16} />

@@ -46,7 +46,7 @@ export function StorySection() {
           </div>
 
           {/* Photography */}
-          <div className="relative aspect-4/5 w-full overflow-hidden rounded-[12px]">
+          <div className="relative aspect-4/5 w-full overflow-hidden rounded-card">
             <Image
               src={cloudinaryUrl(images.story, {
                 width: 800,

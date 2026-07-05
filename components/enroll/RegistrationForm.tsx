@@ -14,9 +14,9 @@ type Errors = Partial<Record<string, string>>;
 type Status = "idle" | "submitting" | "success" | "error";
 
 const labelCls =
-  "block text-[0.9rem] font-semibold text-[var(--color-brand-brown)] mb-1.5";
+  "block text-[0.9rem] font-semibold text-brand-brown mb-1.5";
 const inputCls =
-  "w-full min-h-[48px] rounded-[12px] border border-[var(--color-line)] bg-white px-3.5 text-[16px] text-[var(--color-roast)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-brand-orange)]";
+  "w-full min-h-[48px] rounded-card border border-line bg-white px-3.5 text-[16px] text-roast focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-orange";
 
 function Field({
   id,
@@ -74,9 +74,9 @@ function compressImage(file: File): Promise<string> {
 }
 
 const fieldset =
-  "space-y-5 rounded-[12px] border border-[var(--color-line)] p-5 md:p-6";
+  "space-y-5 rounded-card border border-line p-5 md:p-6";
 const legend =
-  "px-2 font-[family-name:var(--font-display)] text-[1.05rem] font-semibold text-[var(--color-roast)]";
+  "px-2 font-display text-[1.05rem] font-semibold text-roast";
 
 export function RegistrationForm({
   defaultCourse,
@@ -156,7 +156,7 @@ export function RegistrationForm({
 
   if (status === "success") {
     return (
-      <div className="rounded-[12px] border border-line bg-paper p-8 text-center">
+      <div className="rounded-card border border-line bg-paper p-8 text-center">
         <h2 className="text-(length:--text-h3) font-semibold text-roast">
           Registration received
         </h2>
@@ -355,7 +355,7 @@ export function RegistrationForm({
             <img
               src={photo}
               alt="Passport photo preview"
-              className="mt-3 h-28 w-28 rounded-[12px] object-cover"
+              className="mt-3 h-28 w-28 rounded-card object-cover"
             />
           )}
         </Field>
@@ -392,7 +392,7 @@ export function RegistrationForm({
       {status === "error" && (
         <p
           role="alert"
-          className="rounded-[12px] bg-brand-orange/10 p-3 text-[0.9rem] font-medium text-brand-orange"
+          className="rounded-card bg-brand-orange/10 p-3 text-[0.9rem] font-medium text-brand-orange"
         >
           Something went wrong submitting your registration. Please try again,
           or reach us on WhatsApp.

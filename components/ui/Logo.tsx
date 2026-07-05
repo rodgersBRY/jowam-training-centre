@@ -67,22 +67,18 @@ export function Logo({
       <LogoMark size={markSize} reversed={reversed} />
       <span className="flex flex-col leading-none">
         <span
-          className="font-[family-name:var(--font-display)] font-extrabold text-[1.05rem] tracking-tight"
-          style={{
-            color: reversed
-              ? "var(--color-paper)"
-              : "var(--color-brand-brown)",
-          }}
+          className={cn(
+            "font-display font-extrabold text-[1.05rem] tracking-tight",
+            reversed ? "text-paper" : "text-brand-brown"
+          )}
         >
           Jowam
         </span>
         <span
-          className="text-[0.6rem] uppercase tracking-[0.18em] font-semibold"
-          style={{
-            color: reversed
-              ? "var(--color-roast-text)"
-              : "var(--color-brand-orange)",
-          }}
+          className={cn(
+            "text-[0.6rem] uppercase tracking-[0.18em] font-semibold",
+            reversed ? "text-roast-text" : "text-brand-orange"
+          )}
         >
           Coffee Training
         </span>
