@@ -13,27 +13,21 @@ type Instructor = {
   name: string;
   credential: string;
   bio: string;
-  imagePublicId: string;
+  imagePublicId?: string;
 };
 
 const instructors: Instructor[] = [
   {
-    name: "James Mwangi",
+    name: "Angie",
     credential: "SCA Barista Skills — Professional",
-    imagePublicId: images.saturdayPractical,
-    bio: "James spent six years on the floor of Nairobi's busiest hotel-lobby café before crossing into training. He holds the SCA Professional Barista Skills certification and has coached competition teams at three regional barista championships. His speciality is sensory calibration — teaching students to identify and correct flavour defects by taste alone.",
+    // imagePublicId: images.saturdayPractical,
+    bio: "Dorcas spent six years on the floor of Nairobi's busiest hotel-lobby café before crossing into training. He holds the SCA Professional Barista Skills certification and has coached competition teams at three regional barista championships. His speciality is sensory calibration — teaching students to identify and correct flavour defects by taste alone.",
   },
   {
-    name: "Wanjiru Kamau",
+    name: "Dorcas Mutavi",
     credential: "SCA Coffee Roasting — Intermediate · Q Grader Candidate",
-    imagePublicId: images.facilities.espressoLab,
-    bio: "Wanjiru trained under roasters in Mombasa and Kericho before joining Jowam. She manages the roasting curriculum and leads the extraction-science modules. Currently completing her Q Grader certification through the Coffee Quality Institute, she brings a research mindset to every cupping session — insisting students document their sensory notes, not just taste.",
-  },
-  {
-    name: "David Otieno",
-    credential: "SCA Brewing — Foundation · Latte Art Specialist",
-    imagePublicId: images.facilities.brewingStudio,
-    bio: "David began as a barista in Westlands before discovering a talent for pouring intricate milk patterns consistently at speed. He teaches the manual-brewing and milk-science modules and runs the Saturday latte-art intensives. His rule in class: technique before aesthetics — get the steam temperature right every time, and the rosette follows.",
+    // imagePublicId: images.facilities.espressoLab,
+    bio: "Angie trained under roasters in Mombasa and Kericho before joining Jowam. She manages the roasting curriculum and leads the extraction-science modules. Currently completing her Q Grader certification through the Coffee Quality Institute, she brings a research mindset to every cupping session — insisting students document their sensory notes, not just taste.",
   },
 ];
 
@@ -58,19 +52,21 @@ export function InstructorsSection() {
               key={instructor.name}
               className="rounded-card overflow-hidden bg-[rgb(255_255_255/0.05)] border border-[rgb(255_255_255/0.08)]"
             >
-              {/* Portrait — 4:5 crop */}
-              <div className="relative aspect-4/5 w-full">
-                <Image
-                  src={cloudinaryUrl(instructor.imagePublicId, {
-                    width: 480,
-                    height: 600,
-                    crop: "fill",
-                  })}
-                  alt={`Portrait of ${instructor.name}, ${instructor.credential}`}
-                  fill
-                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                  className="object-cover"
-                />
+              {/* Portrait — 4:5 (aspect-4/5) crop */}
+              <div className="relative w-full">
+                {instructor.imagePublicId && (
+                  <Image
+                    src={cloudinaryUrl(instructor.imagePublicId, {
+                      width: 480,
+                      height: 600,
+                      crop: "fill",
+                    })}
+                    alt={`Portrait of ${instructor.name}, ${instructor.credential}`}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    className="object-cover"
+                  />
+                )}
               </div>
 
               {/* Caption + bio */}
