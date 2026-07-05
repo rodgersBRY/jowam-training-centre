@@ -16,7 +16,7 @@ export const registrationSchema = z.object({
   surname: z.string().min(1, "Surname is required"),
   otherNames: z.string().min(1, "Other names are required"),
   gender: z.enum(["Male", "Female"], {
-    errorMap: () => ({ message: "Please select your gender" }),
+    message: "Please select your gender",
   }),
   dateOfBirth: z
     .string()
@@ -29,10 +29,10 @@ export const registrationSchema = z.object({
 
   // Step 2 — Education & course
   educationLevel: z.enum(["KCPE", "KCSE", "Diploma", "Degree"], {
-    errorMap: () => ({ message: "Please select your education level" }),
+    message: "Please select your education level",
   }),
   courseSlug: z.enum(courseSlugs, {
-    errorMap: () => ({ message: "Please select a course" }),
+    message: "Please select a course",
   }),
 
   // Step 3 — Emergency contact & photo
@@ -50,9 +50,7 @@ export const registrationSchema = z.object({
 
   /** Must be true — user must tick the consent checkbox. */
   consent: z.literal(true, {
-    errorMap: () => ({
-      message: "You must agree to the privacy policy to continue",
-    }),
+    message: "You must agree to the privacy policy to continue",
   }),
 
   /** ISO timestamp, set on the client just before POST. */
