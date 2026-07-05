@@ -9,8 +9,6 @@ import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Card } from "@/components/ui/Card";
 import { ButtonLink } from "@/components/ui/Button";
-import { WhatsAppIcon } from "@/components/ui/icons";
-import { whatsappLink } from "@/lib/data/site";
 import { SyllabusTimeline } from "@/components/interactive/SyllabusTimeline";
 import { InstallmentCalculator } from "@/components/interactive/InstallmentCalculator";
 import { WhatsAppButton } from "@/components/interactive/WhatsAppButton";
@@ -141,12 +139,10 @@ export default async function CoursePage({
               </ul>
               <div className="mt-8">
                 <ButtonLink
-                  variant="whatsapp"
-                  href={whatsappLink(course.whatsappMessage)}
-                  external
+                  variant="primary"
+                  href={`/enroll?course=${course.slug}`}
                 >
-                  <WhatsAppIcon size={20} />
-                  Enroll via WhatsApp
+                  Enroll now
                 </ButtonLink>
               </div>
             </div>

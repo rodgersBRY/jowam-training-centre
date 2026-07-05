@@ -1,9 +1,8 @@
 import Image from "next/image";
 import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
-import { WhatsAppIcon } from "@/components/ui/icons";
 import { formatPrice } from "@/lib/data/courses";
-import { nextIntake, whatsappLink } from "@/lib/data/site";
+import { nextIntake } from "@/lib/data/site";
 import { cloudinaryUrl } from "@/lib/utils/cloudinary";
 import type { Course } from "@/lib/data/courses";
 
@@ -68,6 +67,9 @@ export function CourseHero({
 
           {/* CTAs */}
           <div className="mt-8 flex flex-wrap gap-3">
+            <ButtonLink variant="primary" href={`/enroll?course=${course.slug}`}>
+              Enroll now
+            </ButtonLink>
             <ButtonLink
               variant="secondary"
               href="#pricing"
