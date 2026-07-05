@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { site, nextIntake } from "@/lib/data/site";
 import { Logo } from "@/components/ui/Logo";
@@ -10,6 +11,13 @@ import Image from "next/image";
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  // A nav item is active on its own route and any nested route beneath it.
+  const isActive = (href: string) =>
+    href === "/"
+      ? pathname === "/"
+      : pathname === href || pathname.startsWith(`${href}/`);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 4);
@@ -46,7 +54,11 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-[0.95rem] font-medium text-brand-brown transition-colors hover:text-brand-orange"
+              aria-current={isActive(item.href) ? "page" : undefined}
+              className={cn(
+                "text-[0.95rem] font-medium transition-colors hover:text-brand-orange",
+                isActive(item.href) ? "text-brand-orange" : "text-brand-brown",
+              )}
             >
               {item.label}
             </Link>
@@ -107,7 +119,13 @@ export function Header() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="block py-3 text-[1.05rem] font-medium text-brand-brown"
+                  aria-current={isActive(item.href) ? "page" : undefined}
+                  className={cn(
+                    "block py-3 text-[1.05rem] font-medium",
+                    isActive(item.href)
+                      ? "text-brand-orange"
+                      : "text-brand-brown",
+                  )}
                   onClick={() => setMenuOpen(false)}
                 >
                   {item.label}
