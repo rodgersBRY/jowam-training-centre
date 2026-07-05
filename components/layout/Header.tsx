@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { site, nextIntake } from "@/lib/data/site";
-import { Logo } from "@/components/ui/Logo";
 import { cn } from "@/lib/utils/cn";
 import Image from "next/image";
 
@@ -25,10 +24,6 @@ export function Header() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  function cloudinaryUrl(imgId: any, arg1: { width: number; height: number }) {
-    throw new Error("Function not implemented.");
-  }
 
   return (
     <header
