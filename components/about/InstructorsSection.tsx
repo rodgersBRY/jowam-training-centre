@@ -44,13 +44,13 @@ export function InstructorsSection() {
         />
 
         <ul
-          className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
+          className="mt-16 grid gap-8 place-items-center grid-cols-2"
           role="list"
         >
           {instructors.map((instructor) => (
             <li
               key={instructor.name}
-              className="rounded-card overflow-hidden bg-[rgb(255_255_255/0.05)] border border-[rgb(255_255_255/0.08)]"
+              className="rounded-card overflow-hidden bg-[rgb(255_255_255/0.05)] border border-[rgb(255_255_255/0.08)] md:w-3/4"
             >
               {/* Portrait — 4:5 (aspect-4/5) crop */}
               <div className="relative w-full">
