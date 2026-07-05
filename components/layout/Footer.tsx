@@ -4,6 +4,7 @@ import { courses } from "@/lib/data/courses";
 import { Logo } from "@/components/ui/Logo";
 import { Container } from "@/components/ui/Container";
 import { socialIcons } from "@/components/ui/icons";
+import Image from "next/image";
 
 /**
  * Footer on --roast — the canonical on-site home for the NAP (DESIGN §6).
@@ -12,9 +13,18 @@ export function Footer() {
   return (
     <footer className="bg-roast text-roast-text">
       <Container className="py-16">
-        <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr]">
+        <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
-            <Logo reversed />
+            <div className="bg-paper w-24 h-24 rounded-lg">
+              <Image
+                src="/logo.png"
+                alt="Jowam Coffee Training Centre"
+                width={5}
+                height={5}
+                className="h-full w-full object-cover"
+              />
+            </div>
+
             <p className="measure mt-5 text-[0.95rem] text-roast-text/85">
               Premium hands-on barista and coffee roasting training in the heart
               of Nairobi CBD. Monthly intakes, transparent pricing, real
@@ -90,13 +100,17 @@ export function Footer() {
                 </a>
               </p>
             </address>
+          </div>
+
+          <div>
+            <h2 className="text-[0.8rem] font-semibold uppercase tracking-[0.14em] text-brand-orange">
+              Office Hours
+            </h2>
+
             <div className="mt-5 text-[0.9rem] text-roast-text/70">
               {site.hours.map((h) => (
                 <p key={h.days}>
-                  <span className="text-roast-text">
-                    {h.days}:
-                  </span>{" "}
-                  {h.time}
+                  <span className="text-roast-text">{h.days}:</span> {h.time}
                 </p>
               ))}
             </div>
@@ -107,12 +121,23 @@ export function Footer() {
           <p>
             © {new Date().getFullYear()} {site.name}. All rights reserved.
           </p>
+
           <Link
             href="/privacy-policy"
             className="transition-colors hover:text-white"
           >
-            Privacy Policy
+            &middot; Privacy Policy
           </Link>
+
+          <p>
+            Developed &amp; Mantained by{" "}
+            <a
+              href={`https://wa.me/${site.developer.whatsapp}`}
+              className="transition-colors hover:text-white underline underline-offset-1"
+            >
+              {site.developer.name}
+            </a>
+          </p>
         </div>
       </Container>
     </footer>

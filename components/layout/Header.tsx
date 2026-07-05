@@ -5,6 +5,7 @@ import Link from "next/link";
 import { site, nextIntake } from "@/lib/data/site";
 import { Logo } from "@/components/ui/Logo";
 import { cn } from "@/lib/utils/cn";
+import Image from "next/image";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -17,23 +18,30 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  function cloudinaryUrl(imgId: any, arg1: { width: number; height: number }) {
+    throw new Error("Function not implemented.");
+  }
+
   return (
     <header
       className={cn(
         "sticky top-0 z-50 bg-paper border-b border-line",
         "transition-shadow duration-150",
-        scrolled && "shadow-[0_2px_16px_rgb(36_27_21/0.06)]"
+        scrolled && "shadow-[0_2px_16px_rgb(36_27_21/0.06)]",
       )}
     >
-      <div className="mx-auto flex h-14 max-w-[1200px] items-center justify-between px-6 md:h-16">
+      <div className="mx-auto flex h-14 max-w-300 items-center justify-between px-6 md:h-16">
         <Link href="/" aria-label={`${site.name} home`} className="shrink-0">
-          <Logo />
+          <Image
+            src="/logo.png"
+            alt="Jowam Coffee Training Centre"
+            width={60}
+            height={60}
+            className="h-full w-full object-cover transition-transform duration-400 ease-brand group-hover:scale-[1.03]"
+          />
         </Link>
 
-        <nav
-          aria-label="Primary"
-          className="hidden items-center gap-7 md:flex"
-        >
+        <nav aria-label="Primary" className="hidden items-center gap-7 md:flex">
           {site.nav.map((item) => (
             <Link
               key={item.href}
@@ -49,7 +57,7 @@ export function Header() {
           {/* Intake pill — persistent sitewide (DESIGN §6) */}
           <Link
             href="/enroll"
-            className="hidden rounded-pill border border-brand-orange px-4 py-1.5 text-[0.8rem] font-semibold text-brand-orange transition-transform duration-150 hover:-translate-y-[1px] sm:inline-flex"
+            className="hidden rounded-pill border border-brand-orange px-4 py-1.5 text-[0.8rem] font-semibold text-brand-orange transition-transform duration-150 hover:-translate-y-px sm:inline-flex"
           >
             Next intake: {nextIntake}
           </Link>
@@ -67,19 +75,19 @@ export function Header() {
               <span
                 className={cn(
                   "absolute left-0 top-0 h-0.5 w-6 bg-roast transition-transform duration-150",
-                  menuOpen && "translate-y-[7px] rotate-45"
+                  menuOpen && "translate-y-1.75 rotate-45",
                 )}
               />
               <span
                 className={cn(
-                  "absolute left-0 top-[7px] h-0.5 w-6 bg-roast transition-opacity duration-150",
-                  menuOpen && "opacity-0"
+                  "absolute left-0 top-1.75 h-0.5 w-6 bg-roast transition-opacity duration-150",
+                  menuOpen && "opacity-0",
                 )}
               />
               <span
                 className={cn(
-                  "absolute left-0 top-[14px] h-0.5 w-6 bg-roast transition-transform duration-150",
-                  menuOpen && "-translate-y-[7px] -rotate-45"
+                  "absolute left-0 top-3.5 h-0.5 w-6 bg-roast transition-transform duration-150",
+                  menuOpen && "-translate-y-1.75 -rotate-45",
                 )}
               />
             </span>

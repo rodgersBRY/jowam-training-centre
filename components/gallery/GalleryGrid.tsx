@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { cloudinaryUrl } from "@/lib/utils/cloudinary";
 import { cn } from "@/lib/utils/cn";
+import { CloseIcon } from "@/components/ui/icons";
 
 export type GalleryPhoto = {
   publicId: string;
@@ -127,7 +128,7 @@ export function GalleryGrid({ photos }: { photos: GalleryPhoto[] }) {
               aria-label="Close"
               className="absolute right-2 top-2 inline-flex h-11 w-11 items-center justify-center rounded-pill bg-roast/80 text-paper"
             >
-              ✕
+              <CloseIcon />
             </button>
           </figure>
         )}

@@ -30,6 +30,7 @@ export function WhatsAppButton({
     }
     const targets = document.querySelectorAll("[data-pricing-section]");
     if (!targets.length) return;
+
     const io = new IntersectionObserver(
       (entries) => {
         for (const e of entries) {
@@ -41,8 +42,9 @@ export function WhatsAppButton({
           }
         }
       },
-      { threshold: 0.4 }
+      { threshold: 0.4 },
     );
+    
     targets.forEach((t) => io.observe(t));
     return () => io.disconnect();
   }, []);
@@ -64,7 +66,7 @@ export function WhatsAppButton({
       className={cn(
         "fixed bottom-4 right-4 z-40 inline-flex items-center gap-2 rounded-pill bg-whatsapp px-4 py-3 font-semibold text-white shadow-[0_8px_30px_rgb(36_27_21/0.18)]",
         "min-h-11 transition-transform duration-150 ease-brand hover:-translate-y-0.5 active:scale-[0.98]",
-        pulse && "wa-pulse"
+        pulse && "wa-pulse",
       )}
     >
       <WhatsAppIcon />

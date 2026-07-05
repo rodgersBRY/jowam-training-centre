@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/Card";
 import { ButtonLink } from "@/components/ui/Button";
+import { ArrowIcon } from "@/components/ui/icons";
 import type { BlogPost } from "@/lib/data/blog";
 import { formatPostDate } from "@/lib/data/blog";
 
@@ -24,8 +25,12 @@ export function PostCard({ post }: { post: BlogPost }) {
 
       {/* CTA */}
       <div>
-        <ButtonLink href={`/blog/${post.slug}`} variant="ghost">
-          Read article →
+        <ButtonLink
+          href={`/blog/${post.slug}`}
+          variant="ghost"
+          className="inline-flex items-center gap-1.5"
+        >
+          Read article <ArrowIcon size={16} />
         </ButtonLink>
       </div>
     </Card>

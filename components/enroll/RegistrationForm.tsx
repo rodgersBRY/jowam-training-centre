@@ -13,8 +13,7 @@ import { Button } from "@/components/ui/Button";
 type Errors = Partial<Record<string, string>>;
 type Status = "idle" | "submitting" | "success" | "error";
 
-const labelCls =
-  "block text-[0.9rem] font-semibold text-brand-brown mb-1.5";
+const labelCls = "block text-[0.9rem] font-semibold text-brand-brown mb-1.5";
 const inputCls =
   "w-full min-h-[48px] rounded-card border border-line bg-white px-3.5 text-[16px] text-roast focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-orange";
 
@@ -73,10 +72,8 @@ function compressImage(file: File): Promise<string> {
   });
 }
 
-const fieldset =
-  "space-y-5 rounded-card border border-line p-5 md:p-6";
-const legend =
-  "px-2 font-display text-[1.05rem] font-semibold text-roast";
+const fieldset = "space-y-5 rounded-card border border-line p-5 md:p-6";
+const legend = "px-2 font-display text-[1.05rem] font-semibold text-roast";
 
 export function RegistrationForm({
   defaultCourse,
@@ -85,20 +82,7 @@ export function RegistrationForm({
 }) {
   const [errors, setErrors] = useState<Errors>({});
   const [status, setStatus] = useState<Status>("idle");
-  const [photo, setPhoto] = useState<string | null>(null);
   const formRef = useRef<HTMLFormElement>(null);
-
-  async function onPhotoChange(e: React.ChangeEvent<HTMLInputElement>) {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    try {
-      const dataUrl = await compressImage(file);
-      setPhoto(dataUrl);
-      setErrors((p) => ({ ...p, passportPhoto: undefined }));
-    } catch {
-      setErrors((p) => ({ ...p, passportPhoto: "Could not read that image" }));
-    }
-  }
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -118,7 +102,6 @@ export function RegistrationForm({
       emergencyContactNames: fd.get("emergencyContactNames"),
       emergencyRelationship: fd.get("emergencyRelationship"),
       emergencyPhone: fd.get("emergencyPhone"),
-      passportPhoto: photo ?? "",
       consent: fd.get("consent") === "on",
       clientTimestamp: new Date().toISOString(),
     };
@@ -148,7 +131,6 @@ export function RegistrationForm({
       if (!res.ok) throw new Error("Request failed");
       setStatus("success");
       form.reset();
-      setPhoto(null);
     } catch {
       setStatus("error");
     }
@@ -332,32 +314,6 @@ export function RegistrationForm({
             placeholder="07XX XXX XXX"
             className={inputCls}
           />
-        </Field>
-        <Field
-          id="passportPhoto"
-          label="Passport photo"
-          error={errors.passportPhoto}
-        >
-          <input
-            id="passportPhoto"
-            name="passportPhotoFile"
-            type="file"
-            accept="image/*"
-            capture="user"
-            onChange={onPhotoChange}
-            className={cn(
-              inputCls,
-              "py-2.5 file:mr-3 file:rounded-pill file:border-0 file:bg-brand-orange file:px-3 file:py-1.5 file:text-white",
-            )}
-          />
-          {photo && (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              src={photo}
-              alt="Passport photo preview"
-              className="mt-3 h-28 w-28 rounded-card object-cover"
-            />
-          )}
         </Field>
       </fieldset>
 

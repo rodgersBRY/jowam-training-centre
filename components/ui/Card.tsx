@@ -15,7 +15,7 @@ export function Card({
       className={cn(
         "rounded-card bg-paper border border-line overflow-hidden",
         interactive &&
-          "shadow-card transition-transform duration-150 ease-brand hover:-translate-y-[2px]",
+          "shadow-card transition-transform duration-150 ease-brand hover:-translate-y-0.5",
         className
       )}
     >

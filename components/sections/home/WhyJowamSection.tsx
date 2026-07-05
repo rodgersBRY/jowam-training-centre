@@ -1,24 +1,30 @@
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import {
+  UserIcon,
+  CoffeeIcon,
+  CalendarIcon,
+  RepeatIcon,
+} from "@/components/ui/icons";
 
 const reasons = [
   {
-    icon: "👤",
+    icon: UserIcon,
     title: "Named expert instructors",
     body: "Every course is taught by a named, credentialled trainer — not a rotating pool of part-timers. You know exactly who is teaching you and can hold them to the standard they publish.",
   },
   {
-    icon: "☕",
+    icon: CoffeeIcon,
     title: "Professional-grade equipment",
     body: "Train on the same commercial espresso machines, grinders, and drum roasters you will find in a real café or roastery. Day one on the job you will recognise the equipment and the workflow.",
   },
   {
-    icon: "📅",
+    icon: CalendarIcon,
     title: "Five weeks of real depth",
     body: "Our Professional courses run for five weeks because barista and roasting craft cannot be compressed into a weekend. You leave with muscle memory, not just a certificate.",
   },
   {
-    icon: "🔄",
+    icon: RepeatIcon,
     title: "Monthly intakes, no long wait",
     body: "A new cohort starts every month, so you can plan around work, family, or funding. Small class sizes mean the instructor has time for you — not just the fastest learner in the room.",
   },
@@ -42,7 +48,7 @@ export function WhyJowamSection() {
               key={r.title}
               className="rounded-card border border-roast-text/15 bg-roast-text/5 p-8"
             >
-              <span className="text-3xl" aria-hidden="true">{r.icon}</span>
+              <r.icon size={28} className="text-brand-orange" />
               <h3 className="mt-4 text-h3 font-bold text-paper">
                 {r.title}
               </h3>

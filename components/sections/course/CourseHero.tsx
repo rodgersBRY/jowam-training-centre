@@ -38,18 +38,14 @@ export function CourseHero({
 
       {/* Content */}
       <Container className="relative z-10 section-y">
-        <div className="max-w-[680px]">
+        <div className="max-w-170">
           {/* Eyebrow */}
           <p className="text-small font-semibold uppercase tracking-[0.12em] text-brand-orange mb-4">
             {course.duration} &middot; Monthly intakes
           </p>
 
           {/* H1 — one per page */}
-          <h1
-            className="text-hero font-bold text-paper"
-          >
-            {course.title}
-          </h1>
+          <h1 className="text-hero font-bold text-paper">{course.title}</h1>
 
           <p className="mt-4 text-[1.125rem] text-roast-text measure">
             {course.tagline}
@@ -60,28 +56,18 @@ export function CourseHero({
             <p className="text-small font-semibold uppercase tracking-[0.1em] text-roast-text/70">
               Course fee
             </p>
-            <p
-              className="mt-1 text-price font-display font-extrabold leading-none text-paper"
-            >
+            <p className="mt-1 text-price font-display font-extrabold leading-none text-paper">
               <span className="align-super text-[40%] font-bold">KES </span>
               {course.price.toLocaleString("en-KE")}
             </p>
             <p className="mt-2 text-[0.9rem] text-roast-text/75">
-              Next intake: <strong className="text-roast-text">{nextIntake}</strong>
-              {" "}&middot; M-PESA installments available
+              Next intake:{" "}
+              <strong className="text-roast-text">{nextIntake}</strong>
             </p>
           </div>
 
           {/* CTAs */}
           <div className="mt-8 flex flex-wrap gap-3">
-            <ButtonLink
-              variant="whatsapp"
-              href={whatsappLink(course.whatsappMessage)}
-              external
-            >
-              <WhatsAppIcon size={20} />
-              Enroll via WhatsApp
-            </ButtonLink>
             <ButtonLink
               variant="secondary"
               href="#pricing"

@@ -38,7 +38,7 @@ export function CourseStripSection() {
                         alt={`Students training in the ${course.title} at Jowam Coffee Training Centre`}
                         width={720}
                         height={405}
-                        className="h-full w-full object-cover transition-transform duration-[400ms] ease-brand group-hover:scale-[1.03]"
+                        className="h-full w-full object-cover transition-transform duration-400 ease-brand group-hover:scale-[1.03]"
                       />
                     ) : (
                       <div className="h-full w-full bg-roast" />
@@ -68,7 +68,7 @@ export function CourseStripSection() {
                     </p>
 
                     {/* Ghost CTA */}
-                    <span className="mt-4 inline-flex items-center gap-1.5 font-semibold text-brand-orange text-small group-hover:-translate-y-[1px] transition-transform duration-150">
+                    <span className="mt-4 inline-flex items-center gap-1.5 font-semibold text-brand-orange text-small group-hover:-translate-y-px transition-transform duration-150">
                       View course
                       <ArrowIcon size={16} />
                     </span>
@@ -81,7 +81,8 @@ export function CourseStripSection() {
 
         {/* Installment note */}
         <p className="mt-8 text-center text-small text-brand-brown">
-          Pay in full or split into two or three M-PESA installments — no hidden fees.
+          Pay in full or split into two or three M-PESA installments — no hidden
+          fees.
         </p>
       </Container>
     </section>

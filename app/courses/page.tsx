@@ -28,8 +28,8 @@ export default function CoursesPage() {
         <Container>
           <SectionHeading
             eyebrow="Courses"
-            title="Train on real equipment, priced in the open"
-            lead="Three hands-on programmes with monthly intakes. Every fee is published, and every course can be paid in M-PESA installments."
+            title="Top Barista Courses in Nairobi Today | Jowam Training Centre"
+            lead=""
           />
 
           <div

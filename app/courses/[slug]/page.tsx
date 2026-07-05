@@ -73,6 +73,48 @@ export default async function CoursePage({
         </Container>
       </section>
 
+      {/* Outcomes + careers */}
+      <section className="section-y bg-paper">
+        <Container>
+          <div className="grid gap-12 md:grid-cols-2">
+            <div>
+              <SectionHeading
+                eyebrow="What you'll be able to do"
+                title="Skills you leave with"
+              />
+              <ul className="mt-6 space-y-3">
+                {course.outcomes.map((o) => (
+                  <li key={o} className="flex gap-3 text-brand-brown">
+                    <span
+                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-orange"
+                      aria-hidden="true"
+                    />
+                    {o}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <SectionHeading
+                eyebrow="Where it leads"
+                title="Career outcomes"
+              />
+              <ul className="mt-6 space-y-3">
+                {course.careerOutcomes.map((o) => (
+                  <li key={o} className="flex gap-3 text-brand-brown">
+                    <span
+                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-orange"
+                      aria-hidden="true"
+                    />
+                    {o}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </Container>
+      </section>
+
       {/* Pricing + installments */}
       <section
         id="pricing"
@@ -115,54 +157,6 @@ export default async function CoursePage({
         </Container>
       </section>
 
-      {/* Outcomes + careers */}
-      <section className="section-y bg-paper">
-        <Container>
-          <div className="grid gap-12 md:grid-cols-2">
-            <div>
-              <SectionHeading
-                eyebrow="What you'll be able to do"
-                title="Skills you leave with"
-              />
-              <ul className="mt-6 space-y-3">
-                {course.outcomes.map((o) => (
-                  <li
-                    key={o}
-                    className="flex gap-3 text-brand-brown"
-                  >
-                    <span
-                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-orange"
-                      aria-hidden="true"
-                    />
-                    {o}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <SectionHeading
-                eyebrow="Where it leads"
-                title="Career outcomes"
-              />
-              <ul className="mt-6 space-y-3">
-                {course.careerOutcomes.map((o) => (
-                  <li
-                    key={o}
-                    className="flex gap-3 text-brand-brown"
-                  >
-                    <span
-                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-orange"
-                      aria-hidden="true"
-                    />
-                    {o}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </Container>
-      </section>
-
       {/* Testimonials */}
       <section className="section-y bg-paper">
         <Container>
@@ -170,12 +164,8 @@ export default async function CoursePage({
           <div className="mt-8 grid gap-6 md:grid-cols-3">
             {shown.slice(0, 3).map((t) => (
               <Card key={t.name} className="p-6">
-                <p className="text-brand-brown">
-                  &ldquo;{t.quote}&rdquo;
-                </p>
-                <p className="mt-4 font-semibold text-roast">
-                  {t.name}
-                </p>
+                <p className="text-brand-brown">&ldquo;{t.quote}&rdquo;</p>
+                <p className="mt-4 font-semibold text-roast">{t.name}</p>
                 <p className="text-[0.85rem] text-brand-brown/70">
                   {t.course} · {t.workplace}
                 </p>
