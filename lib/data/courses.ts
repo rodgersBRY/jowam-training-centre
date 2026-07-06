@@ -111,7 +111,7 @@ export const courses: Course[] = [
   },
   {
     slug: "professional-roasting-course",
-    title: "Professional Roasting Course",
+    title: "Professional Coffee Roasting Course",
     shortTitle: "Professional Roasting",
     tagline: "Master green coffee, roast profiles, and the drum roaster.",
     summary:
