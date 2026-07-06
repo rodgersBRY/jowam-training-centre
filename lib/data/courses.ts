@@ -176,7 +176,7 @@ export const courses: Course[] = [
       "A two-week programme for working baristas sharpening their skills and employers upskilling café staff. Fast, practical, and focused on the fundamentals that matter most on the bar.",
     duration: "2 weeks",
     weeks: 2,
-    price: 25000,
+    price: 23000,
     certificate: "Jowam Certificate of Completion",
     whatsappMessage: "Hi, I'd like to enroll in the Basic Refresher Training.",
     syllabus: [
