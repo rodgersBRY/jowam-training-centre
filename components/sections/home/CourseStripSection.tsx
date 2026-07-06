@@ -55,7 +55,7 @@ export function CourseStripSection() {
                     <div className="mt-2 flex items-center gap-3 text-small text-brand-brown">
                       <span className="font-medium">{course.duration}</span>
                       <span aria-hidden="true">·</span>
-                      <span>Monthly intakes</span>
+                      <span>Weekly intakes</span>
                     </div>
 
                     <p className="mt-3 text-brand-brown text-small leading-relaxed flex-1">

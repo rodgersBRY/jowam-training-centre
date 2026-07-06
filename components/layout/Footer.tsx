@@ -32,7 +32,7 @@ export function Footer() {
 
             <p className="measure mt-5 text-[0.95rem] text-roast-text/85">
               Premium hands-on barista and coffee roasting training in the heart
-              of Nairobi. Monthly intakes, transparent pricing, real
+              of Nairobi. Weekly intakes, transparent pricing, real
               equipment.
             </p>
             <div className="mt-6 flex gap-3">
@@ -112,7 +112,7 @@ export function Footer() {
 
           <div>
             <h2 className="text-[0.8rem] font-semibold uppercase tracking-[0.14em] text-brand-orange">
-              Office Hours
+              Training Hours
             </h2>
 
             <div className="mt-5 text-[0.9rem] text-roast-text/70">

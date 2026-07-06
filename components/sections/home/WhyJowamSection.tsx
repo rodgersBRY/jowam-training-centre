@@ -27,8 +27,8 @@ const reasons = [
   },
   {
     icon: RepeatIcon,
-    title: "Monthly intakes, no long wait",
-    body: "A new cohort starts every month, so you can plan around work, family, or funding. Small class sizes mean the instructor has time for you — not just the fastest learner in the room.",
+    title: "Weekly intakes, no long wait",
+    body: "A new cohort starts every week, so you can plan around work, family, or funding. Small class sizes mean the instructor has time for you — not just the fastest learner in the room.",
   },
 ];
 

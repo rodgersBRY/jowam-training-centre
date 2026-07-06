@@ -40,7 +40,7 @@ export function CourseHero({
         <div className="max-w-170">
           {/* Eyebrow */}
           <p className="text-small font-semibold uppercase tracking-[0.12em] text-brand-orange mb-4">
-            {course.duration} &middot; Monthly intakes
+            {course.duration} &middot; Weekly intakes
           </p>
 
           {/* H1 — one per page */}

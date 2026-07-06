@@ -25,7 +25,7 @@ export const faqs: FaqItem[] = [
   {
     question: "When is the next intake?",
     answer:
-      "We run a new intake every month. The current next intake date is shown in the header and on every course page.",
+      "We run a new intake every week, starting Mondays. The current next intake date is shown in the header and on every course page.",
     scope: "schedule",
   },
   {

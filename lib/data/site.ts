@@ -1,3 +1,5 @@
+import { getNextIntakeDate, formatIntakeDate } from "@/lib/utils/intake";
+
 /**
  * Canonical site identity — the single source of truth for NAP.
  * Used identically across footer, schema, and metadata (CONTENT-SEO §9).
@@ -7,7 +9,7 @@ export const site = {
   shortName: "Jowam",
   tagline: "Professional Barista & Coffee Roasting Training",
   description:
-    "Premium hands-on barista and coffee roasting training in Nairobi. Monthly intakes, transparent pricing, M-PESA installments, and named expert instructors.",
+    "Premium hands-on barista and coffee roasting training in Nairobi. Weekly intakes, transparent pricing, M-PESA installments, and named expert instructors.",
   // Set to the production origin before launch.
   url: "https://jowamtrainingcentre.co.ke",
   developer: {
@@ -19,8 +21,9 @@ export const site = {
     phones: [
       { display: "+254 722 938 905", raw: "254722938905" },
       { display: "+254 722 762 945", raw: "254722762945" },
+      { display: "+254 715 063 117", raw: "254715063117" },
     ],
-    whatsapp: "254722938905",
+    whatsapp: "254715063117",
     email: "info@jowamtrainingcentre.co.ke",
   },
 
@@ -72,10 +75,12 @@ export const site = {
 } as const;
 
 /**
- * The next monthly intake label shown in the header pill and on key pages.
- * Update this once per month (CONTENT-SEO §2).
+ * The next intake label shown in the header pill and on key pages. Intakes
+ * run weekly, every Monday — computed automatically, nothing to update by
+ * hand. Since pages are statically generated, this reflects "next Monday as
+ * of the last deploy," not live per-request.
  */
-export const nextIntake = "August 2026";
+export const nextIntake = formatIntakeDate(getNextIntakeDate());
 
 /** Pre-filled WhatsApp deep link with an optional message. */
 export function whatsappLink(message?: string): string {

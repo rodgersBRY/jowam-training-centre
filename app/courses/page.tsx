@@ -15,7 +15,7 @@ import { JsonLd, coursesListSchema } from "@/components/seo/JsonLd";
 export const metadata: Metadata = pageMetadata({
   title: "Coffee Courses in Nairobi",
   description:
-    "Professional barista, coffee roasting, and refresher courses in Nairobi. Transparent pricing, monthly intakes, and M-PESA installments.",
+    "Professional barista, coffee roasting, and refresher courses in Nairobi. Transparent pricing, weekly intakes, and M-PESA installments.",
   path: "/courses",
 });
 
@@ -62,7 +62,7 @@ export default function CoursesPage() {
                         {course.title}
                       </h2>
                       <p className="mt-1 text-[0.85rem] font-medium text-brand-brown/70">
-                        {course.duration} · Monthly intakes
+                        {course.duration} · Weekly intakes
                       </p>
                       <p className="mt-3 flex-1 text-[0.95rem] text-brand-brown">
                         {course.summary}

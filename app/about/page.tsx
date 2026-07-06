@@ -31,7 +31,7 @@ export default function AboutPage() {
             onRoast
             eyebrow="Ready when you are"
             title="Come and train with us"
-            lead="Monthly intakes, transparent pricing, and real equipment in the heart of Nairobi."
+            lead="Weekly intakes, transparent pricing, and real equipment in the heart of Nairobi."
           />
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <ButtonLink variant="primary" href="/courses">
