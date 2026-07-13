@@ -13,15 +13,21 @@ export type Event = {
 
 export const events: Event[] = [];
 
+function toDateOnly(d: Date): Date {
+  return new Date(d.toISOString().slice(0, 10));
+}
+
 export function getUpcomingEvents(now = new Date()): Event[] {
+  const today = toDateOnly(now);
   return events
-    .filter((e) => new Date(e.date) >= now)
+    .filter((e) => new Date(e.date) >= today)
     .sort((a, b) => a.date.localeCompare(b.date));
 }
 
 export function getPastEventsWithGallery(now = new Date()): Event[] {
+  const today = toDateOnly(now);
   return events
-    .filter((e) => new Date(e.date) < now && (e.gallery?.length ?? 0) > 0)
+    .filter((e) => new Date(e.date) < today && (e.gallery?.length ?? 0) > 0)
     .sort((a, b) => b.date.localeCompare(a.date));
 }
 
