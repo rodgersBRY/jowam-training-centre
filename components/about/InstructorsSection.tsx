@@ -21,7 +21,7 @@ const instructors: Instructor[] = [
     name: "Dorcas Mutavi",
     credential: "SCA Barista Skills — Professional",
     // imagePublicId: images.saturdayPractical,
-    bio: "Dorcas spent six years on the floor of Nairobi's busiest hotel-lobby café before crossing into training. He holds the SCA Professional Barista Skills certification and has coached competition teams at three regional barista championships. His speciality is sensory calibration — teaching students to identify and correct flavour defects by taste alone.",
+    bio: "Dorcas spent six years on the floor of Nairobi's busiest hotel-lobby café before crossing into training. She holds the SCA Professional Barista Skills certification and has coached competition teams at three regional barista championships. Her speciality is sensory calibration — teaching students to identify and correct flavour defects by taste alone.",
   },
   {
     name: "Angelique Mutoni",
