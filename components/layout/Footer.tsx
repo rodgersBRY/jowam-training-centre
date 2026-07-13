@@ -32,8 +32,7 @@ export function Footer() {
 
             <p className="measure mt-5 text-[0.95rem] text-roast-text/85">
               Premium hands-on barista and coffee roasting training in the heart
-              of Nairobi. Weekly intakes, transparent pricing, real
-              equipment.
+              of Nairobi. Weekly intakes, transparent pricing, real equipment.
             </p>
             <div className="mt-6 flex gap-3">
               {site.social.map((s) => {
@@ -85,11 +84,14 @@ export function Footer() {
               Visit &amp; contact
             </h2>
             <address className="mt-4 space-y-2.5 text-[0.95rem] not-italic text-roast-text/85">
-              <p className="flex items-start"><AddressIcon />: {site.address.full}</p>
-              
+              <p className="flex items-start">
+                <AddressIcon />: {site.address.full}
+              </p>
+
               {site.contact.phones.map((p) => (
                 <p key={p.raw} className="flex items-center">
-                  <PhoneIcon />{`: `}
+                  <PhoneIcon />
+                  {`: `}
                   <a
                     href={`tel:+${p.raw}`}
                     className="transition-colors hover:text-white ml-1"
@@ -99,7 +101,8 @@ export function Footer() {
                 </p>
               ))}
               <p className="flex items-center">
-                <MailIcon />{`: `}
+                <MailIcon />
+                {`: `}
                 <a
                   href={`mailto:${site.contact.email}`}
                   className="transition-colors hover:text-white ml-1"
@@ -134,7 +137,7 @@ export function Footer() {
             href="/privacy-policy"
             className="transition-colors hover:text-white"
           >
-            &middot; Privacy Policy
+            Privacy Policy
           </Link>
 
           <p>
