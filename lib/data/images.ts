@@ -30,7 +30,8 @@ export const images = {
 
 /** Per-course hero image public IDs, keyed by course slug. */
 export const courseImages: Record<string, string> = {
-  "professional-barista-course": "Screenshot_2026-06-30_at_00.09.17_sxlhdj",
-  "professional-roasting-course": "Screenshot_2026-06-30_at_01.26.13_rqdk5n",
+  "professional-barista-course": "Screenshot_2026-06-30_at_01.23.37_socglv",
+  "professional-roasting-course": "Screenshot_2026-06-30_at_00.09.17_sxlhdj",
   "basic-refresher-training": "Screenshot_2026-06-30_at_01.24.18_f7bxkz",
 };
+
