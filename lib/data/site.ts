@@ -68,6 +68,7 @@ export const site = {
     { label: "Courses", href: "/courses" },
     { label: "About", href: "/about" },
     { label: "Gallery", href: "/gallery" },
+    { label: "Events", href: "/events" },
     { label: "Blog", href: "/blog" },
     { label: "FAQ", href: "/faq" },
     { label: "Contact", href: "/contact" },
