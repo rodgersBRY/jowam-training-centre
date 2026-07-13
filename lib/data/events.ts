@@ -11,7 +11,16 @@ export type Event = {
   gallery?: string[];
 };
 
-export const events: Event[] = [];
+export const events: Event[] = [
+  {
+    title: "In-House Barista Competition",
+    date: "2026-07-17",
+    description:
+      "Jowam Training Centre In house barista competition. Time to show what you've got. Barista, bring your A-game",
+    poster: "WhatsApp_Image_2026-07-13_at_13.22.17_sknlve",
+    whatsappMessage: "",
+  },
+];
 
 function toDateOnly(d: Date): Date {
   return new Date(d.toISOString().slice(0, 10));

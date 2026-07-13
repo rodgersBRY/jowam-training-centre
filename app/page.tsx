@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { faqs } from "@/lib/data/faq";
+import { getUpcomingEvents } from "@/lib/data/events";
 import { pageMetadata } from "@/lib/utils/metadata";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -14,6 +15,7 @@ import { CourseStripSection } from "@/components/sections/home/CourseStripSectio
 import { WhyJowamSection } from "@/components/sections/home/WhyJowamSection";
 import { GalleryStripSection } from "@/components/sections/home/GalleryStripSection";
 import { TestimonialsSection } from "@/components/sections/home/TestimonialsSection";
+import { EventModal } from "@/components/events/EventModal";
 
 // Homepage FAQ preview — skip cost (money) and location questions.
 const homeFaqs = faqs
@@ -31,11 +33,14 @@ export const metadata: Metadata = pageMetadata({
 });
 
 export default function HomePage() {
+  const nextEvent = getUpcomingEvents()[0] ?? null;
+
   return (
     <>
       <JsonLd data={coursesListSchema()} />
 
       <HeroSection />
+      {nextEvent && <EventModal event={nextEvent} />}
       <CourseStripSection />
       <WhyJowamSection />
       <GalleryStripSection />
