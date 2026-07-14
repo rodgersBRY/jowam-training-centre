@@ -101,6 +101,22 @@ export function faqSchema(items: FaqItem[]): Record<string, unknown> {
   };
 }
 
+/** BreadcrumbList schema — mirrors the visual Breadcrumbs component. */
+export function breadcrumbSchema(
+  items: { label: string; href?: string }[],
+): Record<string, unknown> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: item.label,
+      ...(item.href ? { item: `${site.url}${item.href}` } : {}),
+    })),
+  };
+}
+
 /** All courses as an ItemList for the courses hub. */
 export function coursesListSchema(): Record<string, unknown> {
   return {
