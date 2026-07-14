@@ -140,7 +140,7 @@ export function Footer() {
           </Link>
 
           <p>
-            Developed &amp; Mantained by{" "}
+            Developed &amp; Maintained by{" "}
             <a
               href={`https://wa.me/${site.developer.whatsapp}`}
               className="transition-colors hover:text-white underline underline-offset-1"
