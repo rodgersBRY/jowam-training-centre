@@ -6,8 +6,8 @@ import { testimonials } from "@/lib/data/testimonials";
 /** Returns the initials avatar colour for a given name — deterministic. */
 function avatarColor(name: string): string {
   const palette = [
-    "bg-roast text-roast-text",
-    "bg-brand-brown text-roast-text",
+    "bg-roast text-paper",
+    "bg-brand-brown text-paper",
     "bg-brand-orange text-white",
   ];
   const idx =
@@ -27,14 +27,13 @@ function initials(name: string): string {
 
 export function TestimonialsSection() {
   return (
-    <section className="section-y bg-roast">
+    <section className="section-y bg-paper">
       <Container>
         <SectionHeading
           eyebrow="Graduate stories"
           title="What our students say"
           lead="Real words from real graduates — not marketing copy."
           align="center"
-          onRoast
         />
 
         {/* Static grid — no carousel (DESIGN §6) */}

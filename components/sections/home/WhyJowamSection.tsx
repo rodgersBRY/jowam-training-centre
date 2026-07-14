@@ -34,14 +34,13 @@ const reasons = [
 
 export function WhyJowamSection() {
   return (
-    <section className="section-y bg-roast">
+    <section className="section-y bg-paper">
       <Container>
         <SectionHeading
           eyebrow="Why Jowam"
           title="Training built for the real industry"
           lead="There are plenty of short coffee courses out there. Jowam is different because we build for what happens after graduation."
           align="center"
-          onRoast
         />
 
         {/* Highlighted proof-point stats */}
@@ -49,7 +48,7 @@ export function WhyJowamSection() {
           {stats.map((stat) => (
             <div
               key={stat.label}
-              className="rounded-card border border-roast-text/15 bg-roast-text/5 p-8 text-center"
+              className="rounded-card border border-line bg-roast/[0.03] p-8 text-center"
             >
               <dt className="sr-only">{stat.label}</dt>
               <dd>
@@ -58,7 +57,7 @@ export function WhyJowamSection() {
                   suffix={stat.suffix}
                   className="block font-display text-[clamp(2.5rem,6vw,3.5rem)] font-extrabold leading-none text-brand-orange"
                 />
-                <span className="mt-2 block text-small font-medium text-roast-text/80">
+                <span className="mt-2 block text-small font-medium text-brand-brown/80">
                   {stat.label}
                 </span>
               </dd>
@@ -70,13 +69,13 @@ export function WhyJowamSection() {
           {reasons.map((r) => (
             <div
               key={r.title}
-              className="rounded-card border border-roast-text/15 bg-roast-text/5 p-8"
+              className="rounded-card border border-line bg-roast/[0.03] p-8"
             >
               <r.icon size={28} className="text-brand-orange" />
-              <h3 className="mt-4 text-h3 font-bold text-paper">
+              <h3 className="mt-4 text-h3 font-bold text-roast">
                 {r.title}
               </h3>
-              <p className="mt-3 text-roast-text leading-relaxed">
+              <p className="mt-3 text-brand-brown leading-relaxed">
                 {r.body}
               </p>
             </div>
