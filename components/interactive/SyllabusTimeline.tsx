@@ -63,7 +63,7 @@ export function SyllabusTimeline({ weeks }: { weeks: SyllabusWeek[] }) {
             {/* connecting line on desktop */}
             <span
               aria-hidden="true"
-              className="absolute left-3.75 top-8 hidden h-full w-px bg-roast-text/25 md:left-0 md:top-3.75 md:h-px md:w-full"
+              className="absolute left-3.75 top-8 hidden h-full w-px bg-roast/15 md:left-0 md:top-3.75 md:h-px md:w-full"
             />
             <div className="md:pr-6">
               <button
@@ -78,13 +78,13 @@ export function SyllabusTimeline({ weeks }: { weeks: SyllabusWeek[] }) {
                     "relative z-10 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-[0.85rem] font-bold transition-colors",
                     isOpen
                       ? "bg-brand-orange text-white"
-                      : "bg-roast-text/15 text-roast-text group-hover:bg-brand-orange/70 group-hover:text-white"
+                      : "bg-roast/10 text-roast group-hover:bg-brand-orange/70 group-hover:text-white"
                   )}
                 >
                   {wk.week}
                 </span>
                 <span className="flex items-center gap-2 md:mt-3">
-                  <span className="font-display text-[1.05rem] font-semibold text-paper">
+                  <span className="font-display text-[1.05rem] font-semibold text-roast">
                     {wk.title}
                   </span>
                   <ChevronIcon
@@ -107,7 +107,7 @@ export function SyllabusTimeline({ weeks }: { weeks: SyllabusWeek[] }) {
                 {wk.modules.map((m) => (
                   <li
                     key={m}
-                    className="text-[0.95rem] text-roast-text/90"
+                    className="text-[0.95rem] text-brand-brown/90"
                   >
                     {m}
                   </li>

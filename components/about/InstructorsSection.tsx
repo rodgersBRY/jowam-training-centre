@@ -33,14 +33,13 @@ const instructors: Instructor[] = [
 
 export function InstructorsSection() {
   return (
-    <section className="section-y bg-roast">
+    <section className="section-y bg-paper">
       <Container>
         <SectionHeading
           eyebrow="Meet the team"
           title="Instructors who work the industry"
           lead="Every coach at Jowam has come up through commercial coffee — they know what real kitchens and cafés demand, and they build that reality into every session."
           align="center"
-          onRoast
         />
 
         <ul
@@ -50,7 +49,7 @@ export function InstructorsSection() {
           {instructors.map((instructor) => (
             <li
               key={instructor.name}
-              className="rounded-card overflow-hidden bg-[rgb(255_255_255/0.05)] border border-[rgb(255_255_255/0.08)] md:w-3/4"
+              className="rounded-card overflow-hidden bg-roast/[0.03] border border-line md:w-3/4"
             >
               {/* Portrait — 4:5 (aspect-4/5) crop */}
               <div className="relative w-full">
@@ -71,13 +70,13 @@ export function InstructorsSection() {
 
               {/* Caption + bio */}
               <div className="p-6">
-                <p className="font-display font-bold text-(length:--text-h3) text-paper">
+                <p className="font-display font-bold text-(length:--text-h3) text-roast">
                   {instructor.name}
                 </p>
                 <p className="mt-1 text-small font-semibold uppercase tracking-widest text-brand-orange">
                   {instructor.credential}
                 </p>
-                <p className="mt-4 text-(length:--text-body) text-roast-text leading-[1.65]">
+                <p className="mt-4 text-(length:--text-body) text-brand-brown leading-[1.65]">
                   {instructor.bio}
                 </p>
               </div>

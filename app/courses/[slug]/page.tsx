@@ -55,14 +55,13 @@ export default async function CoursePage({
 
       <CourseHero course={course} imagePublicId={imageId} />
 
-      {/* Syllabus — the signature element, on --roast */}
-      <section className="section-y bg-roast">
+      {/* Syllabus — the signature element */}
+      <section className="section-y bg-paper">
         <Container>
           <SectionHeading
             eyebrow="Curriculum"
             title={`Your ${course.weeks}-week syllabus`}
             lead="Tap any week to see exactly what you'll cover. This is the depth behind the price."
-            onRoast
           />
           <div className="mt-12">
             <SyllabusTimeline weeks={course.syllabus} />

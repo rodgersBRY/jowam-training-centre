@@ -81,11 +81,10 @@ export default function GalleryPage() {
       </section>
 
       {/* Instagram */}
-      <section className="section-y bg-roast">
+      <section className="section-y bg-paper">
         <Container className="text-center">
           <SectionHeading
             align="center"
-            onRoast
             eyebrow="Follow along"
             title="See new classes every week"
             lead="We post fresh photos and intake dates on Instagram."

@@ -16,15 +16,15 @@ export default function BlogIndexPage() {
   return (
     <>
       {/* Hero header */}
-      <section className="bg-roast section-y">
+      <section className="bg-paper section-y">
         <Container>
           <p className="text-small font-semibold uppercase tracking-[0.12em] text-brand-orange mb-4">
             Jowam Coffee Training Centre
           </p>
-          <h1 className="text-(length:--text-hero) font-bold leading-[1.05] text-paper mb-6">
+          <h1 className="text-(length:--text-hero) font-bold leading-[1.05] mb-6">
             Coffee Training Blog
           </h1>
-          <p className="measure text-(length:--text-body) text-roast-text leading-[1.65]">
+          <p className="measure text-(length:--text-body) text-brand-brown leading-[1.65]">
             Practical guides on barista training, coffee careers, salary
             expectations, and brewing craft — written for anyone pursuing coffee
             professionally in Kenya.

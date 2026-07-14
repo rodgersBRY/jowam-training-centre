@@ -24,11 +24,10 @@ export default function AboutPage() {
       <FacilitySection />
 
       {/* Closing CTA */}
-      <section className="section-y bg-roast">
+      <section className="section-y bg-paper">
         <Container className="text-center">
           <SectionHeading
             align="center"
-            onRoast
             eyebrow="Ready when you are"
             title="Come and train with us"
             lead="Weekly intakes, transparent pricing, and real equipment in the heart of Nairobi."
