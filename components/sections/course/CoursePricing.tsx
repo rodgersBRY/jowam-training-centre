@@ -104,12 +104,12 @@ export function CoursePricing({ course }: { course: Course }) {
         <div className="mt-8">
           <ButtonLink
             variant="primary"
-            href={`/enroll?course=${course.slug}&format=${format}`}
-            data-umami-event={AnalyticsEvent.enrollClick}
+            href={`/apply-now?course=${course.slug}&format=${format}`}
+            data-umami-event={AnalyticsEvent.applyClick}
             data-umami-event-course={course.slug}
             data-umami-event-format={format}
           >
-            Enroll {formatInfo[format].label.toLowerCase()} —{" "}
+            Apply {formatInfo[format].label.toLowerCase()} —{" "}
             {formatPrice(price)}
           </ButtonLink>
         </div>

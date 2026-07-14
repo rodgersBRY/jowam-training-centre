@@ -134,7 +134,7 @@ export function RegistrationForm({
     setErrors({});
     setStatus("submitting");
     try {
-      const res = await fetch("/api/register", {
+      const res = await fetch("/api/apply", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(parsed.data satisfies RegistrationPayload),

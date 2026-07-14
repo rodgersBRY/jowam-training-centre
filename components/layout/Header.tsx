@@ -64,7 +64,7 @@ export function Header() {
         <div className="flex items-center gap-3">
           {/* Intake pill — persistent sitewide (DESIGN §6) */}
           <Link
-            href="/enroll"
+            href="/apply-now"
             className="hidden rounded-pill border border-brand-orange px-4 py-1.5 text-[0.8rem] font-semibold text-brand-orange transition-transform duration-150 hover:-translate-y-px sm:inline-flex"
           >
             Next intake: {nextIntake}
@@ -130,7 +130,7 @@ export function Header() {
             ))}
             <li>
               <Link
-                href="/enroll"
+                href="/apply-now"
                 className="mt-1 mb-3 inline-flex rounded-pill border border-brand-orange px-4 py-2 text-[0.85rem] font-semibold text-brand-orange"
                 onClick={() => setMenuOpen(false)}
               >

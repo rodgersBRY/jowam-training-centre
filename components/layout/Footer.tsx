@@ -70,10 +70,10 @@ export function Footer() {
               ))}
               <li>
                 <Link
-                  href="/enroll"
+                  href="/apply-now"
                   className="text-roast-text/85 transition-colors hover:text-white"
                 >
-                  Enroll
+                  Apply Now
                 </Link>
               </li>
             </ul>
