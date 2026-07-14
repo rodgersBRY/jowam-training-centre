@@ -11,7 +11,7 @@ export function Container({
   as?: React.ElementType;
 }) {
   return (
-    <Tag className={cn("mx-auto w-full max-w-400 px-6", className)}>
+    <Tag className={cn("mx-auto w-full max-w-300 px-6", className)}>
       {children}
     </Tag>
   );

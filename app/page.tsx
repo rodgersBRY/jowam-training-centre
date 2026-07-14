@@ -22,8 +22,7 @@ import { EventModal } from "@/components/events/EventModal";
 // Homepage FAQ preview — skip cost (money) and location questions.
 const homeFaqs = faqs
   .filter(
-    (f) =>
-      f.scope !== "cost" && !f.question.toLowerCase().includes("located")
+    (f) => f.scope !== "cost" && !f.question.toLowerCase().includes("located"),
   )
   .slice(0, 4);
 
@@ -43,13 +42,15 @@ export default function HomePage() {
 
       <HeroSection />
       {nextEvent && <EventModal event={nextEvent} />}
-      <IntroSection />
-      <WhyChooseUsSection />
-      <AboutTeaserSection />
-      <LatestBlogSection />
-      <CourseStripSection />
-      <GalleryStripSection />
-      <TestimonialsSection />
+      <div className="max-w-300 mx-auto">
+        <IntroSection />
+        <WhyChooseUsSection />
+        <AboutTeaserSection />
+        <LatestBlogSection />
+        <CourseStripSection />
+        <GalleryStripSection />
+        <TestimonialsSection />
+      </div>
 
       {/* FAQ preview */}
       <section className="section-y bg-paper">
