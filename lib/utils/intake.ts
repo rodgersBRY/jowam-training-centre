@@ -22,3 +22,8 @@ export function formatIntakeDate(date: Date): string {
     day: "numeric",
   });
 }
+
+/** True when today itself is an intake Monday — i.e. an intake is starting/ongoing right now. */
+export function isIntakeStartingToday(from: Date = new Date()): boolean {
+  return getNextIntakeDate(from).getTime() === startOfDay(from).getTime();
+}

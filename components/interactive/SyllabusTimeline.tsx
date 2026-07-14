@@ -2,8 +2,17 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { SyllabusWeek } from "@/lib/data/courses";
-import { ChevronIcon } from "@/components/ui/icons";
+import {
+  ChevronIcon,
+  CoffeeIcon,
+  CalendarIcon,
+  CheckIcon,
+  RepeatIcon,
+} from "@/components/ui/icons";
 import { cn } from "@/lib/utils/cn";
+
+/** Purely decorative — cycles through a small icon set per week. */
+const weekIcons = [CoffeeIcon, CalendarIcon, CheckIcon, RepeatIcon];
 
 /**
  * The signature element (DESIGN §6). Semantic ordered list of weeks with
@@ -84,6 +93,12 @@ export function SyllabusTimeline({ weeks }: { weeks: SyllabusWeek[] }) {
                   {wk.week}
                 </span>
                 <span className="flex items-center gap-2 md:mt-3">
+                  {(() => {
+                    const WeekIcon = weekIcons[i % weekIcons.length];
+                    return (
+                      <WeekIcon size={16} className="hidden text-brand-orange md:inline" />
+                    );
+                  })()}
                   <span className="font-display text-[1.05rem] font-semibold text-roast">
                     {wk.title}
                   </span>

@@ -35,7 +35,7 @@ export function CoursePricing({ course }: { course: Course }) {
         <SectionHeading
           eyebrow="Investment"
           title="Transparent pricing"
-          lead={`Choose how you learn. Every fee is published, and every format can be paid in full or across M-PESA installments.`}
+          lead={`Choose how you learn. Every fee is published, and every format can be paid in full or across installments.`}
         />
 
         {/* Format toggle — only when an online option exists */}
