@@ -9,7 +9,7 @@ export function IntroSection() {
   return (
     <section className="section-y bg-paper">
       <Container>
-        <div className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-20">
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
           <div>
             <SectionHeading eyebrow="About the school" title="A coffee school built on real equipment" />
             <p className="mt-6 text-(length:--text-body) leading-[1.65] text-brand-brown measure">
@@ -17,7 +17,7 @@ export function IntroSection() {
             </p>
           </div>
 
-          <div className="relative aspect-4/5 w-full overflow-hidden rounded-card">
+          <div className="relative aspect-8/8 w-full overflow-hidden rounded-card">
             <Image
               src={stockImages.introSection}
               alt="Baristas training on professional espresso equipment"
