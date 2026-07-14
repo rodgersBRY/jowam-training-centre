@@ -22,7 +22,7 @@ export function HeroSection() {
       <div className="hero-scrim absolute inset-0" aria-hidden="true" />
 
       {/* Hero content */}
-      <Container className="relative z-10 pb-16 pt-32 md:pb-24">
+      <Container className="relative z-10 pb-20 pt-36 md:pb-28 md:pt-40">
         {/* Intake pill — visible within first mobile screen */}
         <div className="mb-6 inline-flex items-center gap-2 rounded-pill border border-roast-text/30 bg-roast/40 px-4 py-2 backdrop-blur-sm">
           <span
@@ -34,18 +34,12 @@ export function HeroSection() {
           </span>
         </div>
 
-        <h1 className="text-hero font-bold leading-(--text-hero--line-height) text-paper max-w-[18ch] text-wrap-balance">
+        <h1 className="text-[clamp(2.25rem,5.5vw,3.75rem)] font-bold leading-[1.1] text-paper max-w-[18ch] text-wrap-balance">
           Professional Barista &amp; Coffee Roasting Training
         </h1>
 
-        <p className="mt-4 max-w-[55ch] text-roast-text text-body leading-relaxed">
-          Master espresso extraction, milk texturing, latte art, manual brewing,
-          cupping, and coffee roasting — hands-on training that takes you from
-          the fundamentals to job-ready in five weeks.
-        </p>
-
         {/* Skills taught — keyword line */}
-        <p className="mt-3 text-brand-orange font-semibold text-small">
+        <p className="mt-4 text-brand-orange font-semibold text-small">
           Espresso · Latte art · Manual brewing · Roasting · Cupping
         </p>
 

@@ -18,6 +18,8 @@ export type BlogPost = {
   /** Slug of the course this article links to (CONTENT-SEO §5). */
   relatedCourse: string;
   sections: BlogSection[];
+  /** Cover image (Cloudinary id or full URL). Falls back to a stock photo when unset. */
+  image?: string;
 };
 
 /**
@@ -263,6 +265,13 @@ export const posts: BlogPost[] = [
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
   return posts.find((p) => p.slug === slug);
+}
+
+/** Most recent posts first, newest `n` (default 5). */
+export function getRecentPosts(n = 5): BlogPost[] {
+  return [...posts]
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .slice(0, n);
 }
 
 export function formatPostDate(iso: string): string {
