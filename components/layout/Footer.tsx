@@ -31,8 +31,7 @@ export function Footer() {
             </div>
 
             <p className="measure mt-5 text-[0.95rem] text-roast-text/85">
-              Premium hands-on barista and coffee roasting training in the heart
-              of Nairobi. Weekly intakes, transparent pricing, real equipment.
+              {site.description}
             </p>
             <div className="mt-6 flex gap-3">
               {site.social.map((s) => {
