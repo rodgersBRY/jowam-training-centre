@@ -5,9 +5,19 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ButtonLink } from "@/components/ui/Button";
 import { ArrowIcon } from "@/components/ui/icons";
 import { WhatsAppButton } from "@/components/interactive/WhatsAppButton";
+import { PageHero } from "@/components/ui/PageHero";
+import { FaqAccordion } from "@/components/interactive/FaqAccordion";
+import { JsonLd, faqSchema } from "@/components/seo/JsonLd";
+import { faqs } from "@/lib/data/faq";
+import { images } from "@/lib/data/images";
 import { StorySection } from "@/components/about/StorySection";
 import { InstructorsSection } from "@/components/about/InstructorsSection";
 import { FacilitySection } from "@/components/about/FacilitySection";
+import { MissionVisionValues } from "@/components/sections/about/MissionVisionValues";
+import { StatsSection } from "@/components/sections/about/StatsSection";
+import { WhyChooseUsList } from "@/components/sections/about/WhyChooseUsList";
+
+const aboutFaqs = faqs.filter((f) => f.scope === "general");
 
 export const metadata: Metadata = pageMetadata({
   title: "About Jowam Coffee Training Centre",
@@ -19,9 +29,30 @@ export const metadata: Metadata = pageMetadata({
 export default function AboutPage() {
   return (
     <>
+      <PageHero
+        image={images.story}
+        tagline="About Jowam"
+        title="About Jowam Coffee Training Centre"
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "About" }]}
+      />
+
       <StorySection />
+      <MissionVisionValues />
+      <StatsSection />
+      <WhyChooseUsList />
       <InstructorsSection />
       <FacilitySection />
+
+      {/* FAQ */}
+      <section className="section-y bg-paper">
+        <Container className="max-w-205">
+          <SectionHeading eyebrow="Questions" title="Frequently asked questions" />
+          <div className="mt-8">
+            <FaqAccordion items={aboutFaqs} />
+          </div>
+          <JsonLd data={faqSchema(aboutFaqs)} />
+        </Container>
+      </section>
 
       {/* Closing CTA */}
       <section className="section-y bg-paper">
