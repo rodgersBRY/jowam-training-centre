@@ -4,6 +4,7 @@ import { site } from "@/lib/data/site";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { RegistrationForm } from "@/components/apply/RegistrationForm";
+import { ApplyInfoPanel } from "@/components/apply/ApplyInfoPanel";
 import { WhatsAppButton } from "@/components/interactive/WhatsAppButton";
 
 export const metadata: Metadata = pageMetadata({
@@ -24,35 +25,43 @@ export default async function ApplyNowPage({
   return (
     <>
       <section className="section-y bg-paper">
-        <Container className="max-w-180">
+        <Container className="max-w-300">
           <SectionHeading
             eyebrow="Registration"
             title="Apply to Jowam"
             lead="Committed to joining? Complete your application below. Just exploring? Message us on WhatsApp first — no obligation."
           />
 
-          <div className="mt-6 rounded-card border border-line bg-white p-5 text-[0.9rem] text-brand-brown">
-            <p className="font-semibold text-roast">
-              Payment &amp; next steps
-            </p>
-            <ul className="mt-2 space-y-1.5">
-              <li>Pay in full or in 2–3 installments.</li>
-              <li>
-                Your registration number is assigned by admissions after you
-                submit.
-              </li>
-              <li>
-                Bring your ID or passport on day one to sign the registration in
-                person.
-              </li>
-            </ul>
-          </div>
+          <div className="mt-10 grid gap-10 items-start lg:grid-cols-[1fr_320px]">
+            <div>
+              <div className="rounded-card border border-line bg-white p-5 text-[0.9rem] text-brand-brown">
+                <p className="font-semibold text-roast">
+                  Payment &amp; next steps
+                </p>
+                <ul className="mt-2 space-y-1.5">
+                  <li>Pay in full or in 2–3 installments.</li>
+                  <li>
+                    Your registration number is assigned by admissions after
+                    you submit.
+                  </li>
+                  <li>
+                    Bring your ID or passport on day one to sign the
+                    registration in person.
+                  </li>
+                </ul>
+              </div>
 
-          <div className="mt-8">
-            <RegistrationForm
-              defaultCourse={course}
-              defaultFormat={defaultFormat}
-            />
+              <div className="mt-8">
+                <RegistrationForm
+                  defaultCourse={course}
+                  defaultFormat={defaultFormat}
+                />
+              </div>
+            </div>
+
+            <div className="lg:sticky lg:top-20">
+              <ApplyInfoPanel />
+            </div>
           </div>
 
           <p className="mt-8 text-center text-[0.85rem] text-brand-brown/70">
