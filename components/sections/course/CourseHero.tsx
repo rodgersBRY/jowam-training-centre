@@ -1,9 +1,11 @@
 import Image from "next/image";
 import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
+import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { formatPrice } from "@/lib/data/courses";
 import { nextIntake } from "@/lib/data/site";
 import { cloudinaryUrl } from "@/lib/utils/cloudinary";
+import { isIntakeStartingToday } from "@/lib/utils/intake";
 import type { Course } from "@/lib/data/courses";
 
 export function CourseHero({
@@ -38,10 +40,33 @@ export function CourseHero({
       {/* Content */}
       <Container className="relative z-10 section-y">
         <div className="max-w-170">
+          <Breadcrumbs
+            className="mb-4"
+            items={[
+              { label: "Home", href: "/" },
+              { label: "Courses", href: "/courses" },
+              { label: course.title },
+            ]}
+          />
+
           {/* Eyebrow */}
           <p className="text-small font-semibold uppercase tracking-[0.12em] text-brand-orange mb-4">
             {course.duration} &middot; Weekly intakes
           </p>
+
+          {/* Status badges */}
+          <div className="mb-4 flex flex-wrap gap-2">
+            {course.online && (
+              <span className="rounded-pill border border-roast-text/30 bg-roast/40 px-3 py-1 text-[0.75rem] font-semibold text-roast-text">
+                Online classes available
+              </span>
+            )}
+            <span className="rounded-pill border border-brand-orange/40 bg-roast/40 px-3 py-1 text-[0.75rem] font-semibold text-brand-orange">
+              {isIntakeStartingToday()
+                ? "Intake ongoing"
+                : `Next intake: ${nextIntake}`}
+            </span>
+          </div>
 
           {/* H1 — one per page */}
           <h1 className="text-hero font-bold text-paper">{course.title}</h1>
@@ -58,10 +83,6 @@ export function CourseHero({
             <p className="mt-1 text-price font-display font-extrabold leading-none text-paper">
               <span className="align-super text-[40%] font-bold">KES </span>
               {course.price.toLocaleString("en-KE")}
-            </p>
-            <p className="mt-2 text-[0.9rem] text-roast-text/75">
-              Next intake:{" "}
-              <strong className="text-roast-text">{nextIntake}</strong>
             </p>
           </div>
 
