@@ -9,6 +9,7 @@ import {
 } from "@/lib/utils/emailjs";
 import { track, AnalyticsEvent } from "@/lib/utils/analytics";
 import { Button } from "@/components/ui/Button";
+import { Field } from "../apply/RegistrationForm";
 
 type Status = "idle" | "sending" | "sent" | "error";
 type Errors = Partial<
@@ -72,9 +73,7 @@ export function ContactForm() {
   if (status === "sent") {
     return (
       <div className="rounded-card border border-line bg-white p-6 text-center">
-        <p className="font-semibold text-roast">
-          Message sent — thank you!
-        </p>
+        <p className="font-semibold text-roast">Message sent — thank you!</p>
         <p className="mt-1 text-[0.9rem] text-brand-brown">
           We&rsquo;ll reply within one business day. For a faster response,
           message us on WhatsApp.
@@ -86,45 +85,33 @@ export function ContactForm() {
   return (
     <form onSubmit={onSubmit} noValidate className="space-y-4">
       <div>
-        <label htmlFor="name" className={labelCls}>
-          Name
-        </label>
-        <input
-          id="name"
-          name="name"
-          className={inputCls}
-          autoComplete="name"
-          value={data.name ?? ""}
-          onChange={(e) => set("name", e.target.value)}
-          aria-describedby={errors.name ? "name-error" : undefined}
-        />
-        {errors.name && (
-          <p id="name-error" role="alert" className="mt-1.5 text-[0.85rem] font-medium text-brand-orange">
-            {errors.name}
-          </p>
-        )}
-      </div>
+        <div className="grid gap-5 sm:grid-cols-2">
+          <Field id="name" label="Name" error={errors.name}>
+            <input
+              id="name"
+              name="name"
+              className={inputCls}
+              autoComplete="name"
+              value={data.name ?? ""}
+              onChange={(e) => set("name", e.target.value)}
+              aria-describedby={errors.name ? "name-error" : undefined}
+            />
+          </Field>
 
-      <div>
-        <label htmlFor="email" className={labelCls}>
-          Email
-        </label>
-        <input
-          id="email"
-          name="email"
-          type="email"
-          inputMode="email"
-          className={inputCls}
-          autoComplete="email"
-          value={data.email ?? ""}
-          onChange={(e) => set("email", e.target.value)}
-          aria-describedby={errors.email ? "email-error" : undefined}
-        />
-        {errors.email && (
-          <p id="email-error" role="alert" className="mt-1.5 text-[0.85rem] font-medium text-brand-orange">
-            {errors.email}
-          </p>
-        )}
+          <Field id="email" label="Email" error={errors.email}>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              inputMode="email"
+              className={inputCls}
+              autoComplete="email"
+              value={data.email ?? ""}
+              onChange={(e) => set("email", e.target.value)}
+              aria-describedby={errors.email ? "email-error" : undefined}
+            />
+          </Field>
+        </div>
       </div>
 
       <div>
@@ -143,7 +130,11 @@ export function ContactForm() {
           aria-describedby={errors.phone ? "phone-error" : undefined}
         />
         {errors.phone && (
-          <p id="phone-error" role="alert" className="mt-1.5 text-[0.85rem] font-medium text-brand-orange">
+          <p
+            id="phone-error"
+            role="alert"
+            className="mt-1.5 text-[0.85rem] font-medium text-brand-orange"
+          >
             {errors.phone}
           </p>
         )}
@@ -162,7 +153,11 @@ export function ContactForm() {
           aria-describedby={errors.subject ? "subject-error" : undefined}
         />
         {errors.subject && (
-          <p id="subject-error" role="alert" className="mt-1.5 text-[0.85rem] font-medium text-brand-orange">
+          <p
+            id="subject-error"
+            role="alert"
+            className="mt-1.5 text-[0.85rem] font-medium text-brand-orange"
+          >
             {errors.subject}
           </p>
         )}
@@ -176,20 +171,27 @@ export function ContactForm() {
           id="message"
           name="message"
           rows={5}
-          className={`${inputCls} min-h-[120px] py-3`}
+          className={`${inputCls} min-h-30 py-3`}
           value={data.message ?? ""}
           onChange={(e) => set("message", e.target.value)}
           aria-describedby={errors.message ? "message-error" : undefined}
         />
         {errors.message && (
-          <p id="message-error" role="alert" className="mt-1.5 text-[0.85rem] font-medium text-brand-orange">
+          <p
+            id="message-error"
+            role="alert"
+            className="mt-1.5 text-[0.85rem] font-medium text-brand-orange"
+          >
             {errors.message}
           </p>
         )}
       </div>
 
       {status === "error" && (
-        <p role="alert" className="text-[0.85rem] font-medium text-brand-orange">
+        <p
+          role="alert"
+          className="text-[0.85rem] font-medium text-brand-orange"
+        >
           Something went wrong sending your message. Please try again, or reach
           us on WhatsApp.
         </p>

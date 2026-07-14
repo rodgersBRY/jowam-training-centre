@@ -18,13 +18,13 @@ export function Footer() {
   return (
     <footer className="bg-roast text-roast-text">
       <Container className="py-16">
-        <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
+        <div className="grid gap-12 md:grid-cols-[1fr_1fr_1fr]">
           <div>
             <div className="bg-paper w-24 h-24 rounded-lg">
               <Image
                 src="/logo.png"
                 alt="Jowam Coffee Training Centre"
-                width={5}
+                width={100}
                 height={5}
                 className="h-full w-full object-cover"
               />
@@ -87,18 +87,20 @@ export function Footer() {
                 <AddressIcon />: {site.address.full}
               </p>
 
-              {site.contact.phones.map((p) => (
-                <p key={p.raw} className="flex items-center">
-                  <PhoneIcon />
-                  {`: `}
-                  <a
-                    href={`tel:+${p.raw}`}
-                    className="transition-colors hover:text-white ml-1"
-                  >
-                    {p.display}
-                  </a>
-                </p>
-              ))}
+              {site.contact.phones
+                .filter((p) => p.raw == "254715063117")
+                .map((p) => (
+                  <p key={p.raw} className="flex items-center">
+                    <PhoneIcon />
+                    {`: `}
+                    <a
+                      href={`tel:+${p.raw}`}
+                      className="transition-colors hover:text-white ml-1"
+                    >
+                      {p.display}
+                    </a>
+                  </p>
+                ))}
               <p className="flex items-center">
                 <MailIcon />
                 {`: `}
@@ -110,19 +112,19 @@ export function Footer() {
                 </a>
               </p>
             </address>
-          </div>
 
-          <div>
-            <h2 className="text-[0.8rem] font-semibold uppercase tracking-[0.14em] text-brand-orange">
-              Training Hours
-            </h2>
+            <div>
+              <h2 className="mt-8 text-[0.8rem] font-semibold uppercase tracking-[0.14em] text-brand-orange">
+                Training Hours
+              </h2>
 
-            <div className="mt-5 text-[0.9rem] text-roast-text/70">
-              {site.hours.map((h) => (
-                <p key={h.days}>
-                  <span className="text-roast-text">{h.days}:</span> {h.time}
-                </p>
-              ))}
+              <div className="mt-5 text-[0.9rem] text-roast-text/70">
+                {site.hours.map((h) => (
+                  <p key={h.days}>
+                    <span className="text-roast-text">{h.days}:</span> {h.time}
+                  </p>
+                ))}
+              </div>
             </div>
           </div>
         </div>

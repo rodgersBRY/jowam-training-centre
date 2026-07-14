@@ -19,7 +19,7 @@ const labelCls = "block text-[0.9rem] font-semibold text-brand-brown mb-1.5";
 const inputCls =
   "w-full min-h-[48px] rounded-card border border-line bg-white px-3.5 text-[16px] text-roast focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-orange";
 
-function Field({
+export function Field({
   id,
   label,
   error,
@@ -47,31 +47,6 @@ function Field({
       )}
     </div>
   );
-}
-
-/** Compress an image file to a JPEG data URL, max ~800px on the long edge. */
-function compressImage(file: File): Promise<string> {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = () => {
-      const img = new Image();
-      img.onload = () => {
-        const max = 800;
-        const scale = Math.min(1, max / Math.max(img.width, img.height));
-        const canvas = document.createElement("canvas");
-        canvas.width = Math.round(img.width * scale);
-        canvas.height = Math.round(img.height * scale);
-        const ctx = canvas.getContext("2d");
-        if (!ctx) return reject(new Error("Canvas unavailable"));
-        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-        resolve(canvas.toDataURL("image/jpeg", 0.7));
-      };
-      img.onerror = reject;
-      img.src = reader.result as string;
-    };
-    reader.onerror = reject;
-    reader.readAsDataURL(file);
-  });
 }
 
 const fieldset = "space-y-5 rounded-card border border-line p-5 md:p-6";
@@ -203,7 +178,11 @@ export function RegistrationForm({
               className={inputCls}
             />
           </Field>
-          <Field id="nationality" label="Nationality" error={errors.nationality}>
+          <Field
+            id="nationality"
+            label="Nationality"
+            error={errors.nationality}
+          >
             <input
               id="nationality"
               name="nationality"
@@ -300,11 +279,7 @@ export function RegistrationForm({
             ))}
           </select>
         </Field>
-        <Field
-          id="format"
-          label="Preferred class format"
-          error={errors.format}
-        >
+        <Field id="format" label="Preferred class format" error={errors.format}>
           <div
             role="radiogroup"
             aria-label="Preferred class format"
@@ -321,7 +296,7 @@ export function RegistrationForm({
                     checked ? "border-brand-orange" : "border-line",
                     disabled
                       ? "cursor-not-allowed opacity-50"
-                      : "cursor-pointer"
+                      : "cursor-pointer",
                   )}
                 >
                   <input

@@ -28,34 +28,42 @@ export default function ContactPage() {
 
       <section className="section-y bg-paper">
         <Container>
-          <SectionHeading
-            eyebrow="Contact"
-            title="Come and see us"
-            lead="We're in the heart of Nairobi. Call, message, or send a quick enquiry — whatever's easiest."
-          />
-
           <div className="mt-10 grid gap-10 lg:grid-cols-2">
+            {/* Contact message form */}
+            <div className="rounded-card border border-line bg-paper p-6 md:p-8">
+              <h2 className="text-(length:--text-h3) font-semibold text-roast">
+                Send us a message
+              </h2>
+              <p className="mt-1 text-[0.9rem] text-brand-brown/80">
+                Have a question about our courses or admissions? We typically
+                reply within one business day.
+              </p>
+              <div className="mt-5">
+                <ContactForm />
+              </div>
+            </div>
+
             {/* Details */}
             <div className="space-y-8">
               <div>
                 <h2 className="flex items-center gap-2 text-(length:--text-h3) font-semibold text-roast">
-                  <AddressIcon />
                   Visit
                 </h2>
-                <address className="mt-2 not-italic text-brand-brown">
+                <address className="mt-2 not-italic text-brand-brown flex">
+                  <AddressIcon /> {`: `}
                   {site.address.full}
                 </address>
               </div>
 
               <div>
                 <h2 className="flex items-center gap-2 text-(length:--text-h3) font-semibold text-roast">
-                  <PhoneIcon />
-                  <MailIcon />
-                  Call or email
+                  Contact Info
                 </h2>
                 <ul className="mt-2 space-y-1.5 text-brand-brown">
                   {site.contact.phones.map((p) => (
-                    <li key={p.raw}>
+                    <li key={p.raw} className="flex items-start">
+                      <PhoneIcon />
+                      {`: `}
                       <a
                         href={`tel:+${p.raw}`}
                         className="hover:text-brand-orange"
@@ -65,7 +73,8 @@ export default function ContactPage() {
                       </a>
                     </li>
                   ))}
-                  <li>
+                  <li className="flex items-start">
+                    <MailIcon /> {`: `}
                     <a
                       href={`mailto:${site.contact.email}`}
                       className="hover:text-brand-orange"
@@ -88,32 +97,18 @@ export default function ContactPage() {
                   ))}
                 </ul>
               </div>
-            </div>
 
-            {/* Contact message form */}
-            <div className="rounded-card border border-line bg-paper p-6 md:p-8">
-              <h2 className="text-(length:--text-h3) font-semibold text-roast">
-                Send us a message
-              </h2>
-              <p className="mt-1 text-[0.9rem] text-brand-brown/80">
-                Have a question about our courses or admissions? We typically
-                reply within one business day.
-              </p>
-              <div className="mt-5">
-                <ContactForm />
+              {/* Map */}
+              <div className="mt-12 overflow-hidden rounded-card border border-line">
+                <iframe
+                  src={site.address.mapEmbed}
+                  title="Jowam Coffee Training Centre location"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="h-80 w-full md:h-60"
+                />
               </div>
             </div>
-          </div>
-
-          {/* Map */}
-          <div className="mt-12 overflow-hidden rounded-card border border-line">
-            <iframe
-              src={site.address.mapEmbed}
-              title="Jowam Coffee Training Centre location"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="h-80 w-full md:h-110"
-            />
           </div>
         </Container>
       </section>

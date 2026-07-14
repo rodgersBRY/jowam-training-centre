@@ -11,7 +11,6 @@ import { JsonLd, faqSchema } from "@/components/seo/JsonLd";
 import { faqs } from "@/lib/data/faq";
 import { images } from "@/lib/data/images";
 import { StorySection } from "@/components/about/StorySection";
-import { InstructorsSection } from "@/components/about/InstructorsSection";
 import { FacilitySection } from "@/components/about/FacilitySection";
 import { MissionVisionValues } from "@/components/sections/about/MissionVisionValues";
 import { StatsSection } from "@/components/sections/about/StatsSection";
@@ -40,7 +39,6 @@ export default function AboutPage() {
       <MissionVisionValues />
       <StatsSection />
       <WhyChooseUsList />
-      <InstructorsSection />
       <FacilitySection />
 
       {/* FAQ */}

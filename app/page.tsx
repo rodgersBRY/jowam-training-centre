@@ -42,7 +42,8 @@ export default function HomePage() {
 
       <HeroSection />
       {nextEvent && <EventModal event={nextEvent} />}
-      <div className="max-w-300 mx-auto">
+
+      <Container className="max-w-300 mx-auto">
         <IntroSection />
         <WhyChooseUsSection />
         <AboutTeaserSection />
@@ -50,7 +51,7 @@ export default function HomePage() {
         <CourseStripSection />
         <GalleryStripSection />
         <TestimonialsSection />
-      </div>
+      </Container>
 
       {/* FAQ preview */}
       <section className="section-y bg-paper">

@@ -10,26 +10,29 @@ import { formatEventDate, type Event } from "@/lib/data/events";
 export function EventCard({ event }: { event: Event }) {
   return (
     <Card className="flex flex-col">
-      <div className="relative aspect-video overflow-hidden rounded-t-card">
+      <div className="relative aspect-auto overflow-hidden rounded-t-card">
         <Image
-          src={cloudinaryUrl(event.poster, { width: 720, height: 405 })}
+          src={cloudinaryUrl(event.poster)}
           alt={`Poster for ${event.title}`}
-          width={720}
-          height={405}
+          width={700}
+          height={200}
           className="h-full w-full object-cover"
         />
-        <FloatingTag icon={CalendarIcon}>{formatEventDate(event.date)}</FloatingTag>
+        <FloatingTag icon={CalendarIcon}>
+          {formatEventDate(event.date)}
+        </FloatingTag>
       </div>
-      <div className="flex flex-1 flex-col p-6">
-        <h3 className="flex-1 text-h3 font-bold text-roast">{event.title}</h3>
+
+      <div className="flex flex-1 flex-col p-2">
+        <h3 className="flex-1 text-h5 font-bold text-roast">{event.title}</h3>
         <div className="mt-5">
           <ButtonLink
             variant="whatsapp"
             href={whatsappLink(event.whatsappMessage)}
             external
-            className="w-full justify-center"
+            className="rounded justify-center"
           >
-            <WhatsAppIcon /> Register on WhatsApp
+            <WhatsAppIcon />
           </ButtonLink>
         </div>
       </div>
