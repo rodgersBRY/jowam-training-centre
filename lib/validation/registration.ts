@@ -1,15 +1,8 @@
 import { z } from "zod";
 import { courses } from "@/lib/data/courses";
+import { kenyanPhone } from "@/lib/validation/phone";
 
 const courseSlugs = courses.map((c) => c.slug) as [string, ...string[]];
-
-/** Accepts 07XXXXXXXX, 01XXXXXXXX, +2547XXXXXXXX, +2541XXXXXXXX */
-const kenyanPhone = z
-  .string()
-  .regex(
-    /^(\+?254[17]\d{8}|0[17]\d{8})$/,
-    "Enter a phone number starting with 07, 01, or +254"
-  );
 
 export const registrationSchema = z.object({
   // Step 1 — Personal details
