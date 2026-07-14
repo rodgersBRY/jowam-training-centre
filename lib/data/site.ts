@@ -9,7 +9,7 @@ export const site = {
   shortName: "Jowam",
   tagline: "Professional Barista & Coffee Roasting Training",
   description:
-    "Premium hands-on barista and coffee roasting training in Nairobi. Weekly intakes, transparent pricing, M-PESA installments, and named expert instructors.",
+    "Jowam Coffee Training Centre is Nairobi's hands-on home for professional barista and coffee roasting education — small classes, real espresso machines and drum roasters, named expert instructors, and a curriculum built around what employers actually look for. Weekly intakes, transparent pricing, and flexible installments make it easy to start.",
   // Set to the production origin before launch.
   url: "https://jowamtrainingcentre.co.ke",
   developer: {
@@ -43,7 +43,6 @@ export const site = {
   hours: [
     { days: "Monday – Friday", time: "8:00 AM – 5:00 PM" },
     { days: "Saturday", time: "9:00 AM – 1:00 PM" },
-    { days: "Sunday", time: "Closed" },
   ],
 
   social: [
@@ -65,12 +64,12 @@ export const site = {
   ],
 
   nav: [
+    { label: "Home", href: "/" },
     { label: "Courses", href: "/courses" },
     { label: "About", href: "/about" },
     { label: "Gallery", href: "/gallery" },
     { label: "Events", href: "/events" },
     { label: "Blog", href: "/blog" },
-    { label: "FAQ", href: "/faq" },
     { label: "Contact", href: "/contact" },
   ],
 } as const;

@@ -23,6 +23,8 @@ export type Course = {
    */
   online?: { price: number };
   certificate: string;
+  /** What a prospective student needs before joining this course. */
+  requirements: string[];
   /** Pre-filled WhatsApp enquiry message for this course. */
   whatsappMessage: string;
   syllabus: SyllabusWeek[];
@@ -45,6 +47,12 @@ export const courses: Course[] = [
     price: 45000,
     online: { price: 35000 },
     certificate: "Professional Barista Certificate",
+    requirements: [
+      "No prior barista experience required — we start from the fundamentals",
+      "Minimum age 18",
+      "Comfortable standing and working on your feet for practical sessions",
+      "Valid ID or passport for enrollment",
+    ],
     whatsappMessage:
       "Hi, I'd like to enroll in the Professional Barista Course.",
     syllabus: [
@@ -121,6 +129,12 @@ export const courses: Course[] = [
     price: 50000,
     online: { price: 40000 },
     certificate: "Professional Roasting Certificate",
+    requirements: [
+      "No prior roasting experience required — we start from the fundamentals",
+      "Minimum age 18",
+      "Comfortable working around heat and roasting equipment",
+      "Valid ID or passport for enrollment",
+    ],
     whatsappMessage:
       "Hi, I'd like to enroll in the Professional Roasting Course.",
     syllabus: [
@@ -178,6 +192,11 @@ export const courses: Course[] = [
     weeks: 2,
     price: 23000,
     certificate: "Jowam Certificate of Completion",
+    requirements: [
+      "Some prior barista or café experience recommended",
+      "Minimum age 18",
+      "Valid ID or passport for enrollment",
+    ],
     whatsappMessage: "Hi, I'd like to enroll in the Basic Refresher Training.",
     syllabus: [
       {
