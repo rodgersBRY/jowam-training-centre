@@ -63,7 +63,7 @@ export default function HomePage() {
             <FaqAccordion items={homeFaqs} />
           </div>
           <div className="mt-8">
-            <ButtonLink variant="ghost" href="/faq">
+            <ButtonLink variant="ghost" href="/about#faq">
               See all FAQs <ArrowIcon />
             </ButtonLink>
           </div>

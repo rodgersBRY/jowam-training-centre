@@ -44,7 +44,7 @@ export default function AboutPage() {
       <FacilitySection />
 
       {/* FAQ */}
-      <section className="section-y bg-paper">
+      <section id="faq" className="section-y bg-paper scroll-mt-16">
         <Container className="max-w-205">
           <SectionHeading eyebrow="Questions" title="Frequently asked questions" />
           <div className="mt-8">
