@@ -1,4 +1,3 @@
-import Link from "next/link";
 import type { Metadata } from "next";
 import { faqs } from "@/lib/data/faq";
 import { getUpcomingEvents } from "@/lib/data/events";
@@ -11,8 +10,11 @@ import { FaqAccordion } from "@/components/interactive/FaqAccordion";
 import { WhatsAppButton } from "@/components/interactive/WhatsAppButton";
 import { JsonLd, coursesListSchema } from "@/components/seo/JsonLd";
 import { HeroSection } from "@/components/sections/home/HeroSection";
+import { IntroSection } from "@/components/sections/home/IntroSection";
+import { WhyChooseUsSection } from "@/components/sections/home/WhyChooseUsSection";
+import { AboutTeaserSection } from "@/components/sections/home/AboutTeaserSection";
+import { LatestBlogSection } from "@/components/sections/home/LatestBlogSection";
 import { CourseStripSection } from "@/components/sections/home/CourseStripSection";
-import { WhyJowamSection } from "@/components/sections/home/WhyJowamSection";
 import { GalleryStripSection } from "@/components/sections/home/GalleryStripSection";
 import { TestimonialsSection } from "@/components/sections/home/TestimonialsSection";
 import { EventModal } from "@/components/events/EventModal";
@@ -41,8 +43,11 @@ export default function HomePage() {
 
       <HeroSection />
       {nextEvent && <EventModal event={nextEvent} />}
+      <IntroSection />
+      <WhyChooseUsSection />
+      <AboutTeaserSection />
+      <LatestBlogSection />
       <CourseStripSection />
-      <WhyJowamSection />
       <GalleryStripSection />
       <TestimonialsSection />
 
