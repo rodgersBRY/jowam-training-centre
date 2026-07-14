@@ -3,17 +3,17 @@ import { pageMetadata } from "@/lib/utils/metadata";
 import { site } from "@/lib/data/site";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { RegistrationForm } from "@/components/enroll/RegistrationForm";
+import { RegistrationForm } from "@/components/apply/RegistrationForm";
 import { WhatsAppButton } from "@/components/interactive/WhatsAppButton";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Enroll — Online Registration",
+  title: "Apply Now — Online Registration",
   description:
-    "Register for a Jowam course online. A mobile-first, secure registration form with M-PESA installment options.",
-  path: "/enroll",
+    "Apply to a Jowam course online. A mobile-first, secure registration form with flexible installment options.",
+  path: "/apply-now",
 });
 
-export default async function EnrollPage({
+export default async function ApplyNowPage({
   searchParams,
 }: {
   searchParams: Promise<{ course?: string; format?: string }>;
@@ -27,8 +27,8 @@ export default async function EnrollPage({
         <Container className="max-w-180">
           <SectionHeading
             eyebrow="Registration"
-            title="Enroll at Jowam"
-            lead="Committed to joining? Complete your registration below. Just exploring? Message us on WhatsApp first — no obligation."
+            title="Apply to Jowam"
+            lead="Committed to joining? Complete your application below. Just exploring? Message us on WhatsApp first — no obligation."
           />
 
           <div className="mt-6 rounded-card border border-line bg-white p-5 text-[0.9rem] text-brand-brown">
@@ -36,7 +36,7 @@ export default async function EnrollPage({
               Payment &amp; next steps
             </p>
             <ul className="mt-2 space-y-1.5">
-              <li>Pay in full or in 2–3 M-PESA installments.</li>
+              <li>Pay in full or in 2–3 installments.</li>
               <li>
                 Your registration number is assigned by admissions after you
                 submit.

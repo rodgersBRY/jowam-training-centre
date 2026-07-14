@@ -36,8 +36,8 @@ export default function AboutPage() {
             <ButtonLink variant="primary" href="/courses">
               Explore courses <ArrowIcon />
             </ButtonLink>
-            <ButtonLink variant="secondary" href="/enroll">
-              Enroll now
+            <ButtonLink variant="secondary" href="/apply-now">
+              Apply now
             </ButtonLink>
           </div>
         </Container>

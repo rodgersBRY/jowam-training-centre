@@ -28,7 +28,7 @@ export function track(event: string, data?: UmamiData): void {
 /** Canonical event names — one place so the Umami dashboard stays consistent. */
 export const AnalyticsEvent = {
   whatsappClick: "whatsapp-click",
-  enrollClick: "enroll-click",
+  applyClick: "apply-click",
   courseView: "course-view",
   formatToggle: "course-format-toggle",
   contactSubmit: "contact-submit",

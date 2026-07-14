@@ -40,8 +40,8 @@ export default function FaqPage() {
               Chat with us on WhatsApp or start your registration.
             </p>
             <div className="mt-6 flex flex-wrap justify-center gap-3">
-              <ButtonLink variant="primary" href="/enroll">
-                Enroll now <ArrowIcon />
+              <ButtonLink variant="primary" href="/apply-now">
+                Apply now <ArrowIcon />
               </ButtonLink>
             </div>
           </div>
