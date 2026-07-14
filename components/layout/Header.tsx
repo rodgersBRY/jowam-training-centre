@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { site, nextIntake } from "@/lib/data/site";
 import { cn } from "@/lib/utils/cn";
+import { Container } from "@/components/ui/Container";
 import Image from "next/image";
 
 export function Header() {
@@ -33,7 +34,7 @@ export function Header() {
         scrolled && "shadow-[0_2px_16px_rgb(36_27_21/0.06)]",
       )}
     >
-      <div className="mx-auto flex h-14 max-w-300 items-center justify-between px-6 md:h-16">
+      <Container className="flex h-14 items-center justify-between md:h-16">
         <Link href="/" aria-label={`${site.name} home`} className="shrink-0">
           <Image
             src="/logo.png"
@@ -100,7 +101,7 @@ export function Header() {
             </span>
           </button>
         </div>
-      </div>
+      </Container>
 
       {/* Mobile nav panel */}
       {menuOpen && (
@@ -109,7 +110,7 @@ export function Header() {
           aria-label="Primary mobile"
           className="border-t border-line bg-paper md:hidden"
         >
-          <ul className="flex flex-col px-6 py-2">
+          <Container as="ul" className="flex flex-col py-2">
             {site.nav.map((item) => (
               <li key={item.href}>
                 <Link
@@ -136,7 +137,7 @@ export function Header() {
                 Next intake: {nextIntake}
               </Link>
             </li>
-          </ul>
+          </Container>
         </nav>
       )}
     </header>
