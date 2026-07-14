@@ -11,7 +11,9 @@ import { track, AnalyticsEvent } from "@/lib/utils/analytics";
 import { Button } from "@/components/ui/Button";
 
 type Status = "idle" | "sending" | "sent" | "error";
-type Errors = Partial<Record<"name" | "email" | "subject" | "message", string>>;
+type Errors = Partial<
+  Record<"name" | "email" | "phone" | "subject" | "message", string>
+>;
 
 const inputCls =
   "w-full min-h-[48px] rounded-card border border-line bg-white px-3.5 text-[16px] text-roast focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-orange";
@@ -55,6 +57,7 @@ export function ContactForm() {
       await sendEmail(EMAIL_TEMPLATES.contact, {
         from_name: parsed.data.name,
         from_email: parsed.data.email,
+        from_phone: parsed.data.phone,
         subject: parsed.data.subject,
         message: parsed.data.message,
       });
@@ -120,6 +123,28 @@ export function ContactForm() {
         {errors.email && (
           <p id="email-error" role="alert" className="mt-1.5 text-[0.85rem] font-medium text-brand-orange">
             {errors.email}
+          </p>
+        )}
+      </div>
+
+      <div>
+        <label htmlFor="phone" className={labelCls}>
+          Phone
+        </label>
+        <input
+          id="phone"
+          name="phone"
+          type="tel"
+          inputMode="tel"
+          className={inputCls}
+          autoComplete="tel"
+          value={data.phone ?? ""}
+          onChange={(e) => set("phone", e.target.value)}
+          aria-describedby={errors.phone ? "phone-error" : undefined}
+        />
+        {errors.phone && (
+          <p id="phone-error" role="alert" className="mt-1.5 text-[0.85rem] font-medium text-brand-orange">
+            {errors.phone}
           </p>
         )}
       </div>

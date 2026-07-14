@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import { site } from "@/lib/data/site";
+import { images } from "@/lib/data/images";
 import { pageMetadata } from "@/lib/utils/metadata";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { PageHero } from "@/components/ui/PageHero";
+import { AddressIcon, PhoneIcon, MailIcon } from "@/components/ui/icons";
 import { ContactForm } from "@/components/contact/ContactForm";
 import { WhatsAppButton } from "@/components/interactive/WhatsAppButton";
 
@@ -16,6 +19,13 @@ export const metadata: Metadata = pageMetadata({
 export default function ContactPage() {
   return (
     <>
+      <PageHero
+        image={images.facilities.espressoLab}
+        tagline="Contact"
+        title="Contact Us"
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Contact" }]}
+      />
+
       <section className="section-y bg-paper">
         <Container>
           <SectionHeading
@@ -28,7 +38,8 @@ export default function ContactPage() {
             {/* Details */}
             <div className="space-y-8">
               <div>
-                <h2 className="text-(length:--text-h3) font-semibold text-roast">
+                <h2 className="flex items-center gap-2 text-(length:--text-h3) font-semibold text-roast">
+                  <AddressIcon />
                   Visit
                 </h2>
                 <address className="mt-2 not-italic text-brand-brown">
@@ -37,7 +48,9 @@ export default function ContactPage() {
               </div>
 
               <div>
-                <h2 className="text-(length:--text-h3) font-semibold text-roast">
+                <h2 className="flex items-center gap-2 text-(length:--text-h3) font-semibold text-roast">
+                  <PhoneIcon />
+                  <MailIcon />
                   Call or email
                 </h2>
                 <ul className="mt-2 space-y-1.5 text-brand-brown">
