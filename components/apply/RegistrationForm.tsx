@@ -114,6 +114,7 @@ export function RegistrationForm({
       emergencyRelationship: fd.get("emergencyRelationship"),
       emergencyPhone: fd.get("emergencyPhone"),
       consent: fd.get("consent") === "on",
+      marketingConsent: fd.get("marketingConsent") === "on",
       clientTimestamp: new Date().toISOString(),
     };
 
@@ -170,85 +171,93 @@ export function RegistrationForm({
     <form ref={formRef} onSubmit={onSubmit} noValidate className="space-y-6">
       <fieldset className={fieldset}>
         <legend className={legend}>1. Personal details</legend>
-        <Field id="surname" label="Surname" error={errors.surname}>
-          <input
-            id="surname"
-            name="surname"
-            className={inputCls}
-            autoComplete="family-name"
-            aria-describedby={errors.surname ? "surname-error" : undefined}
-          />
-        </Field>
-        <Field id="otherNames" label="Other names" error={errors.otherNames}>
-          <input
-            id="otherNames"
-            name="otherNames"
-            className={inputCls}
-            autoComplete="given-name"
-          />
-        </Field>
-        <Field id="gender" label="Gender" error={errors.gender}>
-          <select
-            id="gender"
-            name="gender"
-            className={inputCls}
-            defaultValue=""
-          >
-            <option value="" disabled>
-              Select…
-            </option>
-            <option>Male</option>
-            <option>Female</option>
-          </select>
-        </Field>
-        <Field
-          id="dateOfBirth"
-          label="Date of birth"
-          error={errors.dateOfBirth}
-        >
-          <input
+        <div className="grid gap-5 sm:grid-cols-2">
+          <Field id="surname" label="Surname" error={errors.surname}>
+            <input
+              id="surname"
+              name="surname"
+              className={inputCls}
+              autoComplete="family-name"
+              aria-describedby={errors.surname ? "surname-error" : undefined}
+            />
+          </Field>
+          <Field id="otherNames" label="Other names" error={errors.otherNames}>
+            <input
+              id="otherNames"
+              name="otherNames"
+              className={inputCls}
+              autoComplete="given-name"
+            />
+          </Field>
+        </div>
+        <div className="grid gap-5 sm:grid-cols-2">
+          <Field
             id="dateOfBirth"
-            name="dateOfBirth"
-            type="date"
-            className={inputCls}
-          />
-        </Field>
-        <Field id="nationality" label="Nationality" error={errors.nationality}>
-          <input
-            id="nationality"
-            name="nationality"
-            defaultValue="Kenyan"
-            className={inputCls}
-          />
-        </Field>
-        <Field id="phone" label="Phone number" error={errors.phone}>
-          <input
-            id="phone"
-            name="phone"
-            type="tel"
-            inputMode="tel"
-            placeholder="07XX XXX XXX"
-            className={inputCls}
-            autoComplete="tel"
-          />
-        </Field>
-        <Field id="email" label="Email address" error={errors.email}>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            inputMode="email"
-            className={inputCls}
-            autoComplete="email"
-          />
-        </Field>
-        <Field
-          id="idNumber"
-          label="ID / Passport number"
-          error={errors.idNumber}
-        >
-          <input id="idNumber" name="idNumber" className={inputCls} />
-        </Field>
+            label="Date of birth"
+            error={errors.dateOfBirth}
+          >
+            <input
+              id="dateOfBirth"
+              name="dateOfBirth"
+              type="date"
+              className={inputCls}
+            />
+          </Field>
+          <Field id="nationality" label="Nationality" error={errors.nationality}>
+            <input
+              id="nationality"
+              name="nationality"
+              defaultValue="Kenyan"
+              className={inputCls}
+            />
+          </Field>
+        </div>
+        <div className="grid gap-5 sm:grid-cols-2">
+          <Field id="phone" label="Phone number" error={errors.phone}>
+            <input
+              id="phone"
+              name="phone"
+              type="tel"
+              inputMode="tel"
+              placeholder="07XX XXX XXX"
+              className={inputCls}
+              autoComplete="tel"
+            />
+          </Field>
+          <Field id="email" label="Email address" error={errors.email}>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              inputMode="email"
+              className={inputCls}
+              autoComplete="email"
+            />
+          </Field>
+        </div>
+        <div className="grid gap-5 sm:grid-cols-2">
+          <Field
+            id="idNumber"
+            label="ID / Passport number"
+            error={errors.idNumber}
+          >
+            <input id="idNumber" name="idNumber" className={inputCls} />
+          </Field>
+          <Field id="gender" label="Gender" error={errors.gender}>
+            <select
+              id="gender"
+              name="gender"
+              className={inputCls}
+              defaultValue=""
+            >
+              <option value="" disabled>
+                Select…
+              </option>
+              <option>Male</option>
+              <option>Female</option>
+            </select>
+          </Field>
+        </div>
       </fieldset>
 
       <fieldset className={fieldset}>
@@ -346,28 +355,30 @@ export function RegistrationForm({
 
       <fieldset className={fieldset}>
         <legend className={legend}>3. Emergency contact &amp; photo</legend>
-        <Field
-          id="emergencyContactNames"
-          label="Emergency contact names"
-          error={errors.emergencyContactNames}
-        >
-          <input
+        <div className="grid gap-5 sm:grid-cols-2">
+          <Field
             id="emergencyContactNames"
-            name="emergencyContactNames"
-            className={inputCls}
-          />
-        </Field>
-        <Field
-          id="emergencyRelationship"
-          label="Relationship"
-          error={errors.emergencyRelationship}
-        >
-          <input
+            label="Emergency contact names"
+            error={errors.emergencyContactNames}
+          >
+            <input
+              id="emergencyContactNames"
+              name="emergencyContactNames"
+              className={inputCls}
+            />
+          </Field>
+          <Field
             id="emergencyRelationship"
-            name="emergencyRelationship"
-            className={inputCls}
-          />
-        </Field>
+            label="Relationship"
+            error={errors.emergencyRelationship}
+          >
+            <input
+              id="emergencyRelationship"
+              name="emergencyRelationship"
+              className={inputCls}
+            />
+          </Field>
+        </div>
         <Field
           id="emergencyPhone"
           label="Emergency contact phone"
@@ -409,6 +420,30 @@ export function RegistrationForm({
           className="text-[0.85rem] font-medium text-brand-orange"
         >
           {errors.consent}
+        </p>
+      )}
+
+      <div className="flex items-start gap-3">
+        <input
+          id="marketingConsent"
+          name="marketingConsent"
+          type="checkbox"
+          className="mt-1 h-5 w-5 shrink-0 accent-brand-orange"
+        />
+        <label
+          htmlFor="marketingConsent"
+          className="text-[0.9rem] text-brand-brown"
+        >
+          I consent to Jowam using my photo and/or testimonial for marketing
+          purposes.
+        </label>
+      </div>
+      {errors.marketingConsent && (
+        <p
+          role="alert"
+          className="text-[0.85rem] font-medium text-brand-orange"
+        >
+          {errors.marketingConsent}
         </p>
       )}
 

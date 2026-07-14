@@ -56,6 +56,11 @@ export const registrationSchema = z.object({
     message: "You must agree to the privacy policy to continue",
   }),
 
+  /** Must be true — user must tick the marketing consent checkbox. */
+  marketingConsent: z.literal(true, {
+    message: "Please confirm marketing consent to continue",
+  }),
+
   /** ISO timestamp, set on the client just before POST. */
   clientTimestamp: z.string().optional(),
 });
