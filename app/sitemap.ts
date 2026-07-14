@@ -38,19 +38,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.6,
     },
     {
-      url: `${site.url}/faq`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
-    {
       url: `${site.url}/contact`,
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.6,
     },
     {
-      url: `${site.url}/enroll`,
+      url: `${site.url}/apply-now`,
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.7,

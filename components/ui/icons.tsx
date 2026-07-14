@@ -16,6 +16,9 @@ import {
   LuMail,
   LuPhoneCall,
   LuPin,
+  LuClock,
+  LuBadgeDollarSign,
+  LuCircleCheck,
 } from "react-icons/lu";
 
 /**
@@ -53,6 +56,9 @@ export const UserIcon = icon(LuUserRound, 28);
 export const CoffeeIcon = icon(LuCoffee, 28);
 export const CalendarIcon = icon(LuCalendarDays, 28);
 export const RepeatIcon = icon(LuRepeat, 28);
+export const ClockIcon = icon(LuClock, 18);
+export const PriceTagIcon = icon(LuBadgeDollarSign, 18);
+export const CheckIcon = icon(LuCircleCheck, 20);
 
 export const socialIcons = {
   instagram: InstagramIcon,
