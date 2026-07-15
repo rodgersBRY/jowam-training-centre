@@ -16,7 +16,7 @@ export function EventModal({ event }: { event: Event }) {
   useEffect(() => {
     if (new Date(event.date) < new Date()) return;
     const raw = localStorage.getItem(STORAGE_KEY);
-    // if (raw && Date.now() - Number(raw) < SUPPRESS_MS) return;
+    if (raw && Date.now() - Number(raw) < SUPPRESS_MS) return;
 
     dialogRef.current?.showModal();
   }, [event.date]);
@@ -38,12 +38,12 @@ export function EventModal({ event }: { event: Event }) {
         <div className="relative">
           <Image
             src={cloudinaryUrl(event.poster, {
-              width: 800,
+              width: 700,
               height: 933,
               crop: "fit",
             })}
             alt={event.title}
-            width={800}
+            width={700}
             height={933}
             className="block max-h-[92vh] w-auto max-w-[95vw] rounded-card object-contain"
             priority
