@@ -4,6 +4,7 @@ import { site } from "@/lib/data/site";
 import { pageMetadata } from "@/lib/utils/metadata";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { PageHero } from "@/components/ui/PageHero";
 import { ButtonLink } from "@/components/ui/Button";
 import { InstagramIcon } from "@/components/ui/icons";
 import { WhatsAppButton } from "@/components/interactive/WhatsAppButton";
@@ -67,6 +68,13 @@ const instagram = site.social.find((s) => s.icon === "instagram");
 export default function GalleryPage() {
   return (
     <>
+      <PageHero
+        image={images.gallery.latteArt}
+        tagline="Gallery"
+        title="Inside Our Classes"
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Gallery" }]}
+      />
+
       <section className="section-y bg-paper">
         <Container>
           <SectionHeading

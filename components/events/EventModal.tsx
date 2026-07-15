@@ -42,7 +42,7 @@ export function EventModal({ event }: { event: Event }) {
               height: 700,
               crop: "fit",
             })}
-            alt={`Poster for ${event.title}`}
+            alt={event.title}
             width={600}
             height={700}
             className="h-auto w-full rounded-card object-cover"
