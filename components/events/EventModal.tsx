@@ -2,11 +2,10 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
-import { ButtonLink } from "@/components/ui/Button";
 import { CloseIcon, WhatsAppIcon } from "@/components/ui/icons";
 import { cloudinaryUrl } from "@/lib/utils/cloudinary";
 import { whatsappLink } from "@/lib/data/site";
-import { formatEventDate, type Event } from "@/lib/data/events";
+import type { Event } from "@/lib/data/events";
 
 const STORAGE_KEY = "jowam_event_modal_dismissed";
 const SUPPRESS_MS = 24 * 60 * 60 * 1000;
@@ -17,8 +16,8 @@ export function EventModal({ event }: { event: Event }) {
   useEffect(() => {
     if (new Date(event.date) < new Date()) return;
     const raw = localStorage.getItem(STORAGE_KEY);
-    if (raw && Date.now() - Number(raw) < SUPPRESS_MS) return;
-    
+    // if (raw && Date.now() - Number(raw) < SUPPRESS_MS) return;
+
     dialogRef.current?.showModal();
   }, [event.date]);
 
@@ -36,33 +35,36 @@ export function EventModal({ event }: { event: Event }) {
       }}
     >
       <div className="animate-modal-in relative">
-        <Image
-          src={cloudinaryUrl(event.poster, { width: 600, height: 700, crop: "fit" })}
-          alt={`Poster for ${event.title}`}
-          width={600}
-          height={700}
-          className="h-auto w-full rounded-t-card object-cover"
-          priority
-        />
-        <div className="p-6">
-          <h2 className="text-h3 font-bold text-roast">{event.title}</h2>
-          <p className="mt-1 text-small font-semibold text-brand-orange">
-            {formatEventDate(event.date)}
-          </p>
-          <p className="mt-3 text-small leading-relaxed text-brand-brown">
-            {event.description}
-          </p>
-          <div className="mt-5">
-            <ButtonLink
-              variant="whatsapp"
-              href={whatsappLink(event.whatsappMessage)}
-              external
-              className="w-full justify-center"
-            >
-              <WhatsAppIcon /> Register on WhatsApp
-            </ButtonLink>
-          </div>
+        <div className="relative">
+          <Image
+            src={cloudinaryUrl(event.poster, {
+              width: 600,
+              height: 700,
+              crop: "fit",
+            })}
+            alt={`Poster for ${event.title}`}
+            width={600}
+            height={700}
+            className="h-auto w-full rounded-card object-cover"
+            priority
+          />
+
+          {/* Floating WhatsApp CTA — overflows the poster's bottom-right corner */}
+          <a
+            href={whatsappLink(event.whatsappMessage)}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Register on WhatsApp"
+            className="absolute -bottom-5 -right-5 inline-flex h-18 w-18 items-center justify-center rounded-full bg-whatsapp text-white shadow-[0_8px_30px_rgb(36_27_21/0.3)] transition-transform duration-150 ease-brand hover:scale-105 active:scale-95"
+          >
+            <span
+              className="absolute inset-0 rounded-full bg-whatsapp motion-safe:animate-ping motion-safe:[animation-duration:1.8s]"
+              aria-hidden="true"
+            />
+            <WhatsAppIcon size={32} className="relative" />
+          </a>
         </div>
+
         <button
           type="button"
           onClick={close}
