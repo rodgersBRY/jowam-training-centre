@@ -44,7 +44,10 @@ export default function AboutPage() {
       {/* FAQ */}
       <section id="faq" className="section-y bg-paper scroll-mt-16">
         <Container className="max-w-205">
-          <SectionHeading eyebrow="Questions" title="Frequently asked questions" />
+          <SectionHeading
+            eyebrow="Questions"
+            title="Frequently asked questions"
+          />
           <div className="mt-8">
             <FaqAccordion items={aboutFaqs} />
           </div>
@@ -58,15 +61,15 @@ export default function AboutPage() {
           <SectionHeading
             align="center"
             eyebrow="Ready when you are"
-            title="Come and train with us"
-            lead="Weekly intakes, transparent pricing, and real equipment in the heart of Nairobi."
+            title="We'd Love to Meet You"
+            lead="The best way to understand Jowam isn't by reading about us. It's by walking through our doors, meeting our trainers and experiencing the learning environment for yourself."
           />
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <ButtonLink variant="primary" href="/courses">
-              Explore courses <ArrowIcon />
+              Explore Our Courses <ArrowIcon />
             </ButtonLink>
             <ButtonLink variant="secondary" href="/apply-now">
-              Apply now
+              Book a Visit
             </ButtonLink>
           </div>
         </Container>

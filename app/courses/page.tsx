@@ -38,8 +38,8 @@ export default function CoursesPage() {
         <Container>
           <SectionHeading
             eyebrow="Courses"
-            title="Choose your training"
-            lead="Three programmes covering barista skills, roasting, and a fast refresher — pick the one that matches where you're starting from."
+            title="Learn Skills That Stay With You."
+            lead="Whether you're preparing for your first café job, planning to open your own coffee business, or simply want to understand coffee beyond the cup, our courses are built around practical experience, expert guidance and real-world application. Explore the programme that's right for you."
           />
 
           <div

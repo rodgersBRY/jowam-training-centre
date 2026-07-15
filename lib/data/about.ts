@@ -3,15 +3,17 @@
  * redesign (placeholder copy, flag for client review before launch).
  */
 export const about = {
-  mission:
-    "To give every student the hands-on skill, confidence, and professional standard they need to build a real career in coffee — as a barista, a roaster, or a business owner.",
-  vision:
-    "To be East Africa's most trusted name in coffee education, known for graduates who raise the standard everywhere they work.",
+  practicalLearning:
+    "Coffee is a hands-on craft. The best way to understand it is by preparing it, tasting it, refining it and practising again.",
+  personalAttention:
+    "Learning happens best when questions are welcomed and progress is celebrated. That's why we value supportive trainers and manageable class sizes.",
+  opportunities:
+    "Whether your goal is employment, entrepreneurship or personal growth, practical skills have the power to open new doors.",
   values: [
     {
       title: "Hands-on first",
       description:
-        "We teach on real professional equipment from day one — theory only goes as far as it takes to get your hands moving.",
+        "We teach on real professional equipment from day one. Theory only goes as far as it takes to get your hands moving.",
     },
     {
       title: "Honest standards",
@@ -21,7 +23,7 @@ export const about = {
     {
       title: "Community over competition",
       description:
-        "Our instructors and graduates support each other — we'd rather grow the industry than gatekeep it.",
+        "Our instructors and graduates support each other. We'd rather grow the industry than gatekeep it.",
     },
   ],
 };

@@ -8,22 +8,36 @@ export function MissionVisionValues() {
     <section className="section-y bg-paper">
       <Container>
         <SectionHeading
-          eyebrow="Our purpose"
-          title="Mission, vision & values"
+          eyebrow="What we Believe"
+          title="Coffee is a hands-on craft."
           align="center"
         />
 
-        <div className="mt-12 grid gap-8 sm:grid-cols-2">
-          <div className="rounded-card border border-line bg-roast/[0.03] p-8">
-            <h3 className="text-h3 font-bold text-roast">Mission</h3>
+        <div className="mt-12 grid gap-8 sm:grid-cols-3">
+          <div className="rounded-card border border-line bg-roast/3 p-8">
+            <h3 className="text-h3 font-bold text-roast">
+              We believe learning should be practical
+            </h3>
             <p className="mt-3 text-brand-brown leading-relaxed">
-              {about.mission}
+              {about.practicalLearning}
             </p>
           </div>
-          <div className="rounded-card border border-line bg-roast/[0.03] p-8">
-            <h3 className="text-h3 font-bold text-roast">Vision</h3>
+
+          <div className="rounded-card border border-line bg-roast/3 p-8">
+            <h3 className="text-h3 font-bold text-roast">
+              We believe every student deserves personal attention.
+            </h3>
             <p className="mt-3 text-brand-brown leading-relaxed">
-              {about.vision}
+              {about.personalAttention}
+            </p>
+          </div>
+
+          <div className="rounded-card border border-line bg-roast/3 p-8">
+            <h3 className="text-h3 font-bold text-roast">
+              We believe skills create opportunities.
+            </h3>
+            <p className="mt-3 text-brand-brown leading-relaxed">
+              {about.opportunities}
             </p>
           </div>
         </div>

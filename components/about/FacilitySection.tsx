@@ -27,8 +27,8 @@ export function FacilitySection() {
       <Container>
         <SectionHeading
           eyebrow="The training lab"
-          title="Real equipment. Real environment."
-          lead="We run the same machines you will find in Nairobi's top specialty cafés and hotels. When you graduate, the hardware is already familiar."
+          title="More Than a Classroom."
+          lead="Walk into Jowam on any training day and you'll hear conversations around espresso extraction, steaming milk, tasting coffee and encouraging one another."
         />
 
         <div className="mt-12 grid gap-8 sm:grid-cols-2">
