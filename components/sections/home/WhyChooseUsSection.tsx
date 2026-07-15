@@ -1,5 +1,6 @@
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Reveal } from "@/components/interactive/Reveal";
 import { whyChooseUs, type WhyChooseUsIcon } from "@/lib/data/why-choose-us";
 import {
   UserIcon,
@@ -26,20 +27,23 @@ export function WhyChooseUsSection() {
   return (
     <section className="section-y bg-paper">
       <Container>
-        <SectionHeading
-          eyebrow="Why Jowam"
-          title="Training built for the real industry"
-          lead="There are plenty of short coffee courses out there. Jowam is different because we build for what happens after graduation."
-          align="center"
-        />
+        <Reveal>
+          <SectionHeading
+            eyebrow="Why Jowam"
+            title="Training built for the real industry"
+            lead="There are plenty of short coffee courses out there. Jowam is different because we build for what happens after graduation."
+            align="center"
+          />
+        </Reveal>
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2">
-          {whyChooseUs.map((item) => {
+          {whyChooseUs.map((item, i) => {
             const Icon = iconMap[item.icon];
             return (
-              <div
+              <Reveal
                 key={item.title}
-                className="rounded-card border border-line bg-roast/[0.03] p-8"
+                delay={i * 80}
+                className="rounded-card border border-line bg-roast/3 p-8"
               >
                 <Icon size={28} className="text-brand-orange" />
                 <h3 className="mt-4 text-h3 font-bold text-roast">
@@ -48,7 +52,7 @@ export function WhyChooseUsSection() {
                 <p className="mt-3 text-brand-brown leading-relaxed">
                   {item.description}
                 </p>
-              </div>
+              </Reveal>
             );
           })}
         </div>

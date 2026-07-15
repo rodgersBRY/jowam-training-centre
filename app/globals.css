@@ -150,3 +150,70 @@
 .animate-modal-in {
   animation: modal-in 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+
+/* ------------------------------------------------------------
+   Liveliness — scroll reveals, photo marquee, parallax bands
+   Motion here is additive: it enhances for motion-tolerant users
+   and is fully switched off under prefers-reduced-motion below.
+   ------------------------------------------------------------ */
+
+/* Scroll-in reveal. Hidden until IntersectionObserver adds .is-visible. */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity var(--dur-reveal) var(--ease-brand),
+    transform var(--dur-reveal) var(--ease-brand);
+}
+.reveal-fade {
+  transform: none;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Continuous horizontal photo strip (two identical halves, seamless loop). */
+@keyframes marquee-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  width: max-content;
+  animation: marquee-x var(--marquee-duration, 45s) linear infinite;
+}
+.marquee-viewport:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* Section background photo with a fixed (parallax) attachment on desktop. */
+.parallax-band {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+}
+@media (min-width: 900px) {
+  .parallax-band {
+    background-attachment: fixed;
+  }
+}
+
+/* Honor reduced motion: freeze everything, keep the strip hand-scrollable. */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .marquee-track {
+    animation: none !important;
+  }
+  .marquee-viewport {
+    overflow-x: auto;
+  }
+}
