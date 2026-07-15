@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ArrowIcon } from "@/components/ui/icons";
+import { Reveal } from "@/components/interactive/Reveal";
 import { images } from "@/lib/data/images";
 import { cloudinaryUrl } from "@/lib/utils/cloudinary";
 
@@ -43,7 +44,7 @@ export function GalleryStripSection() {
           </Link>
         </div>
 
-        <div className="mt-8 grid grid-cols-2 gap-3 md:grid-cols-4">
+        <Reveal className="mt-8 grid grid-cols-2 gap-3 md:grid-cols-4">
           {galleryItems.map((item) => (
             <Link
               key={item.publicId}
@@ -61,7 +62,7 @@ export function GalleryStripSection() {
               />
             </Link>
           ))}
-        </div>
+        </Reveal>
 
         {/* Accessible link for keyboard/screen-reader users */}
         <div className="mt-4 flex justify-center">

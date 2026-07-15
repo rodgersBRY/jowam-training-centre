@@ -7,6 +7,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ButtonLink } from "@/components/ui/Button";
 import { ArrowIcon } from "@/components/ui/icons";
 import { FaqAccordion } from "@/components/interactive/FaqAccordion";
+import { Reveal } from "@/components/interactive/Reveal";
 import { WhatsAppButton } from "@/components/interactive/WhatsAppButton";
 import { JsonLd, coursesListSchema } from "@/components/seo/JsonLd";
 import { HeroSection } from "@/components/sections/home/HeroSection";
@@ -43,27 +44,30 @@ export default function HomePage() {
       <HeroSection />
       {nextEvent && <EventModal event={nextEvent} />}
 
-      <Container className="max-w-300 mx-auto">
-        <IntroSection />
-        <WhyChooseUsSection />
-        <AboutTeaserSection />
-        <LatestBlogSection />
-        <CourseStripSection />
-        <GalleryStripSection />
-        <TestimonialsSection />
-      </Container>
+      {/* Each section manages its own width via an inner Container, so they
+          render full-bleed here — letting the intro strip and parallax band
+          extend past the reading column. */}
+      <IntroSection />
+      <WhyChooseUsSection />
+      <AboutTeaserSection />
+      <LatestBlogSection />
+      <CourseStripSection />
+      <GalleryStripSection />
+      <TestimonialsSection />
 
       {/* FAQ preview */}
       <section className="section-y bg-paper">
         <Container className="max-w-205">
-          <SectionHeading
-            eyebrow="Questions"
-            title="Answers before you enrol"
-            lead="What you'll learn, how the courses run, and what to expect from your training."
-          />
-          <div className="mt-8">
+          <Reveal>
+            <SectionHeading
+              eyebrow="Questions"
+              title="Answers before you enrol"
+              lead="What you'll learn, how the courses run, and what to expect from your training."
+            />
+          </Reveal>
+          <Reveal className="mt-8">
             <FaqAccordion items={homeFaqs} />
-          </div>
+          </Reveal>
           <div className="mt-8">
             <ButtonLink variant="ghost" href="/about#faq">
               See all FAQs <ArrowIcon />

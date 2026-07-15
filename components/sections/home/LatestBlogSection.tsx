@@ -4,6 +4,7 @@ import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ButtonLink } from "@/components/ui/Button";
 import { ArrowIcon } from "@/components/ui/icons";
+import { Reveal } from "@/components/interactive/Reveal";
 import { getRecentPosts, formatPostDate } from "@/lib/data/blog";
 import { stockImages } from "@/lib/data/stock-images";
 
@@ -22,14 +23,16 @@ export function LatestBlogSection() {
   return (
     <section className="section-y bg-paper">
       <Container>
-        <SectionHeading
-          eyebrow="From the blog"
-          title="Latest from the training floor"
-          lead="Guides on barista training, coffee careers, and brewing — written for anyone pursuing coffee professionally in Kenya."
-          align="center"
-        />
+        <Reveal>
+          <SectionHeading
+            eyebrow="From the blog"
+            title="Latest from the training floor"
+            lead="Guides on barista training, coffee careers, and brewing — written for anyone pursuing coffee professionally in Kenya."
+            align="center"
+          />
+        </Reveal>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-3 md:grid-rows-2">
+        <Reveal className="mt-12 grid gap-6 md:grid-cols-3 md:grid-rows-2">
           {/* Featured post — larger */}
           <Link
             href={`/blog/${featured.slug}`}
@@ -91,7 +94,7 @@ export function LatestBlogSection() {
               </div>
             </Link>
           ))}
-        </div>
+        </Reveal>
 
         <div className="mt-10 flex justify-center">
           <ButtonLink variant="secondary" href="/blog">

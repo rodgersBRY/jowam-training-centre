@@ -1,6 +1,7 @@
 import { Container } from "@/components/ui/Container";
 import { Card } from "@/components/ui/Card";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Reveal } from "@/components/interactive/Reveal";
 import { testimonials } from "@/lib/data/testimonials";
 
 /** Returns the initials avatar colour for a given name — deterministic. */
@@ -29,17 +30,20 @@ export function TestimonialsSection() {
   return (
     <section className="section-y bg-paper">
       <Container>
-        <SectionHeading
-          eyebrow="Graduate stories"
-          title="What our students say"
-          lead="Real words from real graduates — not marketing copy."
-          align="center"
-        />
+        <Reveal>
+          <SectionHeading
+            eyebrow="Graduate stories"
+            title="What our students say"
+            lead="Real words from real graduates — not marketing copy."
+            align="center"
+          />
+        </Reveal>
 
         {/* Static grid — no carousel (DESIGN §6) */}
         <div className="mt-12 grid gap-6 sm:grid-cols-3">
-          {testimonials.map((t) => (
-            <Card key={t.name} className="flex flex-col p-6 md:p-8">
+          {testimonials.map((t, i) => (
+            <Reveal key={t.name} delay={i * 80} className="h-full">
+              <Card className="flex h-full flex-col p-6 md:p-8">
               {/* Quote */}
               <blockquote className="flex-1">
                 <span
@@ -74,7 +78,8 @@ export function TestimonialsSection() {
                   </p>
                 </div>
               </footer>
-            </Card>
+              </Card>
+            </Reveal>
           ))}
         </div>
       </Container>
