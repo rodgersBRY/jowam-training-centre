@@ -19,6 +19,8 @@ import {
   LuClock,
   LuBadgeDollarSign,
   LuCircleCheck,
+  LuAward,
+  LuGlobe,
 } from "react-icons/lu";
 
 /**
@@ -59,6 +61,8 @@ export const RepeatIcon = icon(LuRepeat, 28);
 export const ClockIcon = icon(LuClock, 18);
 export const PriceTagIcon = icon(LuBadgeDollarSign, 18);
 export const CheckIcon = icon(LuCircleCheck, 20);
+export const AwardIcon = icon(LuAward, 28);
+export const GlobeIcon = icon(LuGlobe, 28);
 
 export const socialIcons = {
   instagram: InstagramIcon,
