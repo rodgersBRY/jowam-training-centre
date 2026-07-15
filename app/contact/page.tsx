@@ -21,8 +21,8 @@ export default function ContactPage() {
     <>
       <PageHero
         image={images.facilities.espressoLab}
-        tagline="Contact"
-        title="Contact Us"
+        tagline="Contact Us"
+        title="Let's Talk Coffee"
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Contact" }]}
       />
 
@@ -35,8 +35,7 @@ export default function ContactPage() {
                 Send us a message
               </h2>
               <p className="mt-1 text-[0.9rem] text-brand-brown/80">
-                Have a question about our courses or admissions? We typically
-                reply within one business day.
+                Tell us a little about yourself and what you'd like to know. We'll get back to you as soon as we can.
               </p>
               <div className="mt-5">
                 <ContactForm />
@@ -57,7 +56,7 @@ export default function ContactPage() {
 
               <div>
                 <h2 className="flex items-center gap-2 text-(length:--text-h3) font-semibold text-roast">
-                  Contact Info
+                  Prefer to talk?
                 </h2>
                 <ul className="mt-2 space-y-1.5 text-brand-brown">
                   {site.contact.phones.map((p) => (

@@ -19,8 +19,8 @@ export default function BlogIndexPage() {
     <>
       <PageHero
         image={images.story}
-        tagline="Blog"
-        title="Coffee Training Blog"
+        tagline="The Jowam Journal"
+        title="Coffee is always teaching us something"
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Blog" }]}
       />
 

@@ -11,43 +11,13 @@ import {
   type RegistrationPayload,
 } from "@/lib/validation/registration";
 import { Button } from "@/components/ui/Button";
+import { Field } from "../ui/InputField";
 
 type Errors = Partial<Record<string, string>>;
 type Status = "idle" | "submitting" | "success" | "error";
 
-const labelCls = "block text-[0.9rem] font-semibold text-brand-brown mb-1.5";
 const inputCls =
   "w-full min-h-[48px] rounded-card border border-line bg-white px-3.5 text-[16px] text-roast focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-orange";
-
-export function Field({
-  id,
-  label,
-  error,
-  children,
-}: {
-  id: string;
-  label: string;
-  error?: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <div>
-      <label htmlFor={id} className={labelCls}>
-        {label}
-      </label>
-      {children}
-      {error && (
-        <p
-          id={`${id}-error`}
-          role="alert"
-          className="mt-1.5 text-[0.85rem] font-medium text-brand-orange"
-        >
-          {error}
-        </p>
-      )}
-    </div>
-  );
-}
 
 const fieldset = "space-y-5 rounded-card border border-line p-5 md:p-6";
 const legend = "px-2 font-display text-[1.05rem] font-semibold text-roast";

@@ -71,7 +71,7 @@ export default function GalleryPage() {
       <PageHero
         image={images.gallery.latteArt}
         tagline="Gallery"
-        title="Inside Our Classes"
+        title="A Glimpse Into Life at Jowam"
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Gallery" }]}
       />
 
@@ -79,8 +79,8 @@ export default function GalleryPage() {
         <Container>
           <SectionHeading
             eyebrow="Gallery"
-            title="Inside our classes"
-            lead="Every photo is a real Jowam class — no stock imagery. Tap any image to view it larger."
+            title="More Than Pictures"
+            lead="Some moments are difficult to describe with words. The concentration before a perfect espresso shot. The laughter during practical sessions. The satisfaction of finally pouring your first latte art. The friendships formed over coffee. Here's a glimpse into everyday life at Jowam Training Centre."
           />
           <div className="mt-10">
             <GalleryGrid photos={photos} />
