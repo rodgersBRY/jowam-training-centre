@@ -22,37 +22,34 @@ export function HeroSection() {
       <div className="hero-scrim absolute inset-0" aria-hidden="true" />
 
       {/* Hero content */}
-      <Container className="relative z-10 pb-20 pt-36 md:pb-28 md:pt-40">
-        {/* Intake pill — visible within first mobile screen */}
-        <div className="mb-6 inline-flex items-center gap-2 rounded-pill border border-roast-text/30 bg-roast/40 px-4 py-2 backdrop-blur-sm">
-          <span
-            className="h-2 w-2 rounded-full bg-brand-orange"
-            aria-hidden="true"
-          />
-          <span className="text-small font-semibold text-roast-text">
-            Next intake: {nextIntake}
-          </span>
-        </div>
-
-        <h1 className="text-[clamp(2.25rem,5.5vw,3.75rem)] font-bold leading-[1.1] text-paper max-w-[18ch] text-wrap-balance">
-          Professional Barista &amp; Coffee Roasting Training
+      <div className="relative z-10 pb-20 md:pb-28 pl-20 md:pl-28 w-full">
+        <h1 className="text-[clamp(2.25rem,5.5vw,3.75rem)] font-bold leading-[1.1] text-paper max-w-[28ch] text-wrap-balance">
+          Kenya's Home of Professional Coffee Training
         </h1>
 
         {/* Skills taught — keyword line */}
         <p className="mt-4 text-brand-orange font-semibold text-small">
-          Espresso · Latte art · Manual brewing · Roasting · Cupping
+          Learn Coffee The Way Proffesionals Do.
         </p>
 
         <div className="mt-8 flex flex-wrap gap-3">
           <ButtonLink
             variant="secondary"
+            href="/contact"
+            className="border-roast-text text-roast-text hover:border-paper hover:text-paper"
+          >
+            Talk to an Advisor
+          </ButtonLink>
+
+          <ButtonLink
+            variant="primary"
             href="/courses"
             className="border-roast-text text-roast-text hover:border-paper hover:text-paper"
           >
-            View courses
+            Explore Our courses
           </ButtonLink>
         </div>
-      </Container>
+      </div>
     </section>
   );
 }

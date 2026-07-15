@@ -29,8 +29,8 @@ export function AboutTeaserSection() {
         <Reveal>
           <SectionHeading
             onRoast
-            eyebrow="About Jowam"
-            title="Why we do this"
+            eyebrow="Where Passion Became Purpose"
+            title=""
             align="center"
           />
           <p className="mt-6 mx-auto max-w-[65ch] text-center text-(length:--text-body) leading-[1.65] text-roast-text">

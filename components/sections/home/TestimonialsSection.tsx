@@ -33,8 +33,8 @@ export function TestimonialsSection() {
         <Reveal>
           <SectionHeading
             eyebrow="Graduate stories"
-            title="What our students say"
-            lead="Real words from real graduates — not marketing copy."
+            title="Every cup tells a different story."
+            lead=""
             align="center"
           />
         </Reveal>

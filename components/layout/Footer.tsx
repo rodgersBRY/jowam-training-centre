@@ -11,9 +11,6 @@ import {
 } from "@/components/ui/icons";
 import Image from "next/image";
 
-/**
- * Footer on --roast — the canonical on-site home for the NAP (DESIGN §6).
- */
 export function Footer() {
   return (
     <footer className="bg-roast text-roast-text">
@@ -31,7 +28,7 @@ export function Footer() {
             </div>
 
             <p className="measure mt-5 text-[0.95rem] text-roast-text/85">
-              {site.description}
+              {site.footerTagline}
             </p>
             <div className="mt-6 flex gap-3">
               {site.social.map((s) => {

@@ -329,7 +329,7 @@ export function RegistrationForm({
       </fieldset>
 
       <fieldset className={fieldset}>
-        <legend className={legend}>3. Emergency contact &amp; photo</legend>
+        <legend className={legend}>3. Emergency contact Information</legend>
         <div className="grid gap-5 sm:grid-cols-2">
           <Field
             id="emergencyContactNames"

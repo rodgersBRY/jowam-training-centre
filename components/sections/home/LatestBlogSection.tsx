@@ -25,9 +25,9 @@ export function LatestBlogSection() {
       <Container>
         <Reveal>
           <SectionHeading
-            eyebrow="From the blog"
-            title="Latest from the training floor"
-            lead="Guides on barista training, coffee careers, and brewing — written for anyone pursuing coffee professionally in Kenya."
+            eyebrow="From the Jowam Journal"
+            title="Coffee Stories, Tips & Industry Insights"
+            lead="Coffee is always evolving, and so are we. Explore practical tips, industry insights, student stories, and everything happening in the world of coffee."
             align="center"
           />
         </Reveal>

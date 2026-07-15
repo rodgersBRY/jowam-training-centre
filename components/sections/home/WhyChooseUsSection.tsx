@@ -29,7 +29,7 @@ export function WhyChooseUsSection() {
       <Container>
         <Reveal>
           <SectionHeading
-            eyebrow="Why Jowam"
+            eyebrow="Why Students Choose Jowam"
             title="Training built for the real industry"
             lead="There are plenty of short coffee courses out there. Jowam is different because we build for what happens after graduation."
             align="center"
