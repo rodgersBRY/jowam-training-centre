@@ -29,7 +29,7 @@ export function EventModal({ event }: { event: Event }) {
   return (
     <dialog
       ref={dialogRef}
-      className="m-auto w-fit max-w-[90vw] overflow-visible rounded-card bg-paper p-0 shadow-2xl backdrop:bg-[rgb(36_27_21/0.8)]"
+      className="m-auto w-fit max-w-[95vw] overflow-visible rounded-card bg-paper p-0 shadow-2xl backdrop:bg-[rgb(36_27_21/0.8)]"
       onClick={(e) => {
         if (e.target === dialogRef.current) close();
       }}
@@ -38,14 +38,14 @@ export function EventModal({ event }: { event: Event }) {
         <div className="relative">
           <Image
             src={cloudinaryUrl(event.poster, {
-              width: 600,
-              height: 700,
+              width: 800,
+              height: 933,
               crop: "fit",
             })}
             alt={event.title}
-            width={600}
-            height={700}
-            className="block max-h-[80vh] w-auto max-w-[90vw] rounded-card object-contain"
+            width={800}
+            height={933}
+            className="block max-h-[92vh] w-auto max-w-[95vw] rounded-card object-contain"
             priority
           />
 
