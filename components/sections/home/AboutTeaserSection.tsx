@@ -34,7 +34,7 @@ export function AboutTeaserSection() {
             align="center"
           />
           <p className="mt-6 mx-auto max-w-[65ch] text-center text-(length:--text-body) leading-[1.65] text-roast-text">
-            {about.mission}
+            {about.purpose}
           </p>
         </Reveal>
 

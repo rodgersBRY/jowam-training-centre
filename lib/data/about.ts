@@ -3,6 +3,8 @@
  * redesign (placeholder copy, flag for client review before launch).
  */
 export const about = {
+  purpose:
+    "Jowam exists to close the gap between a coffee certificate and a coffee career. We saw too many trained baristas who had filled notebooks but had never held their own behind a busy bar — so we built a school where skill is measured in shots pulled, milk textured, and profiles roasted, not pages read. Every course is designed to turn a genuine love of coffee into work that lasts.",
   practicalLearning:
     "Coffee is a hands-on craft. The best way to understand it is by preparing it, tasting it, refining it and practising again.",
   personalAttention:
