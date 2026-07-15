@@ -8,6 +8,7 @@ import { PageHero } from "@/components/ui/PageHero";
 import { AddressIcon, PhoneIcon, MailIcon } from "@/components/ui/icons";
 import { ContactForm } from "@/components/contact/ContactForm";
 import { WhatsAppButton } from "@/components/interactive/WhatsAppButton";
+import { Reveal } from "@/components/interactive/Reveal";
 
 export const metadata: Metadata = pageMetadata({
   title: "Contact & Location",
@@ -30,7 +31,7 @@ export default function ContactPage() {
         <Container>
           <div className="mt-10 grid gap-10 lg:grid-cols-2">
             {/* Contact message form */}
-            <div className="rounded-card border border-line bg-paper p-6 md:p-8">
+            <Reveal className="rounded-card border border-line bg-paper p-6 md:p-8">
               <h2 className="text-(length:--text-h3) font-semibold text-roast">
                 Send us a message
               </h2>
@@ -40,10 +41,10 @@ export default function ContactPage() {
               <div className="mt-5">
                 <ContactForm />
               </div>
-            </div>
+            </Reveal>
 
             {/* Details */}
-            <div className="space-y-8">
+            <Reveal delay={120} className="space-y-8">
               <div>
                 <h2 className="flex items-center gap-2 text-(length:--text-h3) font-semibold text-roast">
                   Visit
@@ -107,7 +108,7 @@ export default function ContactPage() {
                   className="h-80 w-full md:h-60"
                 />
               </div>
-            </div>
+            </Reveal>
           </div>
         </Container>
       </section>

@@ -3,6 +3,7 @@ import { images } from "@/lib/data/images";
 import { cloudinaryUrl } from "@/lib/utils/cloudinary";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Reveal } from "@/components/interactive/Reveal";
 
 export function StorySection() {
   return (
@@ -10,7 +11,7 @@ export function StorySection() {
       <Container>
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-20">
           {/* Copy */}
-          <div>
+          <Reveal>
             <SectionHeading
               eyebrow="Our story"
               title="Born from a love of the bean"
@@ -43,10 +44,13 @@ export function StorySection() {
                 a graduate who survives a busy Saturday and one who owns it.
               </p>
             </div>
-          </div>
+          </Reveal>
 
           {/* Photography */}
-          <div className="relative aspect-4/5 w-full overflow-hidden rounded-card">
+          <Reveal
+            delay={120}
+            className="relative aspect-4/5 w-full overflow-hidden rounded-card"
+          >
             <Image
               src={cloudinaryUrl(images.story, {
                 width: 800,
@@ -58,7 +62,7 @@ export function StorySection() {
               sizes="(min-width: 1024px) 50vw, 100vw"
               className="object-cover"
             />
-          </div>
+          </Reveal>
         </div>
       </Container>
     </section>

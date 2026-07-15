@@ -3,6 +3,7 @@ import { images } from "@/lib/data/images";
 import { cloudinaryUrl } from "@/lib/utils/cloudinary";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Reveal } from "@/components/interactive/Reveal";
 
 const facilityFeatures = [
   {
@@ -25,16 +26,19 @@ export function FacilitySection() {
   return (
     <section className="section-y bg-paper">
       <Container>
-        <SectionHeading
-          eyebrow="The training lab"
-          title="More Than a Classroom."
-          lead="Walk into Jowam on any training day and you'll hear conversations around espresso extraction, steaming milk, tasting coffee and encouraging one another."
-        />
+        <Reveal>
+          <SectionHeading
+            eyebrow="The training lab"
+            title="More Than a Classroom."
+            lead="Walk into Jowam on any training day and you'll hear conversations around espresso extraction, steaming milk, tasting coffee and encouraging one another."
+          />
+        </Reveal>
 
         <div className="mt-12 grid gap-8 sm:grid-cols-2">
-          {facilityFeatures.map((feature) => (
-            <div
+          {facilityFeatures.map((feature, i) => (
+            <Reveal
               key={feature.title}
+              delay={i * 100}
               className="rounded-card overflow-hidden border border-line shadow-(--shadow-card)"
             >
               <div className="relative aspect-video w-full">
@@ -58,12 +62,12 @@ export function FacilitySection() {
                   {feature.description}
                 </p>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
 
         {/* Wide shot — Saturday practical */}
-        <div className="mt-8 relative aspect-21/9 w-full overflow-hidden rounded-card">
+        <Reveal className="mt-8 relative aspect-21/9 w-full overflow-hidden rounded-card">
           <Image
             src={cloudinaryUrl(images.saturdayPractical, {
               width: 1400,
@@ -79,7 +83,7 @@ export function FacilitySection() {
           <p className="absolute bottom-6 left-6 text-paper font-semibold text-small uppercase tracking-widest">
             Hands-on Practical session
           </p>
-        </div>
+        </Reveal>
       </Container>
     </section>
   );

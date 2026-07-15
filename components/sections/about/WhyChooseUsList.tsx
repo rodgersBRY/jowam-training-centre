@@ -12,6 +12,7 @@ import {
   ClockIcon,
 } from "@/components/ui/icons";
 import { stockImages } from "@/lib/data/stock-images";
+import { Reveal } from "@/components/interactive/Reveal";
 
 const iconMap: Record<WhyChooseUsIcon, typeof UserIcon> = {
   user: UserIcon,
@@ -29,7 +30,10 @@ export function WhyChooseUsList() {
     <section className="section-y bg-paper">
       <Container>
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-20">
-          <div className="relative aspect-4/5 w-full overflow-hidden rounded-card lg:order-2">
+          <Reveal
+            delay={120}
+            className="relative aspect-4/5 w-full overflow-hidden rounded-card lg:order-2"
+          >
             <Image
               src={stockImages.whyChooseUsAbout}
               alt="Instructor guiding a student through espresso extraction"
@@ -37,9 +41,9 @@ export function WhyChooseUsList() {
               sizes="(min-width: 1024px) 50vw, 100vw"
               className="object-cover"
             />
-          </div>
+          </Reveal>
 
-          <div className="lg:order-1">
+          <Reveal className="lg:order-1">
             <SectionHeading eyebrow="Why choose us" title="What sets Jowam apart" />
             <ul className="mt-8 space-y-6">
               {whyChooseUs.map((item) => {
@@ -59,7 +63,7 @@ export function WhyChooseUsList() {
                 );
               })}
             </ul>
-          </div>
+          </Reveal>
         </div>
       </Container>
     </section>

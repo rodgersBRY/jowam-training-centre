@@ -4,6 +4,7 @@ import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { EventCard } from "@/components/events/EventCard";
 import { PastEventGallery } from "@/components/events/PastEventGallery";
+import { Reveal } from "@/components/interactive/Reveal";
 import { getUpcomingEvents, getPastEventsWithGallery } from "@/lib/data/events";
 
 /**
@@ -20,16 +21,20 @@ export function EventsClientView() {
     <>
       <section className="section-y bg-paper">
         <Container>
-          <SectionHeading
-            eyebrow="Events & Competitions"
-            title="What's coming up"
-            lead="Join us for exciting coffee events, competitions, and special programmes at Jowam."
-            align="center"
-          />
+          <Reveal>
+            <SectionHeading
+              eyebrow="Events & Competitions"
+              title="What's coming up"
+              lead="Join us for exciting coffee events, competitions, and special programmes at Jowam."
+              align="center"
+            />
+          </Reveal>
           {upcoming.length > 0 ? (
             <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {upcoming.map((event) => (
-                <EventCard key={`${event.date}-${event.title}`} event={event} />
+              {upcoming.map((event, i) => (
+                <Reveal key={`${event.date}-${event.title}`} delay={(i % 4) * 80}>
+                  <EventCard event={event} />
+                </Reveal>
               ))}
             </div>
           ) : (
@@ -43,15 +48,19 @@ export function EventsClientView() {
       {past.length > 0 && (
         <section className="section-y bg-paper">
           <Container>
-            <SectionHeading
-              eyebrow="In the past"
-              title="Event recaps"
-              lead="Highlights and photos from our previous events and competitions."
-              align="center"
-            />
+            <Reveal>
+              <SectionHeading
+                eyebrow="In the past"
+                title="Event recaps"
+                lead="Highlights and photos from our previous events and competitions."
+                align="center"
+              />
+            </Reveal>
             <div className="mt-12 space-y-16">
               {past.map((event) => (
-                <PastEventGallery key={`${event.date}-${event.title}`} event={event} />
+                <Reveal key={`${event.date}-${event.title}`}>
+                  <PastEventGallery event={event} />
+                </Reveal>
               ))}
             </div>
           </Container>

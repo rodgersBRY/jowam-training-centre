@@ -1,6 +1,7 @@
 import { Container } from "@/components/ui/Container";
 import { stats } from "@/lib/data/stats";
 import { CountUp } from "@/components/interactive/CountUp";
+import { Reveal } from "@/components/interactive/Reveal";
 
 /** Headline proof-point stats — moved here from the homepage. */
 export function StatsSection() {
@@ -8,9 +9,10 @@ export function StatsSection() {
     <section className="section-y bg-paper">
       <Container>
         <dl className="grid gap-6 sm:grid-cols-3">
-          {stats.map((stat) => (
-            <div
+          {stats.map((stat, i) => (
+            <Reveal
               key={stat.label}
+              delay={i * 80}
               className="rounded-card border border-line bg-roast/[0.03] p-8 text-center"
             >
               <dt className="sr-only">{stat.label}</dt>
@@ -24,7 +26,7 @@ export function StatsSection() {
                   {stat.label}
                 </span>
               </dd>
-            </div>
+            </Reveal>
           ))}
         </dl>
       </Container>
