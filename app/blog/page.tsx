@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { posts } from "@/lib/data/blog";
+import { images } from "@/lib/data/images";
 import { pageMetadata } from "@/lib/utils/metadata";
 import { Container } from "@/components/ui/Container";
+import { PageHero } from "@/components/ui/PageHero";
 import { PostCard } from "@/components/blog/PostCard";
 import { WhatsAppButton } from "@/components/interactive/WhatsAppButton";
 
@@ -15,22 +17,12 @@ export const metadata: Metadata = pageMetadata({
 export default function BlogIndexPage() {
   return (
     <>
-      {/* Hero header */}
-      <section className="bg-paper section-y">
-        <Container>
-          <p className="text-small font-semibold uppercase tracking-[0.12em] text-brand-orange mb-4">
-            Jowam Coffee Training Centre
-          </p>
-          <h1 className="text-(length:--text-hero) font-bold leading-[1.05] mb-6">
-            Coffee Training Blog
-          </h1>
-          <p className="measure text-(length:--text-body) text-brand-brown leading-[1.65]">
-            Practical guides on barista training, coffee careers, salary
-            expectations, and brewing craft — written for anyone pursuing coffee
-            professionally in Kenya.
-          </p>
-        </Container>
-      </section>
+      <PageHero
+        image={images.story}
+        tagline="Blog"
+        title="Coffee Training Blog"
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Blog" }]}
+      />
 
       {/* Post grid */}
       <section className="section-y bg-paper">
