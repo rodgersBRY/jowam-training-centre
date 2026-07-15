@@ -1,13 +1,24 @@
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { whyChooseUs, type WhyChooseUsIcon } from "@/lib/data/why-choose-us";
-import { UserIcon, CoffeeIcon, CalendarIcon, RepeatIcon } from "@/components/ui/icons";
+import {
+  UserIcon,
+  CoffeeIcon,
+  CalendarIcon,
+  RepeatIcon,
+  AwardIcon,
+  GlobeIcon,
+  ClockIcon,
+} from "@/components/ui/icons";
 
 const iconMap: Record<WhyChooseUsIcon, typeof UserIcon> = {
   user: UserIcon,
   coffee: CoffeeIcon,
   calendar: CalendarIcon,
   repeat: RepeatIcon,
+  award: AwardIcon,
+  globe: GlobeIcon,
+  clock: ClockIcon,
 };
 
 /** Homepage presentation of the shared why-choose-us list — icon-topped cards. */
