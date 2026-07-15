@@ -9,7 +9,7 @@ import {
 } from "@/lib/utils/emailjs";
 import { track, AnalyticsEvent } from "@/lib/utils/analytics";
 import { Button } from "@/components/ui/Button";
-import { Field } from "../apply/RegistrationForm";
+import { Field } from "../ui/InputField";
 
 type Status = "idle" | "sending" | "sent" | "error";
 type Errors = Partial<
@@ -73,7 +73,7 @@ export function ContactForm() {
   if (status === "sent") {
     return (
       <div className="rounded-card border border-line bg-white p-6 text-center">
-        <p className="font-semibold text-roast">Message sent — thank you!</p>
+        <p className="font-semibold text-roast">Message sent. thank you!</p>
         <p className="mt-1 text-[0.9rem] text-brand-brown">
           We&rsquo;ll reply within one business day. For a faster response,
           message us on WhatsApp.
@@ -115,76 +115,46 @@ export function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="phone" className={labelCls}>
-          Phone
-        </label>
-        <input
-          id="phone"
-          name="phone"
-          type="tel"
-          inputMode="tel"
-          className={inputCls}
-          autoComplete="tel"
-          value={data.phone ?? ""}
-          onChange={(e) => set("phone", e.target.value)}
-          aria-describedby={errors.phone ? "phone-error" : undefined}
-        />
-        {errors.phone && (
-          <p
-            id="phone-error"
-            role="alert"
-            className="mt-1.5 text-[0.85rem] font-medium text-brand-orange"
-          >
-            {errors.phone}
-          </p>
-        )}
+        <Field id="phone" label="Phone" error={errors.phone}>
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            inputMode="tel"
+            className={inputCls}
+            autoComplete="tel"
+            value={data.phone ?? ""}
+            onChange={(e) => set("phone", e.target.value)}
+            aria-describedby={errors.phone ? "phone-error" : undefined}
+          />
+        </Field>
       </div>
 
       <div>
-        <label htmlFor="subject" className={labelCls}>
-          Subject
-        </label>
-        <input
-          id="subject"
-          name="subject"
-          className={inputCls}
-          value={data.subject ?? ""}
-          onChange={(e) => set("subject", e.target.value)}
-          aria-describedby={errors.subject ? "subject-error" : undefined}
-        />
-        {errors.subject && (
-          <p
-            id="subject-error"
-            role="alert"
-            className="mt-1.5 text-[0.85rem] font-medium text-brand-orange"
-          >
-            {errors.subject}
-          </p>
-        )}
+        <Field id="subject" label="Subject" error={errors.subject}>
+          <input
+            id="subject"
+            name="subject"
+            className={inputCls}
+            value={data.subject ?? ""}
+            onChange={(e) => set("subject", e.target.value)}
+            aria-describedby={errors.subject ? "subject-error" : undefined}
+          />
+        </Field>
       </div>
 
       <div>
-        <label htmlFor="message" className={labelCls}>
-          Message
-        </label>
-        <textarea
-          id="message"
-          name="message"
-          rows={5}
-          className={`${inputCls} min-h-30 py-3`}
-          value={data.message ?? ""}
-          onChange={(e) => set("message", e.target.value)}
-          aria-describedby={errors.message ? "message-error" : undefined}
-        />
-        {errors.message && (
-          <p
-            id="message-error"
-            role="alert"
-            className="mt-1.5 text-[0.85rem] font-medium text-brand-orange"
-          >
-            {errors.message}
-          </p>
-        )}
+        <Field id="message" label="Message" error={errors.message}>
+          <textarea
+            id="message"
+            name="message"
+            rows={5}
+            className={`${inputCls} min-h-30 py-3`}
+            value={data.message ?? ""}
+            onChange={(e) => set("message", e.target.value)}
+            aria-describedby={errors.message ? "message-error" : undefined}
+          />
+        </Field>
       </div>
 
       {status === "error" && (
@@ -203,7 +173,7 @@ export function ContactForm() {
         disabled={status === "sending"}
         className="w-full"
       >
-        {status === "sending" ? "Sending…" : "Send message"}
+        {status === "sending" ? "Sending…" : "Send my Enquiry"}
       </Button>
     </form>
   );

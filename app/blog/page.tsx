@@ -5,6 +5,7 @@ import { pageMetadata } from "@/lib/utils/metadata";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/ui/PageHero";
 import { PostCard } from "@/components/blog/PostCard";
+import { Reveal } from "@/components/interactive/Reveal";
 import { WhatsAppButton } from "@/components/interactive/WhatsAppButton";
 
 export const metadata: Metadata = pageMetadata({
@@ -19,8 +20,8 @@ export default function BlogIndexPage() {
     <>
       <PageHero
         image={images.story}
-        tagline="Blog"
-        title="Coffee Training Blog"
+        tagline="The Jowam Journal"
+        title="Coffee is always teaching us something"
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Blog" }]}
       />
 
@@ -31,9 +32,11 @@ export default function BlogIndexPage() {
             className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 list-none p-0 m-0"
             role="list"
           >
-            {posts.map((post) => (
+            {posts.map((post, i) => (
               <li key={post.slug}>
-                <PostCard post={post} />
+                <Reveal delay={(i % 3) * 80} className="h-full">
+                  <PostCard post={post} />
+                </Reveal>
               </li>
             ))}
           </ul>

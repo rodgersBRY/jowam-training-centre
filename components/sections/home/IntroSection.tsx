@@ -22,11 +22,11 @@ export function IntroSection() {
   return (
     <section className="section-y overflow-x-clip bg-paper">
       <Container>
-        <Reveal className="mx-auto max-w-[54ch] text-center">
+        <Reveal className="mx-auto max-w-[94ch] text-center">
           <SectionHeading
             align="center"
-            eyebrow="About the school"
-            title="A coffee school built on real equipment"
+            eyebrow=""
+            title="Where Passion Became Purpose"
           />
           <p className="mt-6 text-(length:--text-body) leading-[1.65] text-brand-brown">
             {site.description}

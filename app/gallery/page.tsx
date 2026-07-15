@@ -8,6 +8,7 @@ import { PageHero } from "@/components/ui/PageHero";
 import { ButtonLink } from "@/components/ui/Button";
 import { InstagramIcon } from "@/components/ui/icons";
 import { WhatsAppButton } from "@/components/interactive/WhatsAppButton";
+import { Reveal } from "@/components/interactive/Reveal";
 import {
   GalleryGrid,
   type GalleryPhoto,
@@ -71,32 +72,36 @@ export default function GalleryPage() {
       <PageHero
         image={images.gallery.latteArt}
         tagline="Gallery"
-        title="Inside Our Classes"
+        title="A Glimpse Into Life at Jowam"
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Gallery" }]}
       />
 
       <section className="section-y bg-paper">
         <Container>
-          <SectionHeading
-            eyebrow="Gallery"
-            title="Inside our classes"
-            lead="Every photo is a real Jowam class — no stock imagery. Tap any image to view it larger."
-          />
-          <div className="mt-10">
+          <Reveal>
+            <SectionHeading
+              eyebrow="Gallery"
+              title="More Than Pictures"
+              lead="Some moments are difficult to describe with words. The concentration before a perfect espresso shot. The laughter during practical sessions. The satisfaction of finally pouring your first latte art. The friendships formed over coffee. Here's a glimpse into everyday life at Jowam Training Centre."
+            />
+          </Reveal>
+          <Reveal className="mt-10">
             <GalleryGrid photos={photos} />
-          </div>
+          </Reveal>
         </Container>
       </section>
 
       {/* Instagram */}
       <section className="section-y bg-paper">
         <Container className="text-center">
-          <SectionHeading
-            align="center"
-            eyebrow="Follow along"
-            title="See new classes every week"
-            lead="We post fresh photos and intake dates on Instagram."
-          />
+          <Reveal>
+            <SectionHeading
+              align="center"
+              eyebrow="Follow along"
+              title="See new classes every week"
+              lead="We post fresh photos and intake dates on Instagram."
+            />
+          </Reveal>
           {instagram && (
             <div className="mt-8 flex justify-center">
               <ButtonLink variant="primary" href={instagram.href} external>

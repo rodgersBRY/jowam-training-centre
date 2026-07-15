@@ -10,9 +10,9 @@ export function CourseStripSection() {
       <Container>
         <Reveal>
           <SectionHeading
-            eyebrow="Our courses"
-            title="Choose your training"
-            lead="Three programmes built for the real world — professional equipment, named expert instructors, and certificates employers trust."
+            eyebrow="Everyone Starts Somewhere"
+            title="Find the course that's right for you"
+            lead="Whether you're learning for employment, business or personal growth, we have a programme designed for you."
             align="center"
           />
         </Reveal>

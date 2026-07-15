@@ -24,7 +24,7 @@ export const testimonials: Testimonial[] = [
   {
     name: "Aisha Mwangi",
     quote:
-      "The roasting course is the real thing — actual green coffee, an actual roaster, and profiles I still use today. Jowam took me from curious to confident.",
+      "The roasting course is the real thing. Actual green coffee, an actual roaster, and profiles I still use today. Jowam took me from curious to confident.",
     course: "Professional Roasting Course",
     workplace: "Production Roaster, specialty roastery",
     image: null,

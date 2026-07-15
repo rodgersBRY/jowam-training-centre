@@ -6,6 +6,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { RegistrationForm } from "@/components/apply/RegistrationForm";
 import { ApplyInfoPanel } from "@/components/apply/ApplyInfoPanel";
 import { WhatsAppButton } from "@/components/interactive/WhatsAppButton";
+import { Reveal } from "@/components/interactive/Reveal";
 
 export const metadata: Metadata = pageMetadata({
   title: "Apply Now — Online Registration",
@@ -26,14 +27,16 @@ export default async function ApplyNowPage({
     <>
       <section className="section-y bg-paper">
         <Container className="max-w-300">
-          <SectionHeading
-            eyebrow="Registration"
-            title="Apply to Jowam"
-            lead="Committed to joining? Complete your application below. Just exploring? Message us on WhatsApp first — no obligation."
-          />
+          <Reveal>
+            <SectionHeading
+              eyebrow="Registration"
+              title="Apply to Jowam"
+              lead="Committed to joining? Complete your application below. Just exploring? Message us on WhatsApp first — no obligation."
+            />
+          </Reveal>
 
           <div className="mt-10 grid gap-10 items-start lg:grid-cols-[1fr_320px]">
-            <div>
+            <Reveal>
               <div className="rounded-card border border-line bg-white p-5 text-[0.9rem] text-brand-brown">
                 <p className="font-semibold text-roast">
                   Payment &amp; next steps
@@ -57,7 +60,7 @@ export default async function ApplyNowPage({
                   defaultFormat={defaultFormat}
                 />
               </div>
-            </div>
+            </Reveal>
 
             <div className="lg:sticky lg:top-20">
               <ApplyInfoPanel />

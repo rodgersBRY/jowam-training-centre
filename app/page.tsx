@@ -16,7 +16,6 @@ import { WhyChooseUsSection } from "@/components/sections/home/WhyChooseUsSectio
 import { AboutTeaserSection } from "@/components/sections/home/AboutTeaserSection";
 import { LatestBlogSection } from "@/components/sections/home/LatestBlogSection";
 import { CourseStripSection } from "@/components/sections/home/CourseStripSection";
-import { GalleryStripSection } from "@/components/sections/home/GalleryStripSection";
 import { TestimonialsSection } from "@/components/sections/home/TestimonialsSection";
 import { EventModal } from "@/components/events/EventModal";
 
@@ -49,10 +48,9 @@ export default function HomePage() {
           extend past the reading column. */}
       <IntroSection />
       <WhyChooseUsSection />
+      <CourseStripSection />
       <AboutTeaserSection />
       <LatestBlogSection />
-      <CourseStripSection />
-      <GalleryStripSection />
       <TestimonialsSection />
 
       {/* FAQ preview */}

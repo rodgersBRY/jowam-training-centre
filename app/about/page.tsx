@@ -5,6 +5,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ButtonLink } from "@/components/ui/Button";
 import { ArrowIcon } from "@/components/ui/icons";
 import { WhatsAppButton } from "@/components/interactive/WhatsAppButton";
+import { Reveal } from "@/components/interactive/Reveal";
 import { PageHero } from "@/components/ui/PageHero";
 import { FaqAccordion } from "@/components/interactive/FaqAccordion";
 import { JsonLd, faqSchema } from "@/components/seo/JsonLd";
@@ -44,10 +45,15 @@ export default function AboutPage() {
       {/* FAQ */}
       <section id="faq" className="section-y bg-paper scroll-mt-16">
         <Container className="max-w-205">
-          <SectionHeading eyebrow="Questions" title="Frequently asked questions" />
-          <div className="mt-8">
+          <Reveal>
+            <SectionHeading
+              eyebrow="Questions"
+              title="Frequently asked questions"
+            />
+          </Reveal>
+          <Reveal className="mt-8">
             <FaqAccordion items={aboutFaqs} />
-          </div>
+          </Reveal>
           <JsonLd data={faqSchema(aboutFaqs)} />
         </Container>
       </section>
@@ -55,18 +61,20 @@ export default function AboutPage() {
       {/* Closing CTA */}
       <section className="section-y bg-paper">
         <Container className="text-center">
-          <SectionHeading
-            align="center"
-            eyebrow="Ready when you are"
-            title="Come and train with us"
-            lead="Weekly intakes, transparent pricing, and real equipment in the heart of Nairobi."
-          />
+          <Reveal>
+            <SectionHeading
+              align="center"
+              eyebrow="Ready when you are"
+              title="We'd Love to Meet You"
+              lead="The best way to understand Jowam isn't by reading about us. It's by walking through our doors, meeting our trainers and experiencing the learning environment for yourself."
+            />
+          </Reveal>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <ButtonLink variant="primary" href="/courses">
-              Explore courses <ArrowIcon />
+              Explore Our Courses <ArrowIcon />
             </ButtonLink>
             <ButtonLink variant="secondary" href="/apply-now">
-              Apply now
+              Book a Visit
             </ButtonLink>
           </div>
         </Container>

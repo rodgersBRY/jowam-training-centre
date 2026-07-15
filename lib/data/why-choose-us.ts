@@ -37,9 +37,9 @@ export const whyChooseUs: WhyChooseUsItem[] = [
     icon: "coffee",
   },
   {
-    title: "Experienced & certified instructors",
+    title: "Learn from Professionals",
     description:
-      "Learn directly from named, experienced baristas and roasters — not a rotating cast of trainers.",
+      "Train with instructors who've worked in cafés, coffee businesses and the specialty coffee industry.",
     icon: "user",
   },
   {

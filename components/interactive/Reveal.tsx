@@ -30,6 +30,13 @@ export function Reveal({
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    // Anything already in (or just below) the viewport on mount reveals right
+    // away — this both animates above-the-fold content on load and guarantees
+    // it can never get stuck hidden if the observer never fires.
+    if (el.getBoundingClientRect().top < window.innerHeight * 1.1) {
+      setVisible(true);
+      return;
+    }
     if (typeof IntersectionObserver === "undefined") {
       setVisible(true);
       return;
@@ -43,7 +50,9 @@ export function Reveal({
           }
         }
       },
-      { threshold: 0.15, rootMargin: "0px 0px -10% 0px" },
+      // threshold 0 so tall blocks fire the moment they enter; the negative
+      // bottom margin just holds the reveal until the element is ~72px in.
+      { threshold: 0, rootMargin: "0px 0px -72px 0px" },
     );
     io.observe(el);
     return () => io.disconnect();

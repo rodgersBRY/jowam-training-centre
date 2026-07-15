@@ -9,7 +9,9 @@ export const site = {
   shortName: "Jowam",
   tagline: "Professional Barista & Coffee Roasting Training",
   description:
-    "Jowam Coffee Training Centre is Nairobi's hands-on home for professional barista and coffee roasting education — small classes, real espresso machines and drum roasters, named expert instructors, and a curriculum built around what employers actually look for. Weekly intakes, transparent pricing, and flexible installments make it easy to start.",
+    "Many people know Kenya for producing some of the world's finest coffee. Fewer know how much skill goes into preparing every great cup. Jowam Training Centre was founded with one simple goal, to create a place where anyone with an interest in coffee could learn from experienced professionals, gain practical skills, and build confidence for the future.",
+  footerTagline:
+    "Jowam Training Centre was founded with one simple goal. To create a place where anyone with an interest in coffee could learn from experienced professionals, gain practical skills, and build confidence for the future.",
   // Set to the production origin before launch.
   url: "https://jowamtrainingcentre.co.ke",
   developer: {

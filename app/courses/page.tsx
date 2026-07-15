@@ -7,6 +7,7 @@ import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { PageHero } from "@/components/ui/PageHero";
 import { CourseCard } from "@/components/courses/CourseCard";
+import { Reveal } from "@/components/interactive/Reveal";
 import { WhatsAppButton } from "@/components/interactive/WhatsAppButton";
 import { FaqAccordion } from "@/components/interactive/FaqAccordion";
 import { JsonLd, coursesListSchema, faqSchema } from "@/components/seo/JsonLd";
@@ -36,18 +37,22 @@ export default function CoursesPage() {
 
       <section className="section-y bg-paper">
         <Container>
-          <SectionHeading
-            eyebrow="Courses"
-            title="Choose your training"
-            lead="Three programmes covering barista skills, roasting, and a fast refresher — pick the one that matches where you're starting from."
-          />
+          <Reveal>
+            <SectionHeading
+              eyebrow="Courses"
+              title="Learn Skills That Stay With You."
+              lead="Whether you're preparing for your first café job, planning to open your own coffee business, or simply want to understand coffee beyond the cup, our courses are built around practical experience, expert guidance and real-world application. Explore the programme that's right for you."
+            />
+          </Reveal>
 
           <div
             data-pricing-section
             className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3"
           >
-            {courses.map((course) => (
-              <CourseCard key={course.slug} course={course} />
+            {courses.map((course, i) => (
+              <Reveal key={course.slug} delay={i * 80}>
+                <CourseCard course={course} />
+              </Reveal>
             ))}
           </div>
         </Container>
@@ -56,10 +61,12 @@ export default function CoursesPage() {
       {/* FAQ */}
       <section className="section-y bg-paper">
         <Container className="max-w-205">
-          <SectionHeading eyebrow="Questions" title="Course FAQs" />
-          <div className="mt-8">
+          <Reveal>
+            <SectionHeading eyebrow="Questions" title="Course FAQs" />
+          </Reveal>
+          <Reveal className="mt-8">
             <FaqAccordion items={coursesFaqs} />
-          </div>
+          </Reveal>
           <JsonLd data={faqSchema(coursesFaqs)} />
         </Container>
       </section>
