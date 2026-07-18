@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { contactSchema } from "@/lib/validation/contact";
+import { ContactPayload, contactSchema } from "@/lib/validation/contact";
 import {
   sendEmail,
   EMAIL_TEMPLATES,
@@ -20,11 +20,6 @@ const inputCls =
   "w-full min-h-[48px] rounded-card border border-line bg-white px-3.5 text-[16px] text-roast focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-orange";
 const labelCls = "block text-[0.9rem] font-semibold text-brand-brown mb-1.5";
 
-/**
- * General "Send us a message" contact form (name / email / subject / message),
- * adopted from the previous site. Validated with zod and delivered via the
- * EmailJS contact template.
- */
 export function ContactForm() {
   const [data, setData] = useState<Record<string, string>>({});
   const [errors, setErrors] = useState<Errors>({});
@@ -55,13 +50,14 @@ export function ContactForm() {
 
     setStatus("sending");
     try {
-      await sendEmail(EMAIL_TEMPLATES.contact, {
-        from_name: parsed.data.name,
-        from_email: parsed.data.email,
-        from_phone: parsed.data.phone,
-        subject: parsed.data.subject,
-        message: parsed.data.message,
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(parsed.data satisfies ContactPayload),
       });
+
+      if (!res.ok) throw new Error("Request failed");
+
       track(AnalyticsEvent.contactSubmit);
       setStatus("sent");
       setData({});

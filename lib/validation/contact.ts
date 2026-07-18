@@ -11,3 +11,24 @@ export const contactSchema = z.object({
 });
 
 export type ContactPayload = z.infer<typeof contactSchema>;
+
+/** Validate a partial payload; returns errors keyed by field name. */
+export function validateContactForm(
+  data: unknown,
+):
+  | { success: true; data: ContactPayload }
+  | { success: false; errors: Record<string, string> } {
+  const result = contactSchema.safeParse(data);
+  if (result.success) {
+    return { success: true, data: result.data };
+  }
+
+  const errors: Record<string, string> = {};
+  for (const issue of result.error.issues) {
+    const key = issue.path.join(".");
+    if (key && !errors[key]) {
+      errors[key] = issue.message;
+    }
+  }
+  return { success: false, errors };
+}
