@@ -71,7 +71,6 @@ export function RegistrationForm({
         if (key && !errs[key]) errs[key] = issue.message;
       }
       setErrors(errs);
-      // focus first error
       const first = Object.keys(errs)[0];
       if (first) form.querySelector<HTMLElement>(`[name="${first}"]`)?.focus();
       return;
@@ -85,11 +84,14 @@ export function RegistrationForm({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(parsed.data satisfies RegistrationPayload),
       });
+
       if (!res.ok) throw new Error("Request failed");
+      
       track(AnalyticsEvent.registrationSubmit, {
         course: parsed.data.courseSlug,
         format: parsed.data.format,
       });
+
       setStatus("success");
       form.reset();
     } catch {

@@ -1,8 +1,11 @@
 import { NextResponse } from "next/server";
 import { validateRegistration } from "@/lib/validation/registration";
+import { courses } from "@/lib/data/courses";
+import {
+  enrolNotifyConfigured,
+  sendEnrolAdminNotification,
+} from "@/lib/utils/emailjs-server";
 
-/** ~2MB binary ≈ 2.7MB base64 data URL. */
-const MAX_PHOTO_LEN = 2_700_000;
 
 export async function POST(req: Request) {
   let body: unknown;
@@ -19,13 +22,6 @@ export async function POST(req: Request) {
   if (!result.success) {
     return NextResponse.json(
       { ok: false, errors: result.errors },
-      { status: 400 }
-    );
-  }
-
-  if (result.data.passportPhoto.length > MAX_PHOTO_LEN) {
-    return NextResponse.json(
-      { ok: false, errors: { passportPhoto: "Photo is too large" } },
       { status: 400 }
     );
   }
@@ -61,6 +57,24 @@ export async function POST(req: Request) {
       { ok: false, message: "Could not reach the registration service" },
       { status: 502 }
     );
+  }
+
+  if (enrolNotifyConfigured) {
+    const course = courses.find((c) => c.slug === result.data.courseSlug);
+    try {
+      await sendEnrolAdminNotification({
+        to_email: process.env.ENROL_ADMIN_EMAIL ?? "",
+        applicant_name: `${result.data.surname} ${result.data.otherNames}`,
+        applicant_phone: result.data.phone,
+        applicant_email: result.data.email,
+        course_title: course?.title ?? result.data.courseSlug,
+        format: result.data.format,
+        submitted_at: payload.submittedAt,
+        sheet_url: process.env.REGISTRATION_SHEET_URL ?? "",
+      });
+    } catch {
+      // Registration already recorded via webhook; email is best-effort only.
+    }
   }
 
   return NextResponse.json({ ok: true });
