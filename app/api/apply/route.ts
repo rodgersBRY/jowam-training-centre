@@ -6,7 +6,6 @@ import {
   sendEnrolAdminNotification,
 } from "@/lib/utils/emailjs-server";
 
-
 export async function POST(req: Request) {
   let body: unknown;
   try {
@@ -14,7 +13,7 @@ export async function POST(req: Request) {
   } catch {
     return NextResponse.json(
       { ok: false, message: "Invalid JSON" },
-      { status: 400 }
+      { status: 400 },
     );
   }
 
@@ -22,7 +21,7 @@ export async function POST(req: Request) {
   if (!result.success) {
     return NextResponse.json(
       { ok: false, errors: result.errors },
-      { status: 400 }
+      { status: 400 },
     );
   }
 
@@ -30,7 +29,7 @@ export async function POST(req: Request) {
   if (!webhook) {
     return NextResponse.json(
       { ok: false, message: "Registration is not configured" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 
@@ -49,13 +48,13 @@ export async function POST(req: Request) {
     if (!upstream.ok) {
       return NextResponse.json(
         { ok: false, message: "Could not record registration" },
-        { status: 502 }
+        { status: 502 },
       );
     }
   } catch {
     return NextResponse.json(
       { ok: false, message: "Could not reach the registration service" },
-      { status: 502 }
+      { status: 502 },
     );
   }
 

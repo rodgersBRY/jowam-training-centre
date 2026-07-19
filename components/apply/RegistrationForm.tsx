@@ -41,6 +41,7 @@ export function RegistrationForm({
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+
     const form = e.currentTarget;
     const fd = new FormData(form);
     const payload = {
@@ -70,14 +71,17 @@ export function RegistrationForm({
         const key = issue.path.join(".");
         if (key && !errs[key]) errs[key] = issue.message;
       }
+
       setErrors(errs);
       const first = Object.keys(errs)[0];
       if (first) form.querySelector<HTMLElement>(`[name="${first}"]`)?.focus();
+
       return;
     }
 
     setErrors({});
     setStatus("submitting");
+
     try {
       const res = await fetch("/api/apply", {
         method: "POST",
@@ -86,7 +90,7 @@ export function RegistrationForm({
       });
 
       if (!res.ok) throw new Error("Request failed");
-      
+
       track(AnalyticsEvent.registrationSubmit, {
         course: parsed.data.courseSlug,
         format: parsed.data.format,
@@ -108,7 +112,7 @@ export function RegistrationForm({
         <p className="measure mx-auto mt-3 text-brand-brown">
           Thank you. Our admissions team will confirm your place and assign your
           registration number shortly. Please bring your ID or passport on your
-          first day, when you&rsquo;ll sign the registration in person.
+          first day.
         </p>
       </div>
     );

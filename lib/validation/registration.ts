@@ -38,12 +38,6 @@ export const registrationSchema = z.object({
   emergencyRelationship: z.string().min(1, "Relationship is required"),
   emergencyPhone: kenyanPhone.describe("Emergency contact phone"),
 
-  /** JPEG data URL, compressed client-side. Max ~2.7MB data URL length enforced in API route. */
-  passportPhoto: z
-    .string()
-    .startsWith("data:image/", "Photo must be an image")
-    .min(1, "Passport photo is required"),
-
   /** Must be true — user must tick the consent checkbox. */
   consent: z.literal(true, {
     message: "You must agree to the privacy policy to continue",
@@ -61,7 +55,9 @@ export const registrationSchema = z.object({
 export type RegistrationPayload = z.infer<typeof registrationSchema>;
 
 /** Validate a partial payload; returns errors keyed by field name. */
-export function validateRegistration(data: unknown):
+export function validateRegistration(
+  data: unknown,
+):
   | { success: true; data: RegistrationPayload }
   | { success: false; errors: Record<string, string> } {
   const result = registrationSchema.safeParse(data);

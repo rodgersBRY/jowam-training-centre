@@ -1,54 +1,54 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { ContactPayload, contactSchema } from "@/lib/validation/contact";
-import {
-  sendEmail,
-  EMAIL_TEMPLATES,
-  emailjsConfigured,
-} from "@/lib/utils/emailjs";
 import { track, AnalyticsEvent } from "@/lib/utils/analytics";
 import { Button } from "@/components/ui/Button";
 import { Field } from "../ui/InputField";
 
 type Status = "idle" | "sending" | "sent" | "error";
-type Errors = Partial<
-  Record<"name" | "email" | "phone" | "subject" | "message", string>
->;
+type Errors = Partial<Record<string, string>>;
 
 const inputCls =
   "w-full min-h-[48px] rounded-card border border-line bg-white px-3.5 text-[16px] text-roast focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-orange";
-const labelCls = "block text-[0.9rem] font-semibold text-brand-brown mb-1.5";
 
 export function ContactForm() {
-  const [data, setData] = useState<Record<string, string>>({});
   const [errors, setErrors] = useState<Errors>({});
   const [status, setStatus] = useState<Status>("idle");
-
-  function set(field: string, value: string) {
-    setData((d) => ({ ...d, [field]: value }));
-  }
+  const formRef = useRef<HTMLFormElement>(null);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const parsed = contactSchema.safeParse(data);
+
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+
+    const payload = {
+      name: fd.get("name"),
+      email: fd.get("email"),
+      phone: fd.get("phone"),
+      subject: fd.get("subject"),
+      message: fd.get("message"),
+    };
+
+    const parsed = contactSchema.safeParse(payload);
     if (!parsed.success) {
       const errs: Errors = {};
       for (const issue of parsed.error.issues) {
-        const key = issue.path[0] as keyof Errors;
+        const key = issue.path.join(".");
         if (key && !errs[key]) errs[key] = issue.message;
       }
+      
       setErrors(errs);
+      const first = Object.keys(errs)[0];
+      if (first) form.querySelector<HTMLElement>(`[name="${first}"]`)?.focus();
       return;
     }
 
     setErrors({});
-    if (!emailjsConfigured) {
-      setStatus("error");
-      return;
-    }
 
     setStatus("sending");
+
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
@@ -60,7 +60,6 @@ export function ContactForm() {
 
       track(AnalyticsEvent.contactSubmit);
       setStatus("sent");
-      setData({});
     } catch {
       setStatus("error");
     }
@@ -79,7 +78,7 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} noValidate className="space-y-4">
+    <form ref={formRef} onSubmit={onSubmit} noValidate className="space-y-4">
       <div>
         <div className="grid gap-5 sm:grid-cols-2">
           <Field id="name" label="Name" error={errors.name}>
@@ -88,8 +87,6 @@ export function ContactForm() {
               name="name"
               className={inputCls}
               autoComplete="name"
-              value={data.name ?? ""}
-              onChange={(e) => set("name", e.target.value)}
               aria-describedby={errors.name ? "name-error" : undefined}
             />
           </Field>
@@ -102,8 +99,6 @@ export function ContactForm() {
               inputMode="email"
               className={inputCls}
               autoComplete="email"
-              value={data.email ?? ""}
-              onChange={(e) => set("email", e.target.value)}
               aria-describedby={errors.email ? "email-error" : undefined}
             />
           </Field>
@@ -119,8 +114,6 @@ export function ContactForm() {
             inputMode="tel"
             className={inputCls}
             autoComplete="tel"
-            value={data.phone ?? ""}
-            onChange={(e) => set("phone", e.target.value)}
             aria-describedby={errors.phone ? "phone-error" : undefined}
           />
         </Field>
@@ -132,8 +125,6 @@ export function ContactForm() {
             id="subject"
             name="subject"
             className={inputCls}
-            value={data.subject ?? ""}
-            onChange={(e) => set("subject", e.target.value)}
             aria-describedby={errors.subject ? "subject-error" : undefined}
           />
         </Field>
@@ -146,8 +137,6 @@ export function ContactForm() {
             name="message"
             rows={5}
             className={`${inputCls} min-h-30 py-3`}
-            value={data.message ?? ""}
-            onChange={(e) => set("message", e.target.value)}
             aria-describedby={errors.message ? "message-error" : undefined}
           />
         </Field>

@@ -25,23 +25,28 @@ export async function POST(req: Request) {
     );
   }
 
-  if (contactNotifyConfigured) {
-    try {
-      await sendContactNotification({
-        to_email: process.env.ENROL_ADMIN_EMAIL ?? "",
-        from_name: result.data.name,
-        from_email: result.data.email,
-        from_phone: result.data.phone,
-        subject: result.data.subject,
-        message: result.data.message,
-      });
-    } catch {
-      return NextResponse.json(
-        { ok: false, message: "Could not send the email" },
-        { status: 502 },
-      );
-    }
+  if (!contactNotifyConfigured) {
+    return NextResponse.json(
+      { ok: false, message: "Contact form is not configured" },
+      { status: 500 },
+    );
   }
 
-  return NextResponse.json({ ok: true });
+  try {
+    await sendContactNotification({
+      to_email: process.env.ENROL_ADMIN_EMAIL ?? "",
+      from_name: result.data.name,
+      from_email: result.data.email,
+      from_phone: result.data.phone,
+      subject: result.data.subject,
+      message: result.data.message,
+    });
+
+    return NextResponse.json({ ok: true });
+  } catch {
+    return NextResponse.json(
+      { ok: false, message: "Could not send the email" },
+      { status: 502 },
+    );
+  }
 }
