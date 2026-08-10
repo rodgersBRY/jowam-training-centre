@@ -27,3 +27,14 @@ export function formatIntakeDate(date: Date): string {
 export function isIntakeStartingToday(from: Date = new Date()): boolean {
   return getNextIntakeDate(from).getTime() === startOfDay(from).getTime();
 }
+
+/**
+ * The single source of truth for the intake badge copy — "Intake ongoing" on
+ * an intake Monday, otherwise "Next intake: <date>". Used by both the
+ * server-rendered fallback and the live client update so the two never drift.
+ */
+export function intakeLabel(from: Date = new Date()): string {
+  return isIntakeStartingToday(from)
+    ? "Intake ongoing"
+    : `Next intake: ${formatIntakeDate(getNextIntakeDate(from))}`;
+}
