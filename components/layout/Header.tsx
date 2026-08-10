@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { site, nextIntake } from "@/lib/data/site";
+import { site } from "@/lib/data/site";
 import { courses } from "@/lib/data/courses";
 import { cn } from "@/lib/utils/cn";
 import { Container } from "@/components/ui/Container";
@@ -163,7 +163,7 @@ export function Header() {
             href="/apply-now"
             className="hidden rounded-pill border border-brand-orange px-4 py-1.5 text-[0.8rem] font-semibold text-brand-orange transition-transform duration-150 hover:-translate-y-px sm:inline-flex"
           >
-            Next intake: {nextIntake}
+            Intake ongoing
           </Link>
 
           {/* Mobile menu toggle */}
@@ -264,7 +264,7 @@ export function Header() {
                 className="mt-1 mb-3 inline-flex rounded-pill border border-brand-orange px-4 py-2 text-[0.85rem] font-semibold text-brand-orange"
                 onClick={() => setMenuOpen(false)}
               >
-                Next intake: {nextIntake}
+                Intake ongoing
               </Link>
             </li>
           </Container>

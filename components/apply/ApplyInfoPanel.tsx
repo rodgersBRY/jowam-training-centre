@@ -1,4 +1,4 @@
-import { site, nextIntake } from "@/lib/data/site";
+import { site } from "@/lib/data/site";
 import { Card } from "@/components/ui/Card";
 import { PhoneIcon, MailIcon, AddressIcon } from "@/components/ui/icons";
 
@@ -49,9 +49,8 @@ export function ApplyInfoPanel() {
 
       <section className="p-5 md:p-6">
         <h3 className={heading}>Intake Times</h3>
-        <p className="mt-4 text-[0.9rem] text-brand-brown">
-          Next intake:{" "}
-          <span className="font-semibold text-roast">{nextIntake}</span>
+        <p className="mt-4 text-[0.9rem] font-semibold text-roast">
+          Intake ongoing
         </p>
         <p className="mt-2 text-[0.9rem] text-brand-brown">
           Intakes run weekly, every Monday.

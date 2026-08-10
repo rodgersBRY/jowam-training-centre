@@ -4,8 +4,6 @@ import { Container } from "@/components/ui/Container";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { formatPrice } from "@/lib/data/courses";
 import { cloudinaryUrl } from "@/lib/utils/cloudinary";
-import { intakeLabel } from "@/lib/utils/intake";
-import { NextIntakeLabel } from "@/components/interactive/NextIntakeLabel";
 import type { Course } from "@/lib/data/courses";
 
 export function CourseHero({
@@ -62,7 +60,7 @@ export function CourseHero({
               </span>
             )}
             <span className="rounded-pill border border-brand-orange/40 bg-roast/40 px-3 py-1 text-[0.75rem] font-semibold text-brand-orange">
-              <NextIntakeLabel fallback={intakeLabel()} />
+              Intake ongoing
             </span>
           </div>
 

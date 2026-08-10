@@ -1,5 +1,3 @@
-import { getNextIntakeDate, formatIntakeDate } from "@/lib/utils/intake";
-
 /**
  * Canonical site identity — the single source of truth for NAP.
  * Used identically across footer, schema, and metadata (CONTENT-SEO §9).
@@ -75,14 +73,6 @@ export const site = {
     { label: "Contact", href: "/contact" },
   ],
 } as const;
-
-/**
- * The next intake label shown in the header pill and on key pages. Intakes
- * run weekly, every Monday — computed automatically, nothing to update by
- * hand. Since pages are statically generated, this reflects "next Monday as
- * of the last deploy," not live per-request.
- */
-export const nextIntake = formatIntakeDate(getNextIntakeDate());
 
 /** Pre-filled WhatsApp deep link with an optional message. */
 export function whatsappLink(message?: string): string {

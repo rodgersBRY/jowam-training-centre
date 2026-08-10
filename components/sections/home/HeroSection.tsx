@@ -2,7 +2,6 @@ import Image from "next/image";
 import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { images } from "@/lib/data/images";
-import { nextIntake } from "@/lib/data/site";
 import { cloudinaryUrl } from "@/lib/utils/cloudinary";
 
 export function HeroSection() {
